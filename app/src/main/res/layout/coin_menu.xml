@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/coin_menu2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="Coin:2枚"
+        android:layout_below="@+id/coin_menu1"
+        android:layout_alignLeft="@+id/coin_menu1"
+        android:layout_alignStart="@+id/coin_menu1" />
+
+    <Button
+        android:id="@+id/coin_menu3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="Coin:3枚"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/coin_menu2"
+        android:layout_alignStart="@+id/coin_menu2" />
+
+    <Button
+        android:id="@+id/coin_menu1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="Coin:1枚"
+        android:layout_marginLeft="147dp"
+        android:layout_marginStart="147dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>
