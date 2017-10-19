@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/Button_dice"
+        android:layout_width="240dp"
+        android:layout_height="70dp"
+        android:text="コイン枚数"
+        android:layout_marginEnd="59dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/Button_dice"
+        android:layout_width="240dp"
+        android:layout_height="70dp"
+        android:text="Topに戻る"
+        android:layout_marginStart="49dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/Button_dice"
+        android:layout_width="500dp"
+        android:layout_height="60dp"
+        android:text="コイン1枚"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/Button_dice"
+        android:layout_width="500dp"
+        android:layout_height="60dp"
+        android:text="コイン2枚"
+        android:layout_above="@+id/Button_dice"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/Button_dice"
+        android:layout_width="500dp"
+        android:layout_height="60dp"
+        android:text="コイン3枚"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>

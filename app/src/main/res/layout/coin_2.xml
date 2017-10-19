@@ -4,28 +4,42 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/return_Top"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="Topに戻る"/>
+
+    <Button
+        android:id="@+id/coin_menu"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="コインメニュー"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/return_Top"
+        android:layout_alignEnd="@+id/return_Top"
+        android:layout_marginRight="11dp"
+        android:layout_marginEnd="11dp" />
+
+    <Button
         android:id="@+id/coin_2"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:text="coin2"
-        android:layout_marginRight="156dp"
-        android:layout_marginEnd="156dp"
         android:layout_alignBottom="@+id/coin_1"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="14dp" />
+        android:layout_toRightOf="@+id/coin_menu"
+        android:layout_toEndOf="@+id/coin_menu"
+        android:layout_marginLeft="138dp"
+        android:layout_marginStart="138dp"
+        android:layout_below="@+id/return_Top" />
 
     <Button
         android:id="@+id/coin_1"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:text="coin1"
-        android:layout_marginRight="92dp"
-        android:layout_marginEnd="92dp"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/coin_2"
-        android:layout_toStartOf="@+id/coin_2"
-        android:layout_marginTop="81dp" />
+        android:layout_above="@+id/coin_menu"
+        android:layout_toRightOf="@+id/coin_menu"
+        android:layout_toEndOf="@+id/coin_menu" />
 
 
 </RelativeLayout>
