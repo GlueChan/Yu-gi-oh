@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/Number_of_Sheets"
+        android:layout_width="240dp"
+        android:layout_height="70dp"
+        android:text="コイン枚数"/>
+    <Button
+        android:id="@+id/return_Top"
+        android:layout_width="240dp"
+        android:layout_height="70dp"
+        android:text="Topに戻る"/>
+
+    <Button
+        android:id="@+id/coin_1mai"
+        android:layout_width="500dp"
+        android:layout_height="60dp"
+        android:text="コイン1枚"/>
+    <Button
+        android:id="@+id/coin_2mai"
+        android:layout_width="500dp"
+        android:layout_height="60dp"
+        android:text="コイン2枚"/>
+    <Button
+        android:id="@+id/coin_3mai"
+        android:layout_width="500dp"
+        android:layout_height="60dp"
+        android:text="コイン3枚"/>
+
+
+</RelativeLayout>

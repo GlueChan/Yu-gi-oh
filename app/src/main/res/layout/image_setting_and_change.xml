@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/return_Top"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:text="Topに戻る"/>
+
+    <Button
+        android:id="@+id/return_prev"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:text="前の画面に戻る"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/return_Top"
+        android:layout_toEndOf="@+id/return_Top" />
+
+    <TextView
+        android:text="・画像の追加"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:textStyle="italic"
+        android:layout_below="@+id/return_Top"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/to_Sample"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="サンプルに移動"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/return_Top"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/to_Album"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="カメラアルバムに移動"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="53dp" />
+
+    <TextView
+        android:text="・ライフポイントの背景設定"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/to_Sample"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="24dp" />
+</RelativeLayout>

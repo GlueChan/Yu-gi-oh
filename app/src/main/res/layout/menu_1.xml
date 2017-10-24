@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/Button_menu_SEsetting"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="SEの設定"/>
+
+    <Button
+        android:id="@+id/Button_menu_imagesetting"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="画像の設定"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp" />
+
+    <Button
+        android:id="@+id/Button_menu_lifesetting"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="ライフの設定"
+        android:layout_below="@+id/Button_menu_SEsetting"
+        android:layout_alignLeft="@+id/Button_menu_imagesetting"
+        android:layout_alignStart="@+id/Button_menu_imagesetting" />
+</RelativeLayout>

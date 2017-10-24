@@ -4,36 +4,56 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/coin_2"
-        android:layout_width="100dp"
+        android:id="@+id/coin_menu"
+        android:layout_width="200dp"
         android:layout_height="100dp"
-        android:text="coin_2"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="88dp" />
+        android:text="コインメニュー"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/return_Top"
+        android:layout_alignEnd="@+id/return_Top"
+        android:layout_marginRight="11dp"
+        android:layout_marginEnd="11dp" />
 
     <Button
-        android:id="@+id/coin_3"
-        android:layout_width="100dp"
+        android:id="@+id/return_Top"
+        android:layout_width="200dp"
         android:layout_height="100dp"
-        android:text="coin_3"
-        android:layout_marginLeft="53dp"
-        android:layout_marginStart="53dp"
-        android:layout_alignBottom="@+id/coin_2"
-        android:layout_toRightOf="@+id/coin_2"
-        android:layout_toEndOf="@+id/coin_2"
-        android:layout_marginBottom="24dp" />
+        android:text="Topに戻る"/>
+
 
     <Button
         android:id="@+id/coin_1"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:text="coin_1"
-        android:layout_marginRight="67dp"
-        android:layout_marginEnd="67dp"
-        android:layout_alignBottom="@+id/coin_2"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_below="@+id/return_Top"
         android:layout_toLeftOf="@+id/coin_2"
         android:layout_toStartOf="@+id/coin_2"
-        android:layout_marginBottom="11dp" />
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/coin_2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="coin_2"
+        android:layout_weight="1"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/coin_3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="coin_3"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp"
+        android:layout_weight="1"
+        android:layout_alignBaseline="@+id/coin_1"
+        android:layout_alignBottom="@+id/coin_1"
+        android:layout_toRightOf="@+id/coin_2"
+        android:layout_toEndOf="@+id/coin_2" />
+
 
 </RelativeLayout>
