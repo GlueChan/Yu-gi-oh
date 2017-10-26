@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:text="Player1"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:id="@+id/player"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:tag="TAG_PLAYER1"/>
+
+    <Button
+        android:text="Player2"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:id="@+id/player2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:tag="TAG_PLAYER2"/>
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/dice"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/player2"
+        android:layout_alignStart="@+id/player2"
+        android:background="@drawable/dice"
+        android:tag="TAG_DICE"/>
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/coin"
+        android:layout_alignBottom="@+id/dice"
+        android:layout_alignRight="@+id/player"
+        android:layout_alignEnd="@+id/player"
+        android:background="@drawable/gold"
+        android:tag="COIN"/>
+
+    <Button
+        android:text="ライフ\nリセット"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/lifereset"
+        android:tag="TAG_LIFERESET"
+        android:layout_alignBottom="@+id/player"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Menu"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/menu"
+        android:tag="TAG_MENU"
+        android:layout_alignTop="@+id/dice"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
