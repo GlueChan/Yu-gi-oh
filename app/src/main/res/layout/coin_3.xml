@@ -34,6 +34,18 @@
         android:layout_weight="1" />
 
     <Button
+        android:id="@+id/coin_3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="coin_3"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:layout_weight="1"
+        android:layout_alignTop="@+id/coin_1"
+        android:layout_toRightOf="@+id/coin_2"
+        android:layout_toEndOf="@+id/coin_2" />
+
+    <Button
         android:id="@+id/coin_2"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -41,19 +53,6 @@
         android:layout_weight="1"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/coin_3"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:text="coin_3"
-        android:layout_marginLeft="26dp"
-        android:layout_marginStart="26dp"
-        android:layout_weight="1"
-        android:layout_alignBaseline="@+id/coin_1"
-        android:layout_alignBottom="@+id/coin_1"
-        android:layout_toRightOf="@+id/coin_2"
-        android:layout_toEndOf="@+id/coin_2" />
 
 
 </RelativeLayout>

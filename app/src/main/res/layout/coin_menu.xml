@@ -4,31 +4,45 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/coin_menu2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:text="Coin:2枚"
-        android:layout_below="@+id/coin_menu1"
-        android:layout_alignLeft="@+id/coin_menu1"
-        android:layout_alignStart="@+id/coin_menu1" />
+        android:id="@+id/Number_of_Sheets"
+        android:layout_width="240dp"
+        android:layout_height="70dp"
+        android:text="コイン枚数"/>
+    <Button
+        android:id="@+id/return_Top"
+        android:layout_width="240dp"
+        android:layout_height="70dp"
+        android:text="Topに戻る"/>
 
     <Button
-        android:id="@+id/coin_menu3"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:text="Coin:3枚"
+        android:id="@+id/coin_3mai"
+        android:layout_width="500dp"
+        android:layout_height="60dp"
+        android:text="コイン3枚"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/coin_menu2"
-        android:layout_alignStart="@+id/coin_menu2" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="53dp" />
 
     <Button
-        android:id="@+id/coin_menu1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:text="Coin:1枚"
-        android:layout_marginLeft="147dp"
-        android:layout_marginStart="147dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/coin_2mai"
+        android:layout_width="500dp"
+        android:layout_height="60dp"
+        android:text="コイン2枚"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/coin_3mai"
+        android:layout_alignStart="@+id/coin_3mai" />
+
+    <Button
+        android:id="@+id/coin_1mai"
+        android:layout_width="500dp"
+        android:layout_height="60dp"
+        android:text="コイン1枚"
+        android:layout_above="@+id/coin_2mai"
+        android:layout_alignLeft="@+id/coin_2mai"
+        android:layout_alignStart="@+id/coin_2mai" />
+
+
 </RelativeLayout>
