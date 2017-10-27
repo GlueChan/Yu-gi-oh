@@ -18,6 +18,10 @@ public class Image_setting extends AppCompatActivity implements View.OnClickList
 
         findViewById(R.id.return_Page).setOnClickListener(this);
         findViewById(R.id.return_Top).setOnClickListener(this);
+        findViewById(R.id.Add_photo).setOnClickListener(this);
+        findViewById(R.id.to_Sample).setOnClickListener(this);
+        findViewById(R.id.to_Album).setOnClickListener(this);
+        findViewById(R.id.Life_point).setOnClickListener(this);
     }
 
     public void onClick(View view) {     //ボタンがクリックされたとき
@@ -29,6 +33,22 @@ public class Image_setting extends AppCompatActivity implements View.OnClickList
             case R.id.return_Page:    //前のページに戻る
                 Intent ipage = new Intent(Image_setting.this, Menu.class);
                 startActivity(ipage);
+                break;
+            case R.id.Add_photo:    //画像を追加
+                Intent iphoto = new Intent(Image_setting.this, Menu.class);
+                startActivity(iphoto);
+                break;
+            case R.id.to_Sample:    //サンプルに移動
+                Intent isample = new Intent(Image_setting.this, Menu.class);
+                startActivity(isample);
+                break;
+            case R.id.to_Album:    //アルバムに移動
+                Intent ialbum = new Intent(Image_setting.this, Menu.class);
+                startActivity(ialbum);
+                break;
+            case R.id.Life_point:    //ライフポイントの背景画像変更
+                Intent ilife = new Intent(Image_setting.this, Menu.class);
+                startActivity(ilife);
                 break;
         }
     }
