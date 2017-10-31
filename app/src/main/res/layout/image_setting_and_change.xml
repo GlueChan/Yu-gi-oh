@@ -18,15 +18,16 @@
         android:layout_toRightOf="@+id/return_Top"
         android:layout_toEndOf="@+id/return_Top" />
 
-    <Button
-        android:text="画像の追加"
+    <TextView
+        android:text="・画像の追加"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:textStyle="italic"
+        android:id="@+id/Add_photo"
+        android:layout_marginTop="32dp"
         android:layout_below="@+id/return_Top"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/Add_photo" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/to_Sample"
@@ -37,11 +38,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <Button
+    <TextView
         android:id="@+id/to_Album"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:text="カメラアルバムに移動"
+        android:text="・カメラアルバムに移動"
         android:layout_below="@+id/to_Sample"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -49,9 +50,11 @@
     <Button
         android:text="ライフポイントの背景設定"
         android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:id="@+id/Life_point"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/to_Album"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+
 </RelativeLayout>
