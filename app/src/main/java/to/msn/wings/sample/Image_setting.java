@@ -34,18 +34,18 @@ public class Image_setting extends AppCompatActivity implements View.OnClickList
                 Intent ipage = new Intent(Image_setting.this, Menu.class);
                 startActivity(ipage);
                 break;
-            case R.id.Add_photo:    //画像を追加
+            /*case R.id.Add_photo:    //画像を追加
                 Intent iphoto = new Intent(Image_setting.this, Menu.class);
                 startActivity(iphoto);
-                break;
+                break;*/
             case R.id.to_Sample:    //サンプルに移動
-                Intent isample = new Intent(Image_setting.this, Menu.class);
+                Intent isample = new Intent(Image_setting.this, Gallery.class);
                 startActivity(isample);
                 break;
-            case R.id.to_Album:    //アルバムに移動
+            /*case R.id.to_Album:    //アルバムに移動
                 Intent ialbum = new Intent(Image_setting.this, Menu.class);
                 startActivity(ialbum);
-                break;
+                break;*/
             case R.id.Life_point:    //ライフポイントの背景画像変更
                 Intent ilife = new Intent(Image_setting.this, Menu.class);
                 startActivity(ilife);
