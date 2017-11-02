@@ -9,24 +9,24 @@ import android.view.View;
  * Created by 4163209 on 11/2/2017.
  */
 
-public class Coin1_screen extends AppCompatActivity implements View.OnClickListener{
+public class Damage_setting extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.coin_1);
+        setContentView(R.layout.damage_setting);
 
         findViewById(R.id.return_Top).setOnClickListener(this);
-        findViewById(R.id.coin_menu).setOnClickListener(this);
+        findViewById(R.id.return_prev).setOnClickListener(this);
     }
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
             case R.id.return_Top:       //トップに戻る
-                Intent itop = new Intent(Coin1_screen.this, MainActivity.class);
+                Intent itop = new Intent(Damage_setting.this, MainActivity.class);
                 startActivity(itop);
                 break;
-            case R.id.coin_menu:       //コインニューに進む
-                Intent icoinmenu = new Intent(Coin1_screen.this, Coin_menu.class);
-                startActivity(icoinmenu);
+            case R.id.return_prev:       //メニューに戻る
+                Intent iprev = new Intent(Damage_setting.this, Menu.class);
+                startActivity(iprev);
                 break;
         }
     }

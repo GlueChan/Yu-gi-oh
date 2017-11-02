@@ -33,7 +33,7 @@ public class Menu extends AppCompatActivity implements View.OnClickListener{
                 startActivity(ichange);
                 break;
             case R.id.Button_damage:    //ダメージ量の変更
-                Intent idamage = new Intent(Menu.this, MainActivity.class);
+                Intent idamage = new Intent(Menu.this, Damage_setting.class);
                 startActivity(idamage);
                 break;
             case R.id.setting_life:    //初期ライフの設定
