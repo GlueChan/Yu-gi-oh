@@ -10,7 +10,7 @@ import android.widget.Button;
  * Created by 4163209 on 10/24/2017.
  */
 
-public class Player1_screen  extends AppCompatActivity implements View.OnClickListener{
+public class Player1_screen extends AppCompatActivity implements View.OnClickListener{
     Button button0,button1,button2,button3,button4,button5,
             button6,button7,button8,button9;
 
