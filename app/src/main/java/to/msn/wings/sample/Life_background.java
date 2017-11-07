@@ -25,7 +25,7 @@ public class Life_background extends AppCompatActivity implements View.OnClickLi
                 startActivity(itop);
                 break;
             case R.id.return_prev:       //画像設定に戻る
-                Intent iprev = new Intent(Life_background.this, MainActivity.class);
+                Intent iprev = new Intent(Life_background.this, Image_setting.class);
                 startActivity(iprev);
                 break;
         }
