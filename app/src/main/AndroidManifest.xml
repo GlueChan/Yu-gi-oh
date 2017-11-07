@@ -92,5 +92,6 @@
             android:screenOrientation="landscape">
         </activity>
 
+
     </application>
 </manifest>
