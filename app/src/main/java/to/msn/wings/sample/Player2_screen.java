@@ -29,7 +29,7 @@ public class Player2_screen extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dentaku_player1);
+        setContentView(R.layout.dentaku_player2);
 
         findViewById(R.id.return_Top).setOnClickListener(this);
 
