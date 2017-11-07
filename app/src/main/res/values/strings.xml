@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">SAMPLE</string>
+    <array name="coin">
+        <item>@drawable/coin1</item>
+        <item>@drawable/coin2</item>
+    </array>
+    <array name="dice">
+        <item>@drawable/dice1</item>
+        <item>@drawable/dice2</item>
+        <item>@drawable/dice3</item>
+        <item>@drawable/dice4</item>
+        <item>@drawable/dice5</item>
+        <item>@drawable/dice6</item>
+    </array>
 </resources>
