@@ -92,14 +92,6 @@
             android:screenOrientation="landscape">
         </activity>
 
-        <activity
-            android:name=".Player_Calc"
-            android:label="@string/app_name"
-            android:screenOrientation="landscape">
-        </activity>
-
-
-
 
     </application>
 </manifest>
