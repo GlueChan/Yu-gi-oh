@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">SAMPLE</string>
     <array name="coin">
-        <item>@drawable/coin1</item>
-        <item>@drawable/coin2</item>
+        <item>@drawable/gold</item>
+        <item>@drawable/gold1</item>
     </array>
     <array name="dice">
         <item>@drawable/dice1</item>

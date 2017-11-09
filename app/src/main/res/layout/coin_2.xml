@@ -20,7 +20,7 @@
 
     <ImageView
         android:id="@+id/coin1"
-        android:src="@drawable/coin1"
+        android:src="@drawable/gold"
         android:scaleType="fitCenter"
         android:layout_width="125dp"
         android:layout_height="125dp"
@@ -32,7 +32,7 @@
 
     <ImageView
         android:id="@+id/coin2"
-        android:src="@drawable/coin1"
+        android:src="@drawable/gold"
         android:scaleType="fitCenter"
         android:layout_width="125dp"
         android:layout_height="125dp"
