@@ -29,6 +29,35 @@ public class Gallery extends AppCompatActivity{
     private Button button;
     private TextView dcimPath;
 
+    private String getGalleryPath(){
+        return Environment.getExternalStorageDirectory()+"/"+Environment.DIRECTORY_DCIM+"/";
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent resultData){
+        // The ACTION_OPEN_DOCUMENT intent was sent with the request code
+        // READ_REQUEST_CODE. If the request code seen here doesn't match, it's the
+        // response to some other intent, and the code below shouldn't run at all.
+        if(requestCode==RESULT_PICK_IMAGEFILE&&resultCode== Activity.RESULT_OK){
+            // The document selected by the user won't be returned in the intent.
+            // Instead, a URI to that document will be contained in the return intent
+            // provided to this method as a parameter.
+            // Pull that URI using resultData.getData().
+            Uri uri=null;
+            if(resultData!=null){
+                uri=resultData.getData();
+                Log.i("","Uri:"+uri.toString());
+
+                try{
+                    Bitmap bmp=getBitmapFromUri(uri);
+                    imageView.setImageBitmap(bmp);
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
     @Override
     protected void onCreate(Bundle bundle){
         super.onCreate(bundle);
@@ -57,37 +86,8 @@ public class Gallery extends AppCompatActivity{
 
                 startActivityForResult(intent,RESULT_PICK_IMAGEFILE);
             }
-            
+
         });
-    }
-
-    private String getGalleryPath(){
-        return Environment.getExternalStorageDirectory()+"/"+Environment.DIRECTORY_DCIM+"/";
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent resultData){
-        // The ACTION_OPEN_DOCUMENT intent was sent with the request code
-        // READ_REQUEST_CODE. If the request code seen here doesn't match, it's the
-        // response to some other intent, and the code below shouldn't run at all.
-        if(requestCode==RESULT_PICK_IMAGEFILE&&resultCode== Activity.RESULT_OK){
-            // The document selected by the user won't be returned in the intent.
-            // Instead, a URI to that document will be contained in the return intent
-            // provided to this method as a parameter.
-            // Pull that URI using resultData.getData().
-            Uri uri=null;
-            if(resultData!=null){
-                uri=resultData.getData();
-                Log.i("","Uri:"+uri.toString());
-
-                try{
-                    Bitmap bmp=getBitmapFromUri(uri);
-                    imageView.setImageBitmap(bmp);
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
-            }
-        }
     }
 
     private Bitmap getBitmapFromUri(Uri uri)throws IOException{
