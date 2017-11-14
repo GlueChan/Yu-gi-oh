@@ -36,14 +36,14 @@
 
 
     <Button
-        android:id="@+id/insert_point3"
+        android:id="@+id/insert_point"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:text="1000"
-        android:layout_alignBaseline="@+id/insert_point2"
-        android:layout_alignBottom="@+id/insert_point2"
-        android:layout_toRightOf="@+id/insert_point2"
-        android:layout_toEndOf="@+id/insert_point2" />
+        android:layout_alignBaseline="@+id/insert_point3"
+        android:layout_alignBottom="@+id/insert_point3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/insert_point5"
@@ -56,16 +56,6 @@
         android:layout_toEndOf="@+id/insert_point4" />
 
     <Button
-        android:id="@+id/insert_point4"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="1000"
-        android:layout_alignBaseline="@+id/insert_point3"
-        android:layout_alignBottom="@+id/insert_point3"
-        android:layout_toRightOf="@+id/insert_point3"
-        android:layout_toEndOf="@+id/insert_point3" />
-
-    <Button
         android:id="@+id/Button_Add"
         android:layout_width="100dp"
         android:layout_height="50dp"
@@ -76,6 +66,18 @@
         android:layout_alignEnd="@+id/Button_000"
         android:layout_alignLeft="@+id/Button_000"
         android:layout_alignStart="@+id/Button_000" />
+
+    <Button
+        android:id="@+id/Button_subtraction"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="/"
+        android:layout_alignBaseline="@+id/Button_3"
+        android:layout_alignBottom="@+id/Button_3"
+        android:layout_alignRight="@+id/Button_Add"
+        android:layout_alignEnd="@+id/Button_Add"
+        android:layout_toEndOf="@+id/Button_Dvision"
+        android:layout_toRightOf="@+id/Button_Dvision" />
 
     <Button
         android:id="@+id/Button_Dvision"
@@ -98,16 +100,6 @@
         android:layout_toEndOf="@+id/Button_0" />
 
     <Button
-        android:id="@+id/Button_00"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="00"
-        android:layout_alignBaseline="@+id/Button_Add"
-        android:layout_alignBottom="@+id/Button_Add"
-        android:layout_toRightOf="@+id/Button_6"
-        android:layout_toEndOf="@+id/Button_6" />
-
-    <Button
         android:id="@+id/Button_2"
         android:layout_width="100dp"
         android:layout_height="50dp"
@@ -118,25 +110,16 @@
         android:layout_toEndOf="@+id/Button_4" />
 
     <Button
-        android:id="@+id/return_Top"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="return_Top"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/insert_point5"
-        android:layout_toEndOf="@+id/insert_point5"
-        android:layout_above="@+id/insert_point4" />
-
-    <Button
         android:id="@+id/show_insert_life"
         android:layout_width="120dp"
         android:layout_height="70dp"
         android:text="current_life"
-        android:layout_alignBottom="@+id/return_prev"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/insert_point3"
-        android:layout_toLeftOf="@+id/insert_point5"
-        android:layout_toStartOf="@+id/insert_point5" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/insert_point2"
+        android:layout_toLeftOf="@+id/insert_point2"
+        android:layout_toStartOf="@+id/insert_point2" />
 
     <Button
         android:id="@+id/return_prev"
@@ -144,103 +127,68 @@
         android:layout_height="50dp"
         android:text="return_prev"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/insert_point4"
-        android:layout_toEndOf="@+id/insert_point4"
-        android:layout_above="@+id/insert_point2" />
+        android:layout_toRightOf="@+id/show_insert_life"
+        android:layout_toEndOf="@+id/show_insert_life"
+        android:layout_alignBottom="@+id/show_insert_life" />
 
     <Button
-        android:id="@+id/Button_subtraction"
+        android:id="@+id/return_Top"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="/"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/Button_Dvision"
-        android:layout_toEndOf="@+id/Button_Dvision" />
-
-    <Button
-        android:id="@+id/Button_Equal"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="="
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/Button_subtraction"
-        android:layout_toEndOf="@+id/Button_subtraction"
-        android:layout_alignTop="@+id/insert_point5" />
-
-    <Button
-        android:id="@+id/Button_3"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="3"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/Button_2"
-        android:layout_toEndOf="@+id/Button_2" />
+        android:text="return_Top"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/return_prev"
+        android:layout_alignBottom="@+id/return_prev"
+        android:layout_alignRight="@+id/insert_point3"
+        android:layout_alignEnd="@+id/insert_point3" />
 
     <Button
         android:id="@+id/Button_1"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:text="1"
-        android:layout_alignTop="@+id/Button_Dvision"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="18dp" />
 
     <Button
-        android:id="@+id/Button_0"
+        android:id="@+id/Button_3"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="0"
-        android:layout_above="@+id/Button_00"
-        android:layout_toRightOf="@+id/Button_6"
-        android:layout_toEndOf="@+id/Button_6" />
-
-    <Button
-        android:id="@+id/Button_9"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="9"
-        android:layout_alignBaseline="@+id/Button_0"
-        android:layout_alignBottom="@+id/Button_0"
-        android:layout_toRightOf="@+id/Button_5"
-        android:layout_toEndOf="@+id/Button_5" />
+        android:text="3"
+        android:layout_alignBaseline="@+id/Button_1"
+        android:layout_alignBottom="@+id/Button_1"
+        android:layout_toRightOf="@+id/Button_2"
+        android:layout_toEndOf="@+id/Button_2" />
 
     <Button
         android:id="@+id/Button_7"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:text="7"
-        android:layout_alignBaseline="@+id/Button_9"
-        android:layout_alignBottom="@+id/Button_9"
+        android:layout_above="@+id/Button_4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
-        android:id="@+id/Button_4"
+        android:id="@+id/Button_9"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="4"
-        android:layout_above="@+id/Button_3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:text="9"
+        android:layout_above="@+id/Button_6"
+        android:layout_toRightOf="@+id/Button_8"
+        android:layout_toEndOf="@+id/Button_8" />
 
     <Button
-        android:id="@+id/insert_point2"
+        android:id="@+id/Button_0"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="1000"
-        android:layout_alignBaseline="@+id/insert_point"
-        android:layout_alignBottom="@+id/insert_point"
-        android:layout_toRightOf="@+id/Button_7"
-        android:layout_toEndOf="@+id/Button_7" />
-
-    <Button
-        android:id="@+id/insert_point"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="1000"
-        android:layout_above="@+id/Button_0"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:text="0"
+        android:layout_alignBaseline="@+id/Button_7"
+        android:layout_alignBottom="@+id/Button_7"
+        android:layout_toLeftOf="@+id/Player_cal2"
+        android:layout_toStartOf="@+id/Player_cal2" />
 
     <EditText
         android:id="@+id/Player_cal2"
@@ -248,12 +196,68 @@
         android:layout_height="100dp"
         android:maxLength="4"
         android:lines="1"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/Button_7"
+        android:layout_alignRight="@+id/Button_7"
+        android:layout_alignEnd="@+id/Button_7" />
+
+    <Button
+        android:id="@+id/insert_point4"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="1000"
+        android:layout_alignTop="@+id/Player_cal2"
+        android:layout_toRightOf="@+id/insert_point3"
+        android:layout_toEndOf="@+id/insert_point3" />
+
+    <Button
+        android:id="@+id/insert_point3"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="1000"
+        android:layout_alignBaseline="@+id/insert_point4"
+        android:layout_alignBottom="@+id/insert_point4"
+        android:layout_toRightOf="@+id/insert_point2"
+        android:layout_toEndOf="@+id/insert_point2" />
+
+    <Button
+        android:id="@+id/insert_point2"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="1000"
+        android:layout_alignTop="@+id/Player_cal2"
+        android:layout_toRightOf="@+id/insert_point"
+        android:layout_toEndOf="@+id/insert_point" />
+
+    <Button
+        android:id="@+id/Button_Equal"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="="
+        android:layout_alignBaseline="@+id/Button_00"
+        android:layout_alignBottom="@+id/Button_00"
+        android:layout_toRightOf="@+id/insert_point5"
+        android:layout_toEndOf="@+id/insert_point5"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp" />
+
+    <Button
+        android:id="@+id/Button_4"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="4"
+        android:layout_above="@+id/Button_2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/insert_point3"
-        android:layout_toLeftOf="@+id/show_insert_life"
-        android:layout_toStartOf="@+id/show_insert_life" />
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/Button_00"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="00"
+        android:layout_below="@+id/Button_000"
+        android:layout_toRightOf="@+id/Button_6"
+        android:layout_toEndOf="@+id/Button_6"
+        android:layout_marginTop="14dp" />
 
 
 </RelativeLayout>
