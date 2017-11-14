@@ -34,6 +34,36 @@
         android:layout_toRightOf="@+id/Button_5"
         android:layout_toEndOf="@+id/Button_5" />
 
+<<<<<<< HEAD
+=======
+    <Button
+        android:id="@+id/Button_1"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="1"
+        android:layout_below="@+id/Button_4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/Button_3"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="3"
+        android:layout_below="@+id/Button_6"
+        android:layout_toRightOf="@+id/Button_2"
+        android:layout_toEndOf="@+id/Button_2" />
+
+
+    <Button
+        android:id="@+id/insert_point"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignBaseline="@+id/insert_point3"
+        android:layout_alignBottom="@+id/insert_point3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+>>>>>>> base
 
     <Button
         android:id="@+id/insert_point3"
