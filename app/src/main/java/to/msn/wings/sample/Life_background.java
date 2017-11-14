@@ -17,7 +17,6 @@ public class Life_background extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.life_background);
 
         findViewById(R.id.return_Top).setOnClickListener(this);
-        findViewById(R.id.return_prev).setOnClickListener(this);
     }
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
