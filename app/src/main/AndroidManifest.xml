@@ -92,14 +92,11 @@
             android:screenOrientation="landscape">
         </activity>
 
-<<<<<<< HEAD
         <activity
             android:label="@string/app_name"
             android:name=".Life_background"
             android:screenOrientation="landscape">
         </activity>
-=======
->>>>>>> base
 
     </application>
 </manifest>
