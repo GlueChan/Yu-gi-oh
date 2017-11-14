@@ -84,7 +84,6 @@
         android:id="@+id/insert_point"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="1000"
         android:layout_alignBaseline="@+id/insert_point3"
         android:layout_alignBottom="@+id/insert_point3"
         android:layout_alignParentLeft="true"
