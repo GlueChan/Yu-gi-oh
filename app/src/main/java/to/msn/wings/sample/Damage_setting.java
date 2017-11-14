@@ -20,8 +20,12 @@ public class Damage_setting extends AppCompatActivity implements View.OnClickLis
 
     EditText editText;
 
+    Intent intent = new Intent(this,Player1_screen.class);
+    String damege ="";
+    Bundle bundle = new Bundle();
+
     @Override
-    public void onCreate(Bundle bundle) {
+    public void onCreate(final Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.damage_setting);
 
@@ -113,10 +117,10 @@ public class Damage_setting extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-        decision.setOnClickListener(new View.OnClickListener(){
+        decision.setOnClickListener(new View.OnClickListener(){ //決定ボタン
             @Override
             public void onClick(View v) {
-              Integer.parseInt(editText.getText() + "");
+
             }
         });
     }
