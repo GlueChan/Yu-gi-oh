@@ -31,8 +31,11 @@ public class DamageDatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL("INSERT INTO damage(number,name,damage)"+
                 "VALUES('1','ダメージ100',100)");
+    }
 
-
+    //データベースをバージョンアップしたとき、テーブルを再編成
+    public void onUpgrade(SQLiteDatabase db,int old_v,int new_v){
+        db.execSQL("DROP TABLE IF EXISTS damage");
     }
 }
 
