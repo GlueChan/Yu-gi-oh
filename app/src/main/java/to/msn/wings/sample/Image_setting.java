@@ -47,7 +47,7 @@ public class Image_setting extends AppCompatActivity implements View.OnClickList
                 startActivity(ialbum);
                 break;*/
             case R.id.Life_point:    //ライフポイントの背景画像変更
-                Intent ilife = new Intent(Image_setting.this, Menu.class);
+                Intent ilife = new Intent(Image_setting.this, Life_background.class);
                 startActivity(ilife);
                 break;
         }
