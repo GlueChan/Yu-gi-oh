@@ -215,15 +215,6 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:id="@+id/Button_4"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="4"
-        android:layout_above="@+id/Button_3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
         android:id="@+id/insert_point2"
         android:layout_width="100dp"
         android:layout_height="50dp"
@@ -254,6 +245,15 @@
         android:layout_above="@+id/insert_point3"
         android:layout_toLeftOf="@+id/show_insert_life"
         android:layout_toStartOf="@+id/show_insert_life" />
+
+    <Button
+        android:id="@+id/Button_4"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="4"
+        android:layout_above="@+id/Button_1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
