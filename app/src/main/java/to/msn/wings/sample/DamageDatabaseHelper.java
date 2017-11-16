@@ -33,7 +33,17 @@ public class DamageDatabaseHelper extends SQLiteOpenHelper {
                 "VALUES('1','ダメージ100',100)");
 
         db.execSQL("INSERT INTO damage(number,name,damage)"+
-                "VALUES('2','ダメージ100',100)");
+                "VALUES('2','ダメージ200',200)");
+
+        db.execSQL("INSERT INTO damage(number,name,damage)"+
+                "VALUES('3','ダメージ200',300)");
+
+        
+
+
+
+
+
     }
 
     //データベースをバージョンアップしたとき、テーブルを再編成
