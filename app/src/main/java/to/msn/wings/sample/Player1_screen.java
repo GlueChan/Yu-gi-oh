@@ -89,23 +89,23 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
         editText = (EditText) findViewById(R.id.Player_cal1);
 
-        sound1 = pool.load(this, R.raw.one, 1);
-        sound2 = pool.load(this, R.raw.two, 1);
-        sound3 = pool.load(this, R.raw.three, 1);
-        sound4 = pool.load(this, R.raw.fore, 1);
-        sound5 = pool.load(this, R.raw.five, 1);
-        sound6 = pool.load(this, R.raw.six, 1);
-        sound7 = pool.load(this, R.raw.seven, 1);
-        sound8 = pool.load(this, R.raw.eight, 1);
-        sound9 = pool.load(this, R.raw.nine, 1);
-        sound0 = pool.load(this, R.raw.nine, 1);
-        sound00 = pool.load(this, R.raw.nine, 1);
-        sound000 = pool.load(this, R.raw.nine, 1);
-        soundAdd = pool.load(this, R.raw.nine, 1);
-        soundSub = pool.load(this, R.raw.nine, 1);
-        soundDivision = pool.load(this, R.raw.nine, 1);
-        soundC = pool.load(this, R.raw.nine, 1);
-        soundEqual = pool.load(this, R.raw.nine, 1);
+        sound1 = pool.load(this, R.raw.test, 1);
+        sound2 = pool.load(this, R.raw.test, 1);
+        sound3 = pool.load(this, R.raw.test, 1);
+        sound4 = pool.load(this, R.raw.test, 1);
+        sound5 = pool.load(this, R.raw.test, 1);
+        sound6 = pool.load(this, R.raw.test, 1);
+        sound7 = pool.load(this, R.raw.test, 1);
+        sound8 = pool.load(this, R.raw.test, 1);
+        sound9 = pool.load(this, R.raw.test, 1);
+        sound0 = pool.load(this, R.raw.test, 1);
+        sound00 = pool.load(this, R.raw.test, 1);
+        sound000 = pool.load(this, R.raw.test, 1);
+        soundAdd = pool.load(this, R.raw.test, 1);
+        soundSub = pool.load(this, R.raw.test, 1);
+        soundDivision = pool.load(this, R.raw.test, 1);
+        soundC = pool.load(this, R.raw.test, 1);
+        soundEqual = pool.load(this, R.raw.test, 1);
 
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
