@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SAMPLE</string>
+    <string name="title_activity_preference_test">Preference_test</string>
 </resources>

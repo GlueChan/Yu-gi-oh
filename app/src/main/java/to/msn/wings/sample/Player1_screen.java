@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 /**
  * Created by 4163209 on 10/24/2017.
@@ -26,12 +27,21 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
     boolean Addtion, Subtraction, Division;
 
+
+    DamageDatabaseControls damageDatabaseControls;
+
+
+    public  int playerLife = 8000;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dentaku_player1);
 
+        damageDatabaseControls = new DamageDatabaseControls(this);
+
         findViewById(R.id.return_Top).setOnClickListener(this);
+
 
 
         button0 = (Button) findViewById(R.id.Button_0);
@@ -47,13 +57,18 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         button8 = (Button) findViewById(R.id.Button_8);
         button9 = (Button) findViewById(R.id.Button_9);
 
+
         buttonAdd = (Button) findViewById(R.id.Button_Add);
         buttonSub = (Button) findViewById(R.id.Button_subtraction);
         buttonDivision = (Button) findViewById(R.id.Button_Dvision);
         buttonC = (Button) findViewById(R.id.return_prev);
         buttonEqual = (Button) findViewById(R.id.Button_Equal);
 
+
+
         editText = (EditText) findViewById(R.id.Player_cal1);
+
+
 
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -195,7 +210,23 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             }
 
         });
+
+
+
+
+
     }
+
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        damageDatabaseControls.damageAddBtnCreate((LinearLayout)findViewById(R.id.damageBtnLayout));
+    }
+
+
+
 
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
@@ -206,8 +237,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         }
     }
 }
-
-
 
 
 

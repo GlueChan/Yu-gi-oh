@@ -1,7 +1,7 @@
 package to.msn.wings.sample;
 
 import android.content.ContentValues;
-import android.database.Cursor;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,67 +15,66 @@ import static to.msn.wings.sample.R.layout.db;
  * Created by 4163209 on 11/14/2017.
  */
 
-public class DB extends AppCompatActivity {
+public class DB extends AppCompatActivity implements View.OnClickListener{
     private DamageDatabaseHelper helper = null;
-    private EditText txtNUMBER = null;
-    private EditText txtNAME   = null;
-    private EditText txtDamage =null;
+    private EditText txtDamage = null;
+
+    private DamageDatabaseControls mDamageDatabaseControls;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
         setContentView(db);
+
+        findViewById(R.id.return_Top).setOnClickListener(this);
+
 
         //ヘルパーを準備
         helper = new DamageDatabaseHelper(this);
-        txtNUMBER = (EditText) findViewById(R.id.txtNumber);
-        txtNAME = (EditText) findViewById(R.id.txtNAME);
         txtDamage = (EditText) findViewById(R.id.txtDamage);
 
         //データベースを取得
         SQLiteDatabase db = helper.getWritableDatabase();
+        mDamageDatabaseControls = new DamageDatabaseControls(this);
 
-        try{
+        try {
             Toast.makeText(this, "接続しました", Toast.LENGTH_SHORT).show();
 
-        }finally {
+        } finally {
             db.close();
         }
     }
 
-
-    public void onSave(View view){
+    public void onSave() {
         SQLiteDatabase db = helper.getWritableDatabase();
         try {
             ContentValues cv = new ContentValues();
-            cv.put("number",txtNUMBER.getText().toString());
-            cv.put("name",txtNAME.getText().toString());
-            cv.put("damage",txtDamage.getText().toString());
-            db.insertWithOnConflict("damage",null,cv,SQLiteDatabase.CONFLICT_REPLACE);
-            Toast.makeText(this,"データ登録完了",Toast.LENGTH_SHORT).show();
-        }finally {
+            cv.put("damage", txtDamage.getText().toString());
+            db.insertWithOnConflict("damage", null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+            Toast.makeText(this, "データ登録完了", Toast.LENGTH_SHORT).show();
+        } finally {
             db.close();
         }
     }
 
-    public void onSearch(View view){
-        SQLiteDatabase db = helper.getReadableDatabase();
-        Cursor cs = null;
+    public void onClick(View view) {     //ボタンがクリックされたとき
+        switch (view.getId()) {
+            case R.id.return_Top:       //トップに戻る
+                Intent itop = new Intent(DB.this, MainActivity.class);
+                startActivity(itop);
+                break;
+            case R.id.btnSave:
+                onSave();
+                break;
 
-        try {
-            String[] cols = {"number", "name", "damage"};
-            String [] params = {txtNUMBER.getText().toString()};
-            cs = db.query("damage",cols,"number = ?",params,null,null,null,null);
+//            case R.id.btnSearch:
+//                // ダメージボタンをLineaLayoutに追加
+//                mDamageDatabaseControls.damageAddBtnCreate((LinearLayout) findViewById(R.id.damageBtnLayout));
+//                break;
 
-            if(cs.moveToFirst()){
-                txtNAME.setText(cs.getString(1));
-                txtDamage.setText(cs.getString(2));
-            }else {
-                Toast.makeText(this,"データがありません",Toast.LENGTH_SHORT).show();
-            }
-        }finally {
-            cs.close();
-            db.close();
+            default:
+                break;
         }
     }
 }
+

@@ -1,11 +1,8 @@
 package to.msn.wings.sample;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
 /**
  * Created by 4163209 on 11/2/2017.
@@ -13,7 +10,7 @@ import android.widget.EditText;
 
 public class Damage_setting extends AppCompatActivity implements View.OnClickListener {
 
-    Button button0, button1, button2, button3, button4, button5,
+    /*Button button0, button1, button2, button3, button4, button5,
             button6, button7, button8, button9,
             decision; //決定
 
@@ -123,7 +120,8 @@ public class Damage_setting extends AppCompatActivity implements View.OnClickLis
 
             }
         });
-    }
+    }*/
+
 
 
 
