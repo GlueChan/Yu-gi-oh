@@ -2,27 +2,47 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <Button
+    <TextView
         android:text="Player1"
+        android:textSize="20dp"
+        android:textColor="@color/colorBlack"
+        android:gravity="bottom|left"
+        android:background="@drawable/text_frame"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:id="@+id/player1Text"/>
+    <Button
+        android:text="LIFE:8000"
         android:layout_width="200dp"
         android:layout_height="150dp"
         android:id="@+id/player"
-        android:layout_alignParentTop="true"
+        android:background="@drawable/seaman"
+        android:tag="TAG_PLAYER1"
+        android:layout_below="@+id/player1Text"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:tag="TAG_PLAYER1"/>
-
-    <Button
+        android:layout_alignParentStart="true" />
+    <TextView
         android:text="Player2"
+        android:textSize="20dp"
+        android:textColor="@color/colorBlack"
+        android:gravity="bottom|right"
+        android:background="@drawable/text_frame"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:id="@+id/player2Text"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <Button
+        android:text="LIFE:8000"
         android:layout_width="200dp"
         android:layout_height="150dp"
         android:id="@+id/player2"
-        android:layout_alignParentTop="true"
+        android:background="@drawable/seaman"
+        android:tag="TAG_PLAYER2"
+        android:layout_alignBottom="@+id/lifereset"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:tag="TAG_PLAYER2"/>
-
+        android:layout_alignParentEnd="true" />
     <Button
         android:layout_width="120dp"
         android:layout_height="120dp"
@@ -61,4 +81,8 @@
         android:tag="TAG_MENU"
         android:layout_alignTop="@+id/dice"
         android:layout_centerHorizontal="true" />
+
+
+
+
 </RelativeLayout>
