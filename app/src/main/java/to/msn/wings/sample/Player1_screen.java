@@ -1,6 +1,11 @@
 package to.msn.wings.sample;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
+import android.media.SoundPool;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,6 +18,10 @@ import android.widget.LinearLayout;
  */
 
 public class Player1_screen extends AppCompatActivity implements View.OnClickListener {
+    private int sound1, sound2, sound3, sound4, sound5,
+                  sound6, sound7, sound8, sound9, sound0,sound00, sound000,
+                  soundAdd, soundSub, soundDivision, soundC, soundEqual;
+
     Button button0, button1, button2, button3, button4, button5,
             button6, button7, button8, button9, button00, button000,
             buttonAdd,       //足し算
@@ -28,10 +37,38 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
     boolean Addtion, Subtraction, Division;
 
 
+
     DamageDatabaseControls damageDatabaseControls;
 
 
     public  int playerLife = 8000;
+
+    @SuppressWarnings("deprecation")   // 警告メッセージの抑制
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private SoundPool buildSoundPool(int poolMax)
+    {
+        SoundPool pool = null;
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            pool = new SoundPool(poolMax, AudioManager.STREAM_MUSIC, 0);
+        }
+        else {
+            AudioAttributes attr = new AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_MEDIA)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                    .build();
+
+            pool = new SoundPool.Builder()
+                    .setAudioAttributes(attr)
+                    .setMaxStreams(poolMax)
+                    .build();
+        }
+        return pool;
+    }
+
+    final int SOUND_POOL_MAX = 6;
+    SoundPool pool = buildSoundPool(SOUND_POOL_MAX);
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,8 +78,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         damageDatabaseControls = new DamageDatabaseControls(this);
 
         findViewById(R.id.return_Top).setOnClickListener(this);
-
-
 
         button0 = (Button) findViewById(R.id.Button_0);
         button00 = (Button) findViewById(R.id.Button_00);
@@ -69,10 +104,30 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         editText = (EditText) findViewById(R.id.Player_cal1);
 
 
+        sound1 = pool.load(this, R.raw.test, 1);
+        sound2 = pool.load(this, R.raw.test, 1);
+        sound3 = pool.load(this, R.raw.test, 1);
+        sound4 = pool.load(this, R.raw.test, 1);
+        sound5 = pool.load(this, R.raw.test, 1);
+        sound6 = pool.load(this, R.raw.test, 1);
+        sound7 = pool.load(this, R.raw.test, 1);
+        sound8 = pool.load(this, R.raw.test, 1);
+        sound9 = pool.load(this, R.raw.test, 1);
+        sound0 = pool.load(this, R.raw.test, 1);
+        sound00 = pool.load(this, R.raw.test, 1);
+        sound000 = pool.load(this, R.raw.test, 1);
+        soundAdd = pool.load(this, R.raw.test, 1);
+        soundSub = pool.load(this, R.raw.test, 1);
+        soundDivision = pool.load(this, R.raw.test, 1);
+        soundC = pool.load(this, R.raw.test, 1);
+        soundEqual = pool.load(this, R.raw.test, 1);
+
 
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pool.play(sound0, 1.0f, 1.0f, 0, 0, 1);
+
                 editText.setText(editText.getText() + "0");
             }
         });
@@ -80,6 +135,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         button00.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pool.play(sound00, 1.0f, 1.0f, 0, 0, 1);
+
                 editText.setText(editText.getText() + "00");
             }
         });
@@ -87,6 +144,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         button000.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pool.play(sound000, 1.0f, 1.0f, 0, 0, 1);
+
                 editText.setText(editText.getText() + "000");
             }
         });
@@ -94,6 +153,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pool.play(sound1, 1.0f, 1.0f, 0, 0, 1);
+
                 editText.setText(editText.getText() + "1");
             }
         });
@@ -101,6 +162,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pool.play(sound2, 1.0f, 1.0f, 1, 0, 1);
+
                 editText.setText(editText.getText() + "2");
             }
         });
@@ -108,6 +171,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pool.play(sound3, 1.0f, 1.0f, 1, 0, 1);
+
                 editText.setText(editText.getText() + "3");
             }
         });
@@ -115,6 +180,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pool.play(sound4, 1.0f, 1.0f, 1, 0, 1);
+
                 editText.setText(editText.getText() + "4");
             }
         });
@@ -122,6 +189,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pool.play(sound5, 1.0f, 1.0f, 1, 0, 1);
+
                 editText.setText(editText.getText() + "5");
             }
         });
@@ -129,6 +198,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pool.play(sound6, 1.0f, 1.0f, 1, 0, 1);
+
                 editText.setText(editText.getText() + "6");
             }
         });
@@ -136,6 +207,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pool.play(sound7, 1.0f, 1.0f, 1, 0, 1);
+
                 editText.setText(editText.getText() + "7");
             }
         });
@@ -143,6 +216,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pool.play(sound8, 1.0f, 1.0f, 1, 0, 1);
+
                 editText.setText(editText.getText() + "8");
             }
         });
@@ -150,14 +225,16 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         button9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pool.play(sound9, 1.0f, 1.0f, 1, 0, 1);
+
                 editText.setText(editText.getText() + "9");
             }
         });
 
-
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pool.play(soundAdd, 1.0f, 1.0f, 1, 0, 1);
                 if (editText == null) {
                     editText.setText("");
                 } else {
@@ -171,6 +248,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         buttonSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pool.play(soundSub, 1.0f, 1.0f, 1, 0, 1);
                 ValueOne = Integer.parseInt(editText.getText() + "");
                 Subtraction = true;
                 editText.setText(null);
@@ -180,6 +258,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         buttonDivision.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pool.play(soundDivision, 1.0f, 1.0f, 1, 0, 1);
                 ValueOne = Integer.parseInt(editText.getText() + "");
                 Subtraction = true;
                 editText.setText(null);
@@ -191,6 +270,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         buttonEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pool.play(soundEqual, 1.0f, 1.0f, 1, 0, 1);
                 ValueTwo = Integer.parseInt(editText.getText() + "");
 
                 if (Addtion == true) {
