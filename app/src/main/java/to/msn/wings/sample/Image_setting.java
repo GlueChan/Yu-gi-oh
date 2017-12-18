@@ -39,7 +39,7 @@ public class Image_setting extends AppCompatActivity implements View.OnClickList
                 startActivity(iphoto);
                 break;*/
             case R.id.to_Sample:    //サンプルに移動
-                Intent isample = new Intent(Image_setting.this, Gallery.class);
+                Intent isample = new Intent(Image_setting.this, Life_background.class);
                 startActivity(isample);
                 break;
             /*case R.id.to_Album:    //アルバムに移動
@@ -47,7 +47,7 @@ public class Image_setting extends AppCompatActivity implements View.OnClickList
                 startActivity(ialbum);
                 break;*/
             case R.id.Life_point:    //ライフポイントの背景画像変更
-                Intent ilife = new Intent(Image_setting.this, Life_background.class);
+                Intent ilife = new Intent(Image_setting.this, Gallery.class);
                 startActivity(ilife);
                 break;
         }

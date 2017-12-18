@@ -1,4 +1,8 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">SAMPLE</string>
     <string name="title_activity_preference_test">Preference_test</string>
+=======
+    <string name="app_name">Yu-gi-oh</string>
+>>>>>>> feature-yoshida
 </resources>
