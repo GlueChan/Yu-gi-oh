@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 /**
  * Created by 4163214 on 10/26/2017.
@@ -26,12 +27,16 @@ public class Player2_screen extends AppCompatActivity implements View.OnClickLis
 
     boolean Addtion, Subtraction, Division;
 
+    DamageDatabaseControls damageDatabaseControls;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dentaku_player2);
 
         findViewById(R.id.return_Top).setOnClickListener(this);
+
+        damageDatabaseControls = new DamageDatabaseControls(this);
 
 
         button0 = (Button) findViewById(R.id.Button_0);
@@ -196,6 +201,13 @@ public class Player2_screen extends AppCompatActivity implements View.OnClickLis
 
         });
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        damageDatabaseControls.damageAddBtnCreate((LinearLayout)findViewById(R.id.damageBtnLayout));
+    }
+
 
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
