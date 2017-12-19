@@ -291,12 +291,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
         });
 
-
-
-
-
     }
-
 
 
     @Override
