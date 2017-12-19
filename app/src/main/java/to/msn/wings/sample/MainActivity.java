@@ -4,19 +4,40 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+    PreferenceManager preferenceManager;
 
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.main);
 
+        preferenceManager=new PreferenceManager(this);
+
         findViewById(R.id.player).setOnClickListener(this);
         findViewById(R.id.player2).setOnClickListener(this);
         findViewById(R.id.menu).setOnClickListener(this);
         findViewById(R.id.coin).setOnClickListener(this);
         findViewById(R.id.dice).setOnClickListener(this);
+
+        //preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND,6);
+        //preferenceManager.getIntData(Config.PREF_KEY_PLAYER2_BACKGROUND,6);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onResume();
+        Button buttonplayer1 = (Button)findViewById(R.id.player);
+        Button buttonplayer2 = (Button)findViewById(R.id.player2);
+
+        int resId1 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND,6);    //初回起動時
+        int resId2 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER2_BACKGROUND,6);    //初回起動時
+
+        buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
+        buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
     }
 
     public void onClick(View view){     //ボタンがクリックされたとき

@@ -82,7 +82,7 @@ public class Gallery extends AppCompatActivity{
 
                 // Filter to show only images, using the image MIME data type.
                 // it would be "*/*".
-                intent.setType("image/*");
+                intent.setType("image/*w");
 
                 startActivityForResult(intent,RESULT_PICK_IMAGEFILE);
             }
