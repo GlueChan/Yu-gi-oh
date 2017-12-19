@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
  */
 
 public class Player1_screen extends AppCompatActivity implements View.OnClickListener {
+
     private int sound1, sound2, sound3, sound4, sound5,
                   sound6, sound7, sound8, sound9, sound0,sound00, sound000,
                   soundAdd, soundSub, soundDivision, soundC, soundEqual;
@@ -38,7 +39,9 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
 
 
+
     DamageDatabaseControls damageDatabaseControls;
+
 
 
     public  int playerLife = 8000;

@@ -47,7 +47,7 @@ public class DamageDatabaseHelper extends SQLiteOpenHelper {
 
     //データベースをバージョンアップしたとき、テーブルを再編成
     public void onUpgrade(SQLiteDatabase db,int old_v,int new_v){
-        db.execSQL("DROP TABLE IF EXISTS damage");
+        db.execSQL("DROP TABLE IF EXISTS life");
         onCreate(db);
     }
 }

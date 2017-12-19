@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class LifeDatabaseHelper extends SQLiteOpenHelper {
-    static final private String DBNAME = "DAMAGE";
+    static final private String DBNAME = "DALIFE";
     static final private int VERSION = 1;
 
     //コンストラクター
