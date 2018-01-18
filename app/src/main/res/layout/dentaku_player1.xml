@@ -27,14 +27,18 @@
             android:layout_height="69dp"
             android:text="return_prev"/>
 
+
         <EditText
             android:id="@+id/Player_cal1"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:maxLength="4"
+            android:maxLength="5"
             android:lines="1"
-            android:text="8000"/>
+            android:text="8000">
+        </EditText>
+
+
 
     </LinearLayout>
 

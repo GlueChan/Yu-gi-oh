@@ -38,6 +38,7 @@ public class Player2_screen extends AppCompatActivity implements View.OnClickLis
 
 
     DamageDatabaseControls damageDatabaseControls;
+	 LifeDataBaseControl lifeDataBaseControl;
 
     @SuppressWarnings("deprecation")
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -75,6 +76,7 @@ public class Player2_screen extends AppCompatActivity implements View.OnClickLis
 
 
         damageDatabaseControls = new DamageDatabaseControls(this);
+    	 lifeDataBaseControl = new LifeDataBaseControl(this);
 
         button0 = (Button) findViewById(R.id.Button_0);
         button00 = (Button) findViewById(R.id.Button_00);
@@ -277,6 +279,7 @@ public class Player2_screen extends AppCompatActivity implements View.OnClickLis
     protected void onStart() {
         super.onStart();
         damageDatabaseControls.damageAddBtnCreate((LinearLayout)findViewById(R.id.damageBtnLayout));
+    	lifeDataBaseControl.lifeAddBtnCreate((EditText) findViewById(R.id.Player_cal2));
     }
 
 

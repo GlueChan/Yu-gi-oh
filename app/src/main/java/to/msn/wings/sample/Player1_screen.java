@@ -42,6 +42,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
     DamageDatabaseControls damageDatabaseControls;
 
+    LifeDataBaseControl lifeDataBaseControl;
+
 
 
     public  int playerLife = 8000;
@@ -78,7 +80,9 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dentaku_player1);
 
+        /*データベースのインスタンス*/
         damageDatabaseControls = new DamageDatabaseControls(this);
+        lifeDataBaseControl = new LifeDataBaseControl(this);
 
         findViewById(R.id.return_Top).setOnClickListener(this);
 
@@ -301,6 +305,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
     protected void onStart() {
         super.onStart();
         damageDatabaseControls.damageAddBtnCreate((LinearLayout)findViewById(R.id.damageBtnLayout));
+        lifeDataBaseControl.lifeAddBtnCreate((EditText) findViewById(R.id.Player_cal1));
     }
 
 

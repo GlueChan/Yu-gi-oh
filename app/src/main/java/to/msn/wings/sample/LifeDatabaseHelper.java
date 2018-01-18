@@ -29,9 +29,8 @@ public class LifeDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE life("+
                 "number INTEGER PRIMARY KEY, name TEXT , life INTEGER)");
 
-        db.execSQL("INSERT INTO damage(number,name,life)"+
-                "VALUES('1','ライフ100',1000)");
-
+        db.execSQL("INSERT INTO life(number,name,life)"+
+                "VALUES('1','ライフ8000',8000)");
     }
 
     //データベースをバージョンアップしたとき、テーブルを再編成

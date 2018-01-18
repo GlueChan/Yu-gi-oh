@@ -37,7 +37,7 @@ public class Menu extends AppCompatActivity implements View.OnClickListener{
                 startActivity(idamage);
                 break;
             case R.id.setting_life:    //初期ライフの設定
-                Intent ilife = new Intent(Menu.this, Life_setting.class);
+                Intent ilife = new Intent(Menu.this, DB_Life.class);
                 startActivity(ilife);
                 break;
         }
