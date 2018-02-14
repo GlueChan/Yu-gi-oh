@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Yu-gi-oh.iml" filepath="$PROJECT_DIR$/Yu-gi-oh.iml" />
+      <module fileurl="file://C:\Users\OC-SYSR73B-14\Documents\GitHub\Yu-gi-oh\Yu-gi-oh.iml" filepath="C:\Users\OC-SYSR73B-14\Documents\GitHub\Yu-gi-oh\Yu-gi-oh.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\OC-SYSR73B-14\Documents\GitHub\Yu-gi-oh\app\app.iml" filepath="C:\Users\OC-SYSR73B-14\Documents\GitHub\Yu-gi-oh\app\app.iml" />
     </modules>
   </component>
 </project>
