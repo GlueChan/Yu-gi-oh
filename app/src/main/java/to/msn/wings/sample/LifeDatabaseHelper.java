@@ -12,6 +12,8 @@ public class LifeDatabaseHelper extends SQLiteOpenHelper {
     static final private String DBNAME = "DALIFE";
     static final private int VERSION = 1;
 
+    public static final String TABLE_LIFE = "life";
+
     //コンストラクター
     public LifeDatabaseHelper(Context context) {
         super(context,DBNAME,null,VERSION);
@@ -27,9 +29,9 @@ public class LifeDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE life("+
-                "number INTEGER PRIMARY KEY, name TEXT , life INTEGER)");
+                "number INTEGER PRIMARY KEY, name TEXT , " + TABLE_LIFE +" INTEGER)");
 
-        db.execSQL("INSERT INTO life(number,name,life)"+
+        db.execSQL("INSERT INTO "+ TABLE_LIFE +"(number,name,life)"+
                 "VALUES('1','ライフ8000',8000)");
     }
 

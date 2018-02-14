@@ -42,7 +42,10 @@ public class DB_Life extends AppCompatActivity implements View.OnClickListener{
         try {
             ContentValues cv = new ContentValues();
             cv.put("life", txtLife.getText().toString());
-            db.insertWithOnConflict("life", null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+            //db.insertWithOnConflict("life", null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+            //db.updateWithOnConflict("life", null, cv,  SQLiteDatabase.CONFLICT_REPLACE);
+            db.update(LifeDatabaseHelper.TABLE_LIFE, cv, "number = ?",new String[]{"1"} );
+
             Toast.makeText(this, "データ登録完了", Toast.LENGTH_SHORT).show();
         } finally {
             db.close();

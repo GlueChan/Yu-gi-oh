@@ -3,7 +3,11 @@ package to.msn.wings.sample;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Handler;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -15,13 +19,19 @@ public class DamageDatabaseControls {
 
     private Context mContext;
     private DamageDatabaseHelper damageDatabaseHelper;
+    EditText editText;
 
+    private Handler handler;
+
+    private Player1_screen player1_screen;
 
     //コンストラクター
     public DamageDatabaseControls(Context context) {
         mContext = context;
         damageDatabaseHelper = new DamageDatabaseHelper(mContext);
+        handler = new Handler();
     }
+
 
     public void damageAddBtnCreate(LinearLayout layout) {
         SQLiteDatabase db = damageDatabaseHelper.getReadableDatabase();
@@ -47,16 +57,29 @@ public class DamageDatabaseControls {
         }
     }
 
-
     /**
      * pearentにボタンを追加する
      *
      * @param text
      */
-    private void addButton(LinearLayout layout,String text) {
+
+    public void addButton(LinearLayout layout, final String text) {
         Button btn = new Button(mContext);
         btn.setText(text);
+        Log.d("textの値は", text);
         btn.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("",text);
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Player1_screen.setPlayer1APtext(text);
+                    }
+                });
+            }
+        });
         layout.addView(btn);
     }
 }

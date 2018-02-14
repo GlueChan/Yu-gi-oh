@@ -9,6 +9,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     PreferenceManager preferenceManager;
+    LifeDataBaseControl lifeDataBaseControl;
 
     @Override
     protected void onCreate(Bundle bundle) {
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.main);
 
         preferenceManager=new PreferenceManager(this);
+        lifeDataBaseControl = new LifeDataBaseControl(this);
 
         findViewById(R.id.player).setOnClickListener(this);
         findViewById(R.id.player2).setOnClickListener(this);
@@ -38,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
         buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
+
+//        lifeDataBaseControl.ChangeLifeOnMenu((TextView) findViewById(R.id.Player1_Life));
+//        lifeDataBaseControl.ChangeLifeOnMenu((TextView) findViewById(R.id.Player2_Life));
     }
 
     public void onClick(View view){     //ボタンがクリックされたとき
