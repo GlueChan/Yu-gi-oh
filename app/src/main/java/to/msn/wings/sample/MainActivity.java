@@ -1,10 +1,20 @@
 package to.msn.wings.sample;
 
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -36,8 +46,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int resId1 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND,6);    //初回起動時
         int resId2 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER2_BACKGROUND,6);    //初回起動時
 
-        buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
-        buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
+        String play1_bgpath=preferenceManager.getStringData("Player1_Path",null);
+        String play2_bgpath=preferenceManager.getStringData("Player2_Path",null);
+
+        if(play1_bgpath==null) {
+            buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
+            //buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
+        }if(play2_bgpath==null) {
+            //buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
+            buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
+        }/*if(play1_bgpath=="0"){
+
+        }if(play2_bgpath=="0"){
+
+        }*/else{
+            Bitmap bmp =setupBackgroundBitmap(getContentResolver(),play1_bgpath);
+            Bitmap bmp2 =setupBackgroundBitmap(getContentResolver(),play2_bgpath);
+            BitmapDrawable image = new BitmapDrawable(bmp);
+            BitmapDrawable image2 = new BitmapDrawable(bmp2);
+            buttonplayer1.setBackground(image);
+            buttonplayer2.setBackground(image2);
+        }
     }
 
     public void onClick(View view){     //ボタンがクリックされたとき
@@ -66,4 +95,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
+    public static Bitmap setupBackgroundBitmap(ContentResolver contentResolver, String imagePath) {
+
+        Bitmap bitmap = null;
+        File file = new File(imagePath);
+
+        try {
+            Uri uri = Uri.fromFile(file);
+
+            //bitmap = MediaStore.Images.Media.getBitmap(contentResolver,uri);
+
+            InputStream inputStream = new FileInputStream(file);
+
+            bitmap = BitmapFactory.decodeStream(inputStream, null, null);
+            inputStream.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bitmap;
+    }
+
 }

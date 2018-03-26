@@ -29,7 +29,7 @@ public class Menu extends AppCompatActivity implements View.OnClickListener{
                 startActivity(itop);
                 break;
             case R.id.Button_Change:    //画像の追加・変更
-                Intent ichange = new Intent(Menu.this, Image_setting.class);
+                Intent ichange = new Intent(Menu.this, Picture.class);    //Image_setting
                 startActivity(ichange);
                 break;
             case R.id.Button_damage:    //ダメージ量の変更
