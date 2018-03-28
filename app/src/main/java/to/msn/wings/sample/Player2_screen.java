@@ -8,6 +8,7 @@ import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,7 +31,7 @@ public class Player2_screen extends AppCompatActivity implements View.OnClickLis
             buttonC,         //クリア
             buttonEqual;    //イコール
 
-    EditText editText;
+    private static EditText editText;
 
     int ValueOne, ValueTwo;
 
@@ -72,11 +73,25 @@ public class Player2_screen extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dentaku_player2);
 
-        findViewById(R.id.return_Top).setOnClickListener(this);
-
-
+       /*データベースのインスタンス*/
         damageDatabaseControls = new DamageDatabaseControls(this);
-    	 lifeDataBaseControl = new LifeDataBaseControl(this);
+    	lifeDataBaseControl = new LifeDataBaseControl(this);
+    	
+    	findViewById(R.id.return_Top).setOnClickListener(this);
+    	
+    	 editText = (EditText) findViewById(R.id.Player_cal2);
+
+    	
+    	
+    	 // 現在のintentを取得する
+        Intent intent = getIntent();
+        // intentから指定キーの文字列を取得する
+        String player2_life = intent.getStringExtra("player2_life");
+        editText.setText(player2_life);
+
+
+        //データベースのライフをEditTextにセット
+       //editText.setText(String.valueOf(lifeDataBaseControl.getPlayerDefLife()));
 
         button0 = (Button) findViewById(R.id.Button_0);
         button00 = (Button) findViewById(R.id.Button_00);
@@ -97,8 +112,8 @@ public class Player2_screen extends AppCompatActivity implements View.OnClickLis
         buttonC = (Button) findViewById(R.id.return_prev);
         buttonEqual = (Button) findViewById(R.id.Button_Equal);
 
-        editText = (EditText) findViewById(R.id.Player_cal2);
-
+       
+       
         sound1 = pool.load(this, R.raw.test, 1);
         sound2 = pool.load(this, R.raw.test, 1);
         sound3 = pool.load(this, R.raw.test, 1);
@@ -282,12 +297,19 @@ public class Player2_screen extends AppCompatActivity implements View.OnClickLis
     	lifeDataBaseControl.lifeAddBtnCreate((EditText) findViewById(R.id.Player_cal2));
     }
 
+    public static void setPlayer2APtext(String text) {
+        Log.i("setPlayer2APtext", text);
+        editText.setText(text);
+    }
 
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
             case R.id.return_Top:       //トップに戻る
-                Intent itop = new Intent(Player2_screen.this, MainActivity.class);
-                startActivity(itop);
+//                Intent itop = new Intent(Player2_screen.this, MainActivity.class);
+//                startActivity(itop);
+                MainActivity.setPlayer2Life(editText.getText().toString());
+
+                finish();
                 break;
         }
     }

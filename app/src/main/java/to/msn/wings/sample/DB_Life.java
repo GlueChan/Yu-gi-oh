@@ -1,7 +1,6 @@
 package to.msn.wings.sample;
 
 import android.content.ContentValues;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,12 +12,18 @@ public class DB_Life extends AppCompatActivity implements View.OnClickListener{
     private  LifeDatabaseHelper helper = null;
     private EditText txtLife = null;
 
+    public static int Count = 0;
+
+    public static int GetCount(){
+        return  Count;
+    }
+
     private  LifeDataBaseControl mLifeDataBaseControl;
     @Override
         protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.life_setting);
-        findViewById(R.id.return_Top).setOnClickListener(this);
+        findViewById(R.id.return_Page).setOnClickListener(this);
 
 
         //ヘルパーを準備
@@ -54,14 +59,15 @@ public class DB_Life extends AppCompatActivity implements View.OnClickListener{
 
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
-            case R.id.return_Top:       //トップに戻る
-                Intent itop = new Intent(DB_Life.this, MainActivity.class);
-                startActivity(itop);
+            case R.id.return_Page:       //トップに戻る
+//                Intent itop = new Intent(DB_Life.this, Menu.class);
+//                startActivity(itop);
+                finish();
                 break;
+
             case R.id.btnSave:
                 onSave();
                 break;
-
 //            case R.id.btnSearch:
 //                // ダメージボタンをLineaLayoutに追加
 //                mDamageDatabaseControls.damageAddBtnCreate((LinearLayout) findViewById(R.id.damageBtnLayout));

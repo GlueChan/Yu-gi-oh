@@ -3,21 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/return_Top"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:text="Topに戻る"/>
-
-    <Button
-        android:id="@+id/coin_menu"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:text="コインメニュー"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/return_Top"
-        android:layout_alignEnd="@+id/return_Top" />
-
     <ImageView
         android:id="@+id/coin1"
         android:src="@drawable/gold"
@@ -43,7 +28,7 @@
         android:layout_alignBottom="@+id/coin1" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/button2"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#00000000"
@@ -53,5 +38,14 @@
         android:layout_alignRight="@+id/coin2"
         android:layout_alignEnd="@+id/coin2"
         android:layout_alignTop="@+id/coin1" />
+
+    <Button
+        android:id="@+id/coin_menu"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:text="コインメニュー"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

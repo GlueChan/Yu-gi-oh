@@ -5,10 +5,10 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/return_Top"
+        android:id="@+id/return_Page"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="戻る"/>
+        android:text="前の画面"/>
 
     <Button
         android:id="@+id/btnSave"

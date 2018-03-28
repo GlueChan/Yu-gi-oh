@@ -1,6 +1,5 @@
 package to.msn.wings.sample;
 
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -32,8 +31,7 @@ public class Dice_screen extends AppCompatActivity implements View.OnClickListen
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
             case R.id.return_Top:       //トップに戻る
-                Intent itop = new Intent(Dice_screen.this, MainActivity.class);
-                startActivity(itop);
+                finish();
                 break;
             case R.id.button1:
                 TypedArray typedArray = getResources().obtainTypedArray(R.array.dice);

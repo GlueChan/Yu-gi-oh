@@ -32,10 +32,12 @@ public class Coin1_screen extends AppCompatActivity implements View.OnClickListe
             case R.id.return_Top:       //トップに戻る
                 Intent itop = new Intent(Coin1_screen.this, MainActivity.class);
                 startActivity(itop);
+                finish();
                 break;
             case R.id.coin_menu:       //コインニューに進む
                 Intent icoinmenu = new Intent(Coin1_screen.this, Coin_menu.class);
                 startActivity(icoinmenu);
+                finish();
                 break;
             case R.id.button1:
                 TypedArray typedArray = getResources().obtainTypedArray(R.array.coin);

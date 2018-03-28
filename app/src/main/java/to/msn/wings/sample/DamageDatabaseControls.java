@@ -75,7 +75,8 @@ public class DamageDatabaseControls {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        Player1_screen.setPlayer1APtext(text);
+                        Player1_screen.setPlayerAPtext(text);
+                        Player2_screen.setPlayer2APtext(text);
                     }
                 });
             }

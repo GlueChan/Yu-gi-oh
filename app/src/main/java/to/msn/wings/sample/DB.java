@@ -26,7 +26,7 @@ public class DB extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(bundle);
         setContentView(db);
 
-        findViewById(R.id.return_Top).setOnClickListener(this);
+        findViewById(R.id.return_Page).setOnClickListener(this);
 
 
         //ヘルパーを準備
@@ -59,9 +59,10 @@ public class DB extends AppCompatActivity implements View.OnClickListener{
 
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
-            case R.id.return_Top:       //トップに戻る
-                Intent itop = new Intent(DB.this, MainActivity.class);
-                startActivity(itop);
+            case R.id.return_Page:    //前のページに戻る
+                Intent ipage = new Intent(DB.this, Menu.class);
+                startActivity(ipage);
+                finish();
                 break;
             case R.id.btnSave:
                 onSave();

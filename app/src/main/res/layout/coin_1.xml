@@ -30,7 +30,7 @@
         android:layout_marginEnd="11dp" />
 
     <ImageView
-        android:id="@+id/coin"
+        android:id="@+id/coin1"
         android:src="@drawable/gold"
         android:scaleType="fitCenter"
         android:layout_width="150dp"

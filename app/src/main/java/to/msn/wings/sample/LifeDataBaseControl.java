@@ -15,6 +15,8 @@ public class LifeDataBaseControl {
     private LifeDatabaseHelper lifeDatabaseHelper;
 
 
+
+
     //コンストラクター
     public LifeDataBaseControl(Context context) {
         mContext = context;
@@ -72,7 +74,6 @@ public class LifeDataBaseControl {
 //    }
 
 
-
     public int getPlayerDefLife() {
         SQLiteDatabase db = lifeDatabaseHelper.getReadableDatabase();
         Cursor cs = null;
@@ -97,9 +98,11 @@ public class LifeDataBaseControl {
             cs.close();
             db.close();
         }
-        Log.i(TAG,"getPlayerDefLife:"+defLife);
+        Log.i(TAG, "getPlayerDefLife:" + defLife);
         return defLife;
+
     }
+
 
 
 
@@ -114,7 +117,8 @@ public class LifeDataBaseControl {
 //        //editText.addView(editText);
 //    }
 
-    private  void ChangeLifeOnMenu(TextView textView,String text){
+    private void ChangeLifeOnMenu(TextView textView, String text) {
         textView.setText(text);
     }
 }
+

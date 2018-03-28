@@ -24,6 +24,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                   sound6, sound7, sound8, sound9, sound0,sound00, sound000,
                   soundAdd, soundSub, soundDivision, soundC, soundEqual;
 
+    public int Count = 0;
+
     Button button0, button1, button2, button3, button4, button5,
             button6, button7, button8, button9, button00, button000,
             buttonAdd,       //足し算
@@ -86,8 +88,20 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         findViewById(R.id.return_Top).setOnClickListener(this);
 
         editText = (EditText) findViewById(R.id.Player_cal1);
-        editText.setText(String.valueOf(lifeDataBaseControl.getPlayerDefLife()
-        ));
+        //editText2 = (EditText) findViewById(R.id.Player_cal2);
+
+        // 現在のintentを取得する
+        Intent intent = getIntent();
+        //String player1_life = intent.getStringExtra("playerNumber");
+        // intentから指定キーの文字列を取得する
+        String player1_life = intent.getStringExtra("player1_life");
+        editText.setText(player1_life);
+
+
+
+
+        // editText.setText(String.valueOf(lifeDataBaseControl.getPlayerDefLife()));
+
 
         button0 = (Button) findViewById(R.id.Button_0);
         button00 = (Button) findViewById(R.id.Button_00);
@@ -299,17 +313,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
         });
 
-//        damageDatabaseControls.btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-////                String TEST = damageDatabaseControls.btn.getText().toString();
-////                int value = Integer.parseInt(TEST);
-//                editText.setText("123");
-//            }
-//        });
     }
-
-
 
 
     @Override
@@ -317,21 +321,23 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         super.onStart();
         damageDatabaseControls.damageAddBtnCreate((LinearLayout)findViewById(R.id.damageBtnLayout));
         lifeDataBaseControl.lifeAddBtnCreate((EditText) findViewById(R.id.Player_cal1));
-        lifeDataBaseControl.lifeAddBtnCreate((EditText) findViewById(R.id.Player_cal2));
     }
 
-    public static void setPlayer1APtext(String text){
+    public static void setPlayerAPtext(String text){
         Log.i("setPlayer1APtext",text);
         editText.setText(text);
     }
 
-
-
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
             case R.id.return_Top:       //トップに戻る
-                Intent itop = new Intent(Player1_screen.this, MainActivity.class);
-                startActivity(itop);
+//                Intent itop = new Intent(Player1_screen.this, MainActivity.class);
+//                startActivity(itop);
+
+                MainActivity.setPlayer1Life(editText.getText().toString());
+
+                finish();
+
                 break;
         }
     }
