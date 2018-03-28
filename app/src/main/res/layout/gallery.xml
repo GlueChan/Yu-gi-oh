@@ -42,7 +42,7 @@
             android:id="@+id/change_player1"
             android:layout_width="100dp"
             android:layout_height="60dp"
-            android:text="Player1"
+            android:text="Player1の\n画像を変更"
             android:layout_below="@+id/return_Top"
             android:layout_toLeftOf="@+id/return_Page"
             android:layout_toStartOf="@+id/return_Page"
@@ -54,25 +54,15 @@
             android:id="@+id/change_player2"
             android:layout_width="100dp"
             android:layout_height="60dp"
-            android:text="Player2"
+            android:text="Player2の\n画像を変更"
             android:layout_alignBaseline="@+id/change_player1"
             android:layout_alignBottom="@+id/change_player1"
             android:layout_alignLeft="@+id/return_Page"
             android:layout_alignStart="@+id/return_Page" />
 
         <Button
-            android:id="@+id/get_image"
-            android:text="get image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="gallery_get"
-            android:layout_below="@+id/change_player2"
-            android:layout_alignRight="@+id/change_player1"
-            android:layout_alignEnd="@+id/change_player1" />
-
-        <Button
             android:id="@+id/set_image"
-            android:text="set image"
+            android:text="Playeer2の画像を\nデフォルトに戻す"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/change_player2"
@@ -88,6 +78,16 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="18dp" />
+
+        <Button
+            android:id="@+id/get_image"
+            android:text="Player1の画像を\nデフォルトに戻す"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="gallery_get"
+            android:layout_below="@+id/change_player1"
+            android:layout_alignLeft="@+id/change_player1"
+            android:layout_alignStart="@+id/change_player1" />
 
     </RelativeLayout>
 </ScrollView>

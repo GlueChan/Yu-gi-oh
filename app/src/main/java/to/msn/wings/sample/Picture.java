@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
@@ -56,12 +57,11 @@ public class Picture extends AppCompatActivity implements View.OnClickListener{
             //
             @Override
             public void onClick(View v){
-                Intent intent=new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                intent.setType("image/*");
-
-                startActivityForResult(intent,READ_REQUEST_CODE);
-
+                preferenceManager.putData("Player1_Path", "0");     //player1の画像をデフォルトに戻す
+                //preferenceManager.putData("Player2_Path", "0");
+                //Log.d("Player1_Path","null");
+                Toast.makeText(Picture.this,"デフォルト画像に戻しました",Toast.LENGTH_SHORT).show();
+                Log.d("Player1_path",preferenceManager.getStringData("Player1_Path",null));
             }
         });
 
@@ -69,10 +69,11 @@ public class Picture extends AppCompatActivity implements View.OnClickListener{
             //
             @Override
             public void onClick(View v){
-                /*preferenceManager.putData("Player1_Path", 0);
-                preferenceManager.putData("Player2_Path", 0);
+                //preferenceManager.putData("Player1_Path", "0");
+                preferenceManager.putData("Player2_Path", "0");     //player2の画像をデフォルトに戻す
                 //Log.d("Player1_Path","null");
-                Log.d("Player1_path",preferenceManager.getStringData("Player1_Path",null));*/
+                Toast.makeText(Picture.this,"デフォルト画像に戻しました",Toast.LENGTH_SHORT).show();
+                Log.d("Player2_path",preferenceManager.getStringData("Player2_Path",null));
             }
         });
         /*button2.setOnClickListener(new View.OnClickListener(){
@@ -102,10 +103,18 @@ public class Picture extends AppCompatActivity implements View.OnClickListener{
             case R.id.change_player1:   //対象をプレイヤー1に変える
                 setNumber=1;
                 Log.d("Player1",setNumber+"Change");
+                Intent intent=new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("image/*");
+                startActivityForResult(intent,READ_REQUEST_CODE);
                 break;
             case R.id.change_player2:   //対象をプレイヤー2に変える
                 setNumber=2;
                 Log.d("Player2",setNumber+"Change");
+                Intent intent2=new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                intent2.addCategory(Intent.CATEGORY_OPENABLE);
+                intent2.setType("image/*");
+                startActivityForResult(intent2,READ_REQUEST_CODE);
                 break;
         }
     }
@@ -128,9 +137,11 @@ public class Picture extends AppCompatActivity implements View.OnClickListener{
                     gallery=MediaStore.Images.Media.getBitmap(getContentResolver(),uri);
                     if(setNumber==1) {
                         preferenceManager.putData("Player1_Path", filePas);
+                        Toast.makeText(this,"画像を変更しました",Toast.LENGTH_SHORT).show();
                         Log.d("Player1_path","OK");
                     }else if(setNumber==2){
                         preferenceManager.putData("Player2_Path", filePas);
+                        Toast.makeText(this,"画像を変更しました",Toast.LENGTH_SHORT).show();
                         Log.d("Player2_path","OK");
                     }
                 }catch (IOException e){

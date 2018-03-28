@@ -28,10 +28,10 @@ public class Config {
                 resId=R.drawable.satisfaction;
                 break;
             case 6:
-                resId=R.drawable.fan;
+                resId=R.drawable.cyber;
                 break;
             default:
-                resId = R.drawable.fan;
+                resId = R.drawable.cyber;
                 break;
         }
         return resId;

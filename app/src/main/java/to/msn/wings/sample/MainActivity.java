@@ -46,26 +46,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int resId1 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND,6);    //初回起動時
         int resId2 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER2_BACKGROUND,6);    //初回起動時
 
-        String play1_bgpath=preferenceManager.getStringData("Player1_Path",null);
-        String play2_bgpath=preferenceManager.getStringData("Player2_Path",null);
+        String play1_bgpath=preferenceManager.getStringData("Player1_Path","0");
+        String play2_bgpath=preferenceManager.getStringData("Player2_Path","0");
 
-        if(play1_bgpath==null) {
+        /*if(play1_bgpath=="0"){
             buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
-            //buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
-        }if(play2_bgpath==null) {
-            //buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
-            buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
-        }/*if(play1_bgpath=="0"){
-
-        }if(play2_bgpath=="0"){
-
-        }*/else{
+        }else{
             Bitmap bmp =setupBackgroundBitmap(getContentResolver(),play1_bgpath);
-            Bitmap bmp2 =setupBackgroundBitmap(getContentResolver(),play2_bgpath);
             BitmapDrawable image = new BitmapDrawable(bmp);
-            BitmapDrawable image2 = new BitmapDrawable(bmp2);
             buttonplayer1.setBackground(image);
+        }*/
+
+        /*if(play2_bgpath=="0"){
+            buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
+        }else{
+            Bitmap bmp2 =setupBackgroundBitmap(getContentResolver(),play2_bgpath);
+            BitmapDrawable image2 = new BitmapDrawable(bmp2);
             buttonplayer2.setBackground(image2);
+        }*/
+
+        if (play1_bgpath.startsWith("/storage")) {
+            Bitmap bmp =setupBackgroundBitmap(getContentResolver(),play1_bgpath);
+            BitmapDrawable image = new BitmapDrawable(bmp);
+            buttonplayer1.setBackground(image);
+        }else{
+            buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
+        }
+
+        if (play2_bgpath.startsWith("/storage")) {
+            Bitmap bmp2 =setupBackgroundBitmap(getContentResolver(),play2_bgpath);
+            BitmapDrawable image2 = new BitmapDrawable(bmp2);
+            buttonplayer2.setBackground(image2);
+        }else{
+            buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
         }
     }
 
