@@ -7,15 +7,24 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import static to.msn.wings.sample.R.drawable.gold;
+import static to.msn.wings.sample.R.drawable.gold1;
 
 public class CointosActivity extends AppCompatActivity implements View.OnClickListener {
     Button button1, button2, button3;
     ImageView coin1, coin2, coin3;
     int selectCoinCount;
+
+    int mCoinFlg = 0;
 
     @Override
     protected void onCreate(Bundle bundle) {
@@ -29,10 +38,10 @@ public class CointosActivity extends AppCompatActivity implements View.OnClickLi
         LinearLayout layoutCoin = (LinearLayout) findViewById(R.id.layout_coin);
 
 
-        // 指定された回数、コインボタンを追加する
-        for (int i = 0; i < selectCoinCount; i++) {
-            layoutCoin.addView(createButton(), (int) convertDp2Px(100, getApplicationContext()), (int) convertDp2Px(100, getApplicationContext()));
-        }
+//        // 指定された回数、コインボタンを追加する
+//        for (int i = 0; i < selectCoinCount; i++) {
+//            layoutCoin.addView(createButton(), (int) convertDp2Px(100, getApplicationContext()), (int) convertDp2Px(100, getApplicationContext()));
+//        }
 
         // 戻るボタンのonClickイベント
         Button btnBack = (Button) findViewById(R.id.btnBack);
@@ -61,18 +70,69 @@ public class CointosActivity extends AppCompatActivity implements View.OnClickLi
 //
     }
 
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        // コインの表示場所
+        LinearLayout layoutCoin = (LinearLayout) findViewById(R.id.layout_coin);
+        // 指定された回数、コインボタンを追加する
+        for (int i = 0; i < selectCoinCount; i++) {
+            layoutCoin.addView(createButton(), (int) convertDp2Px(100, getApplicationContext()), (int) convertDp2Px(100, getApplicationContext()));
+        }
+    }
+
     private Button createButton() {
-        final Button btn = new Button(this);
-        btn.setBackgroundResource(R.drawable.gold);
+      final Button btn = new Button(this);
+        btn.setBackgroundResource(gold);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // コイントス処理関数を呼び出す
-                TypedArray typedArray = getResources().obtainTypedArray(R.array.coin);
-                int i = (int) (Math.floor(Math.random() * 2));
-                Drawable drawable = typedArray.getDrawable(i);
-                //btn.setImageDrawable(drawable);
-                btn.setBackgroundDrawable(drawable);
+//                TypedArray typedArray = getResources().obtainTypedArray(R.array.coin);
+//                int i = (int) (Math.floor(Math.random() * 2));
+//                Drawable drawable = typedArray.getDrawable(i);
+//
+//                btn.setBackgroundDrawable(drawable);
+
+                //AnimationDrawable frameAnimation = (AnimationDrawable) btn.getBackground();
+
+                //
+                ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 1.0f, 1.0f, 0.0f, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF, 0.5f);
+                scaleAnimation.setDuration(100);
+                scaleAnimation.setRepeatCount(30);
+                scaleAnimation.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                        mCoinFlg = (int) (Math.floor(Math.random() * 2));
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                        mCoinFlg++;
+
+                        if (mCoinFlg % 2 == 0){
+                            btn.setBackgroundResource(gold1);
+                        }else{
+                            btn.setBackgroundResource(gold);
+                        }
+                    }
+                });
+
+                AnimationSet animationSet = new AnimationSet(true);
+                animationSet.addAnimation(scaleAnimation);
+                //animationSet.addAnimation(frameAnimation);
+
+                btn.startAnimation(animationSet);
+
+
+
 
             }
         });
