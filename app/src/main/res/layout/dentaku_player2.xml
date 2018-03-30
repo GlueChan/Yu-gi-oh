@@ -12,7 +12,8 @@
         android:layout_alignBaseline="@+id/Button_4"
         android:layout_alignBottom="@+id/Button_4"
         android:layout_toRightOf="@+id/Button_4"
-        android:layout_toEndOf="@+id/Button_4" />
+        android:layout_toEndOf="@+id/Button_4"
+        android:background="@drawable/water"/>
 
 
     <Button
@@ -23,7 +24,8 @@
         android:layout_alignBaseline="@+id/insert_point"
         android:layout_alignBottom="@+id/insert_point"
         android:layout_toRightOf="@+id/insert_point4"
-        android:layout_toEndOf="@+id/insert_point4" />
+        android:layout_toEndOf="@+id/insert_point4"
+        android:background="@drawable/blue"/>
 
     <Button
         android:id="@+id/Button_2"
@@ -33,7 +35,8 @@
         android:layout_alignBaseline="@+id/Button_1"
         android:layout_alignBottom="@+id/Button_1"
         android:layout_toRightOf="@+id/Button_4"
-        android:layout_toEndOf="@+id/Button_4" />
+        android:layout_toEndOf="@+id/Button_4"
+        android:background="@drawable/water"/>
 
     <Button
         android:id="@+id/show_insert_life"
@@ -45,7 +48,8 @@
         android:layout_alignParentStart="true"
         android:layout_above="@+id/insert_point2"
         android:layout_toLeftOf="@+id/insert_point2"
-        android:layout_toStartOf="@+id/insert_point2" />
+        android:layout_toStartOf="@+id/insert_point2"
+        android:background="@drawable/purple"/>
 
     <Button
         android:id="@+id/return_prev"
@@ -55,7 +59,8 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/show_insert_life"
         android:layout_toEndOf="@+id/show_insert_life"
-        android:layout_alignBottom="@+id/show_insert_life" />
+        android:layout_alignBottom="@+id/show_insert_life"
+        android:background="@drawable/purple"/>
 
     <Button
         android:id="@+id/return_Top"
@@ -66,17 +71,18 @@
         android:layout_toRightOf="@+id/return_prev"
         android:layout_alignRight="@+id/insert_point3"
         android:layout_alignEnd="@+id/insert_point3"
-        android:layout_above="@+id/insert_point" />
+        android:layout_above="@+id/insert_point"
+        android:background="@drawable/purple"/>
 
     <Button
         android:id="@+id/Button_1"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="1"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="18dp" />
+        android:background="@drawable/water"
+        android:text="1" />
 
     <Button
         android:id="@+id/Button_3"
@@ -86,7 +92,8 @@
         android:layout_alignBaseline="@+id/Button_1"
         android:layout_alignBottom="@+id/Button_1"
         android:layout_toRightOf="@+id/Button_2"
-        android:layout_toEndOf="@+id/Button_2" />
+        android:layout_toEndOf="@+id/Button_2"
+        android:background="@drawable/water"/>
 
     <Button
         android:id="@+id/Button_7"
@@ -95,7 +102,8 @@
         android:text="7"
         android:layout_above="@+id/Button_4"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/water"/>
 
     <Button
         android:id="@+id/Button_4"
@@ -104,7 +112,8 @@
         android:text="4"
         android:layout_above="@+id/Button_2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/water"/>
 
     <Button
         android:id="@+id/Button_Equal"
@@ -116,7 +125,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/insert_point"
         android:layout_toRightOf="@+id/insert_point5"
-        android:layout_toEndOf="@+id/insert_point5" />
+        android:layout_toEndOf="@+id/insert_point5"
+        android:background="@drawable/pink"/>
 
     <Button
         android:id="@+id/Button_0"
@@ -125,7 +135,8 @@
         android:text="0"
         android:layout_above="@+id/Button_1"
         android:layout_toRightOf="@+id/Button_6"
-        android:layout_toEndOf="@+id/Button_6" />
+        android:layout_toEndOf="@+id/Button_6"
+        android:background="@drawable/green"/>
 
     <Button
         android:id="@+id/insert_point"
@@ -134,7 +145,8 @@
         android:text="1000"
         android:layout_above="@+id/Button_7"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/blue"/>
 
     <Button
         android:id="@+id/insert_point2"
@@ -144,7 +156,8 @@
         android:layout_alignBaseline="@+id/insert_point"
         android:layout_alignBottom="@+id/insert_point"
         android:layout_toRightOf="@+id/insert_point"
-        android:layout_toEndOf="@+id/insert_point" />
+        android:layout_toEndOf="@+id/insert_point"
+        android:background="@drawable/blue"/>
 
     <EditText
         android:id="@+id/Player_cal2"
@@ -163,7 +176,8 @@
         android:text="9"
         android:layout_above="@+id/Button_6"
         android:layout_toRightOf="@+id/Button_8"
-        android:layout_toEndOf="@+id/Button_8" />
+        android:layout_toEndOf="@+id/Button_8"
+        android:background="@drawable/water"/>
 
     <Button
         android:id="@+id/Button_00"
@@ -172,7 +186,8 @@
         android:text="00"
         android:layout_above="@+id/Button_Add"
         android:layout_toRightOf="@+id/Button_6"
-        android:layout_toEndOf="@+id/Button_6" />
+        android:layout_toEndOf="@+id/Button_6"
+        android:background="@drawable/green"/>
 
     <Button
         android:id="@+id/insert_point3"
@@ -182,7 +197,8 @@
         android:layout_alignBaseline="@+id/insert_point"
         android:layout_alignBottom="@+id/insert_point"
         android:layout_toRightOf="@+id/return_prev"
-        android:layout_toEndOf="@+id/return_prev" />
+        android:layout_toEndOf="@+id/return_prev"
+        android:background="@drawable/blue"/>
 
     <Button
         android:id="@+id/Button_6"
@@ -192,7 +208,8 @@
         android:layout_alignBaseline="@+id/Button_0"
         android:layout_alignBottom="@+id/Button_0"
         android:layout_toRightOf="@+id/Button_8"
-        android:layout_toEndOf="@+id/Button_8" />
+        android:layout_toEndOf="@+id/Button_8"
+        android:background="@drawable/water"/>
 
     <Button
         android:id="@+id/insert_point4"
@@ -202,7 +219,8 @@
         android:layout_alignBaseline="@+id/insert_point5"
         android:layout_alignBottom="@+id/insert_point5"
         android:layout_toRightOf="@+id/Button_9"
-        android:layout_toEndOf="@+id/Button_9" />
+        android:layout_toEndOf="@+id/Button_9"
+        android:background="@drawable/blue"/>
 
     <Button
         android:id="@+id/Button_000"
@@ -211,7 +229,8 @@
         android:text="000"
         android:layout_below="@+id/insert_point5"
         android:layout_toRightOf="@+id/Button_0"
-        android:layout_toEndOf="@+id/Button_0" />
+        android:layout_toEndOf="@+id/Button_0"
+        android:background="@drawable/green"/>
 
     <Button
         android:id="@+id/Button_subtraction"
@@ -221,7 +240,8 @@
         android:layout_alignBaseline="@+id/Button_Dvision"
         android:layout_alignBottom="@+id/Button_Dvision"
         android:layout_toRightOf="@+id/Button_Dvision"
-        android:layout_toEndOf="@+id/Button_Dvision" />
+        android:layout_toEndOf="@+id/Button_Dvision"
+        android:background="@drawable/pink"/>
 
     <Button
         android:id="@+id/Button_8"
@@ -230,7 +250,8 @@
         android:text="8"
         android:layout_below="@+id/insert_point2"
         android:layout_toRightOf="@+id/Button_7"
-        android:layout_toEndOf="@+id/Button_7" />
+        android:layout_toEndOf="@+id/Button_7"
+        android:background="@drawable/water"/>
 
     <Button
         android:id="@+id/Button_Dvision"
@@ -239,7 +260,8 @@
         android:text="-"
         android:layout_below="@+id/Button_5"
         android:layout_toRightOf="@+id/Button_3"
-        android:layout_toEndOf="@+id/Button_3" />
+        android:layout_toEndOf="@+id/Button_3"
+        android:background="@drawable/pink"/>
 
     <Button
         android:id="@+id/Button_Add"
@@ -249,7 +271,8 @@
         android:layout_alignBaseline="@+id/Button_0"
         android:layout_alignBottom="@+id/Button_0"
         android:layout_toRightOf="@+id/Button_0"
-        android:layout_toEndOf="@+id/Button_0" />
+        android:layout_toEndOf="@+id/Button_0"
+        android:background="@drawable/pink"/>
 
 
 </RelativeLayout>

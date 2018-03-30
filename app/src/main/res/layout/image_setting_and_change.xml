@@ -7,7 +7,8 @@
         android:id="@+id/return_Top"
         android:layout_width="200dp"
         android:layout_height="70dp"
-        android:text="Topに戻る"/>
+        android:text="Topに戻る"
+        android:background="@drawable/purple"/>
 
     <Button
         android:id="@+id/return_Page"
@@ -16,7 +17,8 @@
         android:text="前の画面に戻る"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/return_Top"
-        android:layout_toEndOf="@+id/return_Top" />
+        android:layout_toEndOf="@+id/return_Top"
+        android:background="@drawable/green"/>
 
     <TextView
         android:text="・画像の追加"

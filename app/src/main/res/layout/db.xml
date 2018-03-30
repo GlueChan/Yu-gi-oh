@@ -9,14 +9,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onSave"
-        android:text="保存"/>
+        android:text="保存"
+        android:background="@drawable/green"/>
 
     <Button
         android:id="@+id/btnSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onSearch"
-        android:text="検索"/>
+        android:text="検索"
+        android:background="@drawable/pink"/>
 
     <TableLayout
         android:layout_width="match_parent"

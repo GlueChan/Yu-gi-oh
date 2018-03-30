@@ -12,7 +12,8 @@
         android:id="@+id/return_Top"
         android:layout_width="240dp"
         android:layout_height="70dp"
-        android:text="Topに戻る"/>
+        android:text="Topに戻る"
+        android:background="@drawable/purple"/>
 
     <Button
         android:id="@+id/coin_3mai"
@@ -24,7 +25,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="28dp"
         android:layout_marginStart="28dp"
-        android:layout_marginBottom="53dp" />
+        android:layout_marginBottom="53dp"
+        android:background="@drawable/green"/>
 
     <Button
         android:id="@+id/coin_2mai"
@@ -33,7 +35,8 @@
         android:text="コイン2枚"
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/coin_3mai"
-        android:layout_alignStart="@+id/coin_3mai" />
+        android:layout_alignStart="@+id/coin_3mai"
+        android:background="@drawable/blue"/>
 
     <Button
         android:id="@+id/coin_1mai"
@@ -42,7 +45,8 @@
         android:text="コイン1枚"
         android:layout_above="@+id/coin_2mai"
         android:layout_alignLeft="@+id/coin_2mai"
-        android:layout_alignStart="@+id/coin_2mai" />
+        android:layout_alignStart="@+id/coin_2mai"
+        android:background="@drawable/pink"/>
 
 
 </RelativeLayout>
