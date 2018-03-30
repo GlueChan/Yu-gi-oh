@@ -20,7 +20,6 @@ public class Image_setting extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.image_setting_and_change);
 
         findViewById(R.id.return_Page).setOnClickListener(this);
-        findViewById(R.id.return_Top).setOnClickListener(this);
         findViewById(R.id.Add_photo).setOnClickListener(this);
         findViewById(R.id.to_Sample).setOnClickListener(this);
         findViewById(R.id.to_Album).setOnClickListener(this);
@@ -33,13 +32,10 @@ public class Image_setting extends AppCompatActivity implements View.OnClickList
 
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
-            case R.id.return_Top:    //トップに戻る
-                Intent itop = new Intent(Image_setting.this, MainActivity.class);
-                startActivity(itop);
-                break;
             case R.id.return_Page:    //前のページに戻る
                 Intent ipage = new Intent(Image_setting.this, Menu.class);
                 startActivity(ipage);
+                finish();
                 break;
             /*case R.id.Add_photo:    //画像を追加
                 Intent iphoto = new Intent(Image_setting.this, Menu.class);

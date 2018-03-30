@@ -10,98 +10,76 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
         <activity
-            android:label="@string/app_name"
             android:name=".MainActivity"
+            android:label="@string/app_name"
             android:screenOrientation="landscape">
-
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:label="@string/app_name"
             android:name=".Player1_screen"
-            android:screenOrientation="landscape">
-        </activity>
-
-        <activity
             android:label="@string/app_name"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".Player2_screen"
-            android:screenOrientation="landscape">
-        </activity>
-
-        <activity
             android:label="@string/app_name"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".Menu"
-            android:screenOrientation="landscape">
-        </activity>
-
-        <activity
             android:label="@string/app_name"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".Coin1_screen"
-            android:screenOrientation="landscape">
-        </activity>
-
-        <activity
             android:label="@string/app_name"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".Coin2_screen"
-            android:screenOrientation="landscape">
-        </activity>
-
-        <activity
             android:label="@string/app_name"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".Coin3_screen"
-            android:screenOrientation="landscape">
-        </activity>
-
-        <activity
             android:label="@string/app_name"
+            android:screenOrientation="landscape" />
+        <!-- <activity -->
+        <!-- android:name=".Coin" -->
+        <!-- android:label="Yu-gi-oh" -->
+        <!-- android:screenOrientation="landscape"/> -->
+        <activity
             android:name=".Coin_menu"
-            android:screenOrientation="landscape">
-        </activity>
-
-        <activity
             android:label="@string/app_name"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".Dice_screen"
-            android:screenOrientation="landscape">
-        </activity>
-
-        <activity
             android:label="@string/app_name"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".Image_setting"
-            android:screenOrientation="landscape">
-        </activity>
-
-        <activity
             android:label="@string/app_name"
-            android:name=".Life_setting"
-            android:screenOrientation="landscape">
-        </activity>
-
+            android:screenOrientation="landscape" />
         <activity
-            android:label="@string/app_name"
             android:name=".Gallery"
-            android:screenOrientation="landscape">
-        </activity>
-
-        <activity
             android:label="@string/app_name"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".Damage_setting"
-            android:screenOrientation="landscape">
-        </activity>
-
-        <activity
             android:label="@string/app_name"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".Life_background"
-            android:screenOrientation="landscape">
-        </activity>
-
-        <activity
             android:label="@string/app_name"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".DB"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".DB_Life"
+            android:label="@string/app_name"
+<<<<<<< HEAD
             android:name=".DB"
             android:screenOrientation="landscape">
         </activity>
@@ -118,5 +96,10 @@
             android:screenOrientation="landscape">
         </activity>
 
+=======
+            android:screenOrientation="landscape" />
+        <activity android:name=".CointosActivity"></activity>
+>>>>>>> base
     </application>
+
 </manifest>

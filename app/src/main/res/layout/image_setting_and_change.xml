@@ -4,12 +4,6 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/return_Top"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
-        android:text="Topに戻る"/>
-
-    <Button
         android:id="@+id/return_Page"
         android:layout_width="200dp"
         android:layout_height="70dp"
@@ -24,8 +18,7 @@
         android:layout_height="50dp"
         android:textStyle="italic"
         android:id="@+id/Add_photo"
-        android:layout_marginTop="32dp"
-        android:layout_below="@+id/return_Top"
+        android:layout_below="@+id/return_Page"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -45,7 +38,8 @@
         android:text="・カメラアルバムに移動"
         android:layout_below="@+id/to_Sample"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="11dp" />
 
     <Button
         android:text="ライフポイントの背景設定"

@@ -3,18 +3,30 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <TextView
         android:text="Player1"
+
         android:textSize="20dp"
         android:textColor="@color/colorBlack"
         android:gravity="bottom|left"
         android:background="@drawable/text_frame"
         android:layout_width="260dp"
         android:layout_height="30dp"
+<<<<<<< HEAD
         android:id="@+id/player1Text" />
     <Button
         android:text="LIFE:8000"
         android:layout_width="260dp"
+=======
+        android:id="@+id/player1Text"/>
+
+    <Button
+        android:text="8000"
+        android:textColor="@color/colorBlack"
+        android:textSize="50dp"
+        android:layout_width="200dp"
+>>>>>>> base
         android:layout_height="150dp"
         android:id="@+id/player"
         android:background="@drawable/seaman"
@@ -22,6 +34,7 @@
         android:layout_below="@+id/player1Text"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
     <TextView
         android:text="Player2"
         android:textSize="20dp"
@@ -34,9 +47,17 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
     <Button
+<<<<<<< HEAD
         android:text="LIFE:8000"
         android:layout_width="260dp"
+=======
+        android:text="8000"
+        android:textColor="@color/colorBlack"
+        android:textSize="50dp"
+        android:layout_width="200dp"
+>>>>>>> base
         android:layout_height="150dp"
         android:id="@+id/player2"
         android:background="@drawable/seaman"
@@ -73,10 +94,41 @@
         android:layout_height="80dp"
         android:id="@+id/menu"
         android:tag="TAG_MENU"
+<<<<<<< HEAD
         android:layout_alignBottom="@+id/dice"
         android:layout_alignLeft="@+id/lifereset"
         android:layout_alignStart="@+id/lifereset"
         android:layout_marginBottom="16dp" />
+=======
+        android:layout_alignTop="@+id/dice"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/Player1_Life"
+        android:text="8000"
+        android:textSize="20dp"
+        android:gravity="bottom|right"
+        android:background="@drawable/text_frame"
+        android:textColor="@color/colorBlack"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/Player2_Life"
+        android:text="8000"
+        android:textSize="20dp"
+        android:textColor="@color/colorBlack"
+        android:gravity="bottom|left"
+        android:background="@drawable/text_frame"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+>>>>>>> base
 
     <Button
         android:layout_width="80dp"

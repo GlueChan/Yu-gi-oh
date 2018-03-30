@@ -1,3 +1,21 @@
 <resources>
+
+
+    <string name="title_activity_preference_test">Preference_test</string>
+
     <string name="app_name">Yu-gi-oh</string>
+
+    <array name="coin">
+        <item>@drawable/gold</item>
+        <item>@drawable/gold1</item>
+    </array>
+    <array name="dice">
+        <item>@drawable/dice1</item>
+        <item>@drawable/dice2</item>
+        <item>@drawable/dice3</item>
+        <item>@drawable/dice4</item>
+        <item>@drawable/dice5</item>
+        <item>@drawable/dice6</item>
+    </array>
+    >>>>>>> feature-yoshiki
 </resources>
