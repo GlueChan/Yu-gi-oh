@@ -21,8 +21,8 @@ import android.widget.LinearLayout;
 public class Player1_screen extends AppCompatActivity implements View.OnClickListener {
 
     private int sound1, sound2, sound3, sound4, sound5,
-                  sound6, sound7, sound8, sound9, sound0,sound00, sound000,
-                  soundAdd, soundSub, soundDivision, soundC, soundEqual;
+            sound6, sound7, sound8, sound9, sound0, sound00, sound000,
+            soundAdd, soundSub, soundDivision, soundC, soundEqual;
 
     public int Count = 0;
 
@@ -32,11 +32,10 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             buttonSub,       //引き算
             buttonDivision, //割り算
             buttonC,         //クリア
-            buttonEqual,  //イコール
-            buttonEx;        //DamageDatabaseControlsで生成されたボタン
+            buttonEqual; //イコール
+
 
     private static EditText editText;
-
 
 
     int ValueOne, ValueTwo;
@@ -51,14 +50,12 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
     @SuppressWarnings("deprecation")   // 警告メッセージの抑制
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private SoundPool buildSoundPool(int poolMax)
-    {
+    private SoundPool buildSoundPool(int poolMax) {
         SoundPool pool = null;
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             pool = new SoundPool(poolMax, AudioManager.STREAM_MUSIC, 0);
-        }
-        else {
+        } else {
             AudioAttributes attr = new AudioAttributes.Builder()
                     .setUsage(AudioAttributes.USAGE_MEDIA)
                     .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
@@ -98,8 +95,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         editText.setText(player1_life);
 
 
-
-
         // editText.setText(String.valueOf(lifeDataBaseControl.getPlayerDefLife()));
 
 
@@ -120,7 +115,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         buttonAdd = (Button) findViewById(R.id.Button_Add);
         buttonSub = (Button) findViewById(R.id.Button_subtraction);
         buttonDivision = (Button) findViewById(R.id.Button_Dvision);
-        buttonC = (Button) findViewById(R.id.return_prev);
+        buttonC = (Button) findViewById(R.id.Button_clear1);
         buttonEqual = (Button) findViewById(R.id.Button_Equal);
 
 
@@ -141,8 +136,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         soundDivision = pool.load(this, R.raw.test, 1);
         soundC = pool.load(this, R.raw.test, 1);
         soundEqual = pool.load(this, R.raw.test, 1);
-
-
 
 
         button0.setOnClickListener(new View.OnClickListener() {
@@ -288,30 +281,37 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-
-        buttonEqual.setOnClickListener(new View.OnClickListener() {
+        buttonC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pool.play(soundEqual, 1.0f, 1.0f, 1, 0, 1);
-                ValueTwo = Integer.parseInt(editText.getText() + "");
 
-                if (Addtion == true) {
-                    editText.setText(ValueOne + ValueTwo + "");
-                    Addtion = false;
-                }
-
-                if (Subtraction == true) {
-                    editText.setText(ValueOne - ValueTwo + "");
-                    Subtraction = false;
-                }
-
-                if (Division == true) {
-                    editText.setText(ValueOne / ValueTwo + "");
-                    Division = false;
-                }
             }
-
         });
+
+
+                buttonEqual.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        pool.play(soundEqual, 1.0f, 1.0f, 1, 0, 1);
+                        ValueTwo = Integer.parseInt(editText.getText() + "");
+
+                        if (Addtion == true) {
+                            editText.setText(ValueOne + ValueTwo + "");
+                            Addtion = false;
+                        }
+
+                        if (Subtraction == true) {
+                            editText.setText(ValueOne - ValueTwo + "");
+                            Subtraction = false;
+                        }
+
+                        if (Division == true) {
+                            editText.setText(ValueOne / ValueTwo + "");
+                            Division = false;
+                        }
+                    }
+
+                });
 
     }
 
@@ -319,12 +319,12 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onStart() {
         super.onStart();
-        damageDatabaseControls.damageAddBtnCreate((LinearLayout)findViewById(R.id.damageBtnLayout));
+        damageDatabaseControls.damageAddBtnCreate((LinearLayout) findViewById(R.id.damageBtnLayout));
         lifeDataBaseControl.lifeAddBtnCreate((EditText) findViewById(R.id.Player_cal1));
     }
 
-    public static void setPlayerAPtext(String text){
-        Log.i("setPlayer1APtext",text);
+    public static void setPlayerAPtext(String text) {
+        Log.i("setPlayer1APtext", text);
         editText.setText(text);
     }
 
@@ -333,11 +333,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             case R.id.return_Top:       //トップに戻る
 //                Intent itop = new Intent(Player1_screen.this, MainActivity.class);
 //                startActivity(itop);
-
                 MainActivity.setPlayer1Life(editText.getText().toString());
-
                 finish();
-
                 break;
         }
     }

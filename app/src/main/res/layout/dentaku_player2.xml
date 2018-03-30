@@ -297,21 +297,18 @@
         </EditText>
 
         <Button
-            android:id="@+id/return_Top"
+            android:id="@+id/Button_clear2"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="return_Top" />
-        <Button
-            android:id="@+id/show_insert_life"
-            android:layout_width="120dp"
-            android:layout_height="70dp"
-            android:text="current_life" />
+            android:layout_height="86dp"
+            android:text="LifeClear"
+            android:layout_weight="0.22" />
 
         <Button
-            android:id="@+id/return_prev"
+            android:id="@+id/return_Top"
             android:layout_width="100dp"
-            android:layout_height="69dp"
-            android:text="return_prev"/>
+            android:layout_height="89dp"
+            android:text="return_Top"
+            android:layout_weight="0.31" />
 
     </LinearLayout>
 
