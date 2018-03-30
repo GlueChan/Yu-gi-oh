@@ -1,7 +1,10 @@
 package to.msn.wings.sample;
 
+<<<<<<< HEAD
 import android.annotation.TargetApi;
 import android.content.Intent;
+=======
+>>>>>>> origin/base
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.media.AudioAttributes;
@@ -68,8 +71,7 @@ public class Dice_screen extends AppCompatActivity implements View.OnClickListen
     public void onClick(final View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
             case R.id.return_Top:       //トップに戻る
-                Intent itop = new Intent(Dice_screen.this, MainActivity.class);
-                startActivity(itop);
+                finish();
                 break;
             case R.id.button1:
                 pool.play(sound, 1.0f, 1.0f, 0, 0, 1);

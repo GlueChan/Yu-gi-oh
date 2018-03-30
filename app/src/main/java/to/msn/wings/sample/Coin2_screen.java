@@ -55,7 +55,7 @@ public class Coin2_screen extends AppCompatActivity implements View.OnClickListe
         super.onCreate(bundle);
         setContentView(R.layout.coin_2);
 
-        findViewById(R.id.return_Top).setOnClickListener(this);
+
         findViewById(R.id.coin_menu).setOnClickListener(this);
 
         button1 = (Button)findViewById(R.id.button1);
@@ -68,13 +68,10 @@ public class Coin2_screen extends AppCompatActivity implements View.OnClickListe
     }
     public void onClick(final View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
-            case R.id.return_Top:       //トップに戻る
-                Intent itop = new Intent(Coin2_screen.this, MainActivity.class);
-                startActivity(itop);
-                break;
             case R.id.coin_menu:       //コインニューに進む
                 Intent icoinmenu = new Intent(Coin2_screen.this, Coin_menu.class);
                 startActivity(icoinmenu);
+                finish();
                 break;
             case R.id.button1:
                 pool.play(sound, 1.0f, 1.0f, 0, 0, 1);

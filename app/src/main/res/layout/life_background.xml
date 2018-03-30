@@ -25,14 +25,47 @@
         android:background="@drawable/green"/>
 
     <Button
+        android:id="@+id/change_player2"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="Player2"
+        android:layout_alignBottom="@+id/change_player1"
+        android:layout_alignRight="@+id/return_prev"
+        android:layout_alignEnd="@+id/return_prev"
+        android:layout_alignTop="@+id/change_player1" />
+
+    <Button
         android:id="@+id/background_change"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:text="壁紙を設定"
-        android:layout_below="@+id/return_Top"
+        android:layout_below="@+id/change_player1"
+        android:background="@drawable/silence"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="130dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="27dp" />
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp" />
+
+    <Button
+        android:id="@+id/change_player1"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="Player1"
+        android:layout_marginTop="31dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_below="@+id/return_Top"
+        android:layout_toRightOf="@+id/background_change"
+        android:layout_toEndOf="@+id/background_change" />
+
+    <Button
+        android:id="@+id/background_change2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="壁紙を設定"
+        android:background="@drawable/satisfaction"
+        android:layout_alignTop="@+id/background_change"
+        android:layout_toRightOf="@+id/return_Top"
+        android:layout_toEndOf="@+id/return_Top" />
 </RelativeLayout>

@@ -3,26 +3,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
+    <TextView
         android:text="Player1"
+
+        android:textSize="20dp"
+        android:textColor="@color/colorBlack"
+        android:gravity="bottom|left"
+        android:background="@drawable/text_frame"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:id="@+id/player1Text"/>
+
+    <Button
+        android:text="8000"
+        android:textColor="@color/colorBlack"
+        android:textSize="50dp"
         android:layout_width="200dp"
         android:layout_height="150dp"
         android:id="@+id/player"
-        android:layout_alignParentTop="true"
+        android:background="@drawable/seaman"
+        android:tag="TAG_PLAYER1"
+        android:layout_below="@+id/player1Text"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:tag="TAG_PLAYER1"/>
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Player2"
+        android:textSize="20dp"
+        android:textColor="@color/colorBlack"
+        android:gravity="bottom|right"
+        android:background="@drawable/text_frame"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:id="@+id/player2Text"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
-        android:text="Player2"
+        android:text="8000"
+        android:textColor="@color/colorBlack"
+        android:textSize="50dp"
         android:layout_width="200dp"
         android:layout_height="150dp"
         android:id="@+id/player2"
-        android:layout_alignParentTop="true"
+        android:background="@drawable/seaman"
+        android:tag="TAG_PLAYER2"
+        android:layout_alignBottom="@+id/lifereset"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:tag="TAG_PLAYER2"/>
-
+        android:layout_alignParentEnd="true" />
     <Button
         android:layout_width="120dp"
         android:layout_height="120dp"
@@ -61,6 +90,38 @@
         android:id="@+id/menu"
         android:tag="TAG_MENU"
         android:layout_alignTop="@+id/dice"
+<<<<<<< HEAD
         android:layout_centerHorizontal="true"
         android:background="@drawable/green"/>
+=======
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/Player1_Life"
+        android:text="8000"
+        android:textSize="20dp"
+        android:gravity="bottom|right"
+        android:background="@drawable/text_frame"
+        android:textColor="@color/colorBlack"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/Player2_Life"
+        android:text="8000"
+        android:textSize="20dp"
+        android:textColor="@color/colorBlack"
+        android:gravity="bottom|left"
+        android:background="@drawable/text_frame"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+>>>>>>> origin/base
 </RelativeLayout>
