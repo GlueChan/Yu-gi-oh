@@ -1,10 +1,7 @@
 package to.msn.wings.sample;
 
-<<<<<<< HEAD
 import android.annotation.TargetApi;
 import android.content.Intent;
-=======
->>>>>>> origin/base
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.media.AudioAttributes;
