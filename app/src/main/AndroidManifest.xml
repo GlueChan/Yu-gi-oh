@@ -80,6 +80,18 @@
             android:name=".DB_Life"
             android:label="@string/app_name"
             android:screenOrientation="landscape" />
+
+        <activity
+            android:label="@string/app_name"
+            android:name="Photo"
+            android:screenOrientation="landscape">
+        </activity>
+
+    <activity
+        android:label="@string/app_name"
+        android:name=".Picture"
+        android:screenOrientation="landscape">
+    </activity>
         <activity android:name=".CointosActivity"></activity>
     </application>
 
