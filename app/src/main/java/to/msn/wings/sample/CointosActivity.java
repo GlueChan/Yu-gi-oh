@@ -2,9 +2,12 @@ package to.msn.wings.sample;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
@@ -174,26 +177,26 @@ public class CointosActivity extends AppCompatActivity implements View.OnClickLi
 //                startActivity(icoinmenu);
 //                finish();
 //                break;
-//            case R.id.button1:
-//                TypedArray typedArray = getResources().obtainTypedArray(R.array.coin);
-//                int i = (int) (Math.floor(Math.random() * 2));
-//                Drawable drawable = typedArray.getDrawable(i);
-//                coin1.setImageDrawable(drawable);
-//                break;
-//
-//            case R.id.button2:
-//                TypedArray typedArray2 = getResources().obtainTypedArray(R.array.coin);
-//                int button2 = (int) (Math.floor(Math.random() * 2));
-//                Drawable drawable2 = typedArray2.getDrawable(button2);
-//                coin2.setImageDrawable(drawable2);
-//                break;
-//
-//            case R.id.button3:
-//                TypedArray typedArray3 = getResources().obtainTypedArray(R.array.coin);
-//                int button3 = (int) (Math.floor(Math.random() * 2));
-//                Drawable drawable3 = typedArray3.getDrawable(button3);
-//                coin3.setImageDrawable(drawable3);
-//                break;
+            case R.id.button1:
+                TypedArray typedArray = getResources().obtainTypedArray(R.array.coin);
+                int i = (int) (Math.floor(Math.random() * 2));
+                Drawable drawable = typedArray.getDrawable(i);
+                coin1.setImageDrawable(drawable);
+                break;
+
+            case R.id.button2:
+                TypedArray typedArray2 = getResources().obtainTypedArray(R.array.coin);
+                int button2 = (int) (Math.floor(Math.random() * 2));
+                Drawable drawable2 = typedArray2.getDrawable(button2);
+                coin2.setImageDrawable(drawable2);
+                break;
+
+            case R.id.button3:
+                TypedArray typedArray3 = getResources().obtainTypedArray(R.array.coin);
+                int button3 = (int) (Math.floor(Math.random() * 2));
+                Drawable drawable3 = typedArray3.getDrawable(button3);
+                coin3.setImageDrawable(drawable3);
+                break;
         }
     }
 }
