@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:text="Player1"
-
         android:textSize="20dp"
         android:textColor="@color/colorBlack"
         android:gravity="bottom|left"
         android:background="@drawable/text_frame"
-        android:layout_width="200dp"
+        android:layout_width="260dp"
         android:layout_height="30dp"
         android:id="@+id/player1Text"/>
 
@@ -33,7 +33,7 @@
         android:textColor="@color/colorBlack"
         android:gravity="bottom|right"
         android:background="@drawable/text_frame"
-        android:layout_width="200dp"
+        android:layout_width="260dp"
         android:layout_height="30dp"
         android:id="@+id/player2Text"
         android:layout_alignParentTop="true"
@@ -52,31 +52,11 @@
         android:layout_alignBottom="@+id/lifereset"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:id="@+id/dice"
-        android:layout_marginBottom="20dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/player2"
-        android:layout_alignStart="@+id/player2"
-        android:background="@drawable/dice"
-        android:tag="TAG_DICE"/>
-
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:id="@+id/coin"
-        android:layout_alignBottom="@+id/dice"
-        android:layout_alignRight="@+id/player"
-        android:layout_alignEnd="@+id/player"
-        android:background="@drawable/gold"
-        android:tag="COIN"/>
 
     <Button
         android:text="ライフ\nリセット"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/lifereset"
         android:tag="TAG_LIFERESET"
         android:layout_alignBottom="@+id/player"
@@ -84,11 +64,28 @@
         android:background="@drawable/purple"/>
 
     <Button
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/dice"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/dice"
+        android:tag="TAG_DICE"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="78dp"
+        android:layout_marginEnd="78dp" />
+
+    <Button
         android:text="Menu"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/menu"
         android:tag="TAG_MENU"
+        android:layout_alignBottom="@+id/dice"
+        android:layout_alignLeft="@+id/lifereset"
+        android:layout_alignStart="@+id/lifereset"
+        android:layout_marginBottom="16dp"
         android:layout_alignTop="@+id/dice"/>
 
     <TextView
@@ -117,5 +114,16 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/coin"
+        android:background="@drawable/gold"
+        android:tag="COIN"
+        android:layout_marginLeft="80dp"
+        android:layout_marginStart="80dp"
+        android:layout_alignTop="@+id/menu"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

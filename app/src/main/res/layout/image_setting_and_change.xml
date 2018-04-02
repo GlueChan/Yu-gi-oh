@@ -4,11 +4,13 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/return_Top"
+        android:id="@+id/return_Page"
         android:layout_width="200dp"
         android:layout_height="70dp"
-        android:text="Topに戻る"
-        android:background="@drawable/purple"/>
+        android:text="前の画面に戻る"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/return_Top"
+        android:layout_toEndOf="@+id/return_Top" />
 
     <TextView
         android:text="・画像の追加"
