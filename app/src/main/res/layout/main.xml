@@ -60,37 +60,9 @@
         android:id="@+id/lifereset"
         android:tag="TAG_LIFERESET"
         android:layout_alignBottom="@+id/player"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/purple"/>
+        android:layout_centerHorizontal="true" />
 
-<<<<<<< HEAD
-=======
-    <Button
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:id="@+id/dice"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/dice"
-        android:tag="TAG_DICE"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="78dp"
-        android:layout_marginEnd="78dp" />
 
-    <Button
-        android:text="Menu"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:id="@+id/menu"
-        android:tag="TAG_MENU"
-        android:layout_alignBottom="@+id/dice"
-        android:layout_alignLeft="@+id/lifereset"
-        android:layout_alignStart="@+id/lifereset"
-        android:layout_marginBottom="16dp"
-        android:layout_alignTop="@+id/dice"/>
-
->>>>>>> 0e5892df9d1db7fd3649bcfe4741838b447d6fbd
     <TextView
         android:id="@+id/Player1_Life"
         android:text="8000"
@@ -118,17 +90,6 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-<<<<<<< HEAD
-        android:text="Menu"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:id="@+id/menu"
-        android:tag="TAG_MENU"
-        android:layout_alignTop="@+id/dice"
-        android:layout_alignLeft="@+id/lifereset"
-        android:layout_alignStart="@+id/lifereset" />
-
-    <Button
         android:id="@+id/dice"
         android:layout_width="120dp"
         android:layout_height="120dp"
@@ -149,17 +110,14 @@
         android:layout_alignRight="@+id/player"
         android:layout_alignEnd="@+id/player" />
 
-=======
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:id="@+id/coin"
-        android:background="@drawable/gold"
-        android:tag="COIN"
-        android:layout_marginLeft="80dp"
-        android:layout_marginStart="80dp"
-        android:layout_alignTop="@+id/menu"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
->>>>>>> 0e5892df9d1db7fd3649bcfe4741838b447d6fbd
+    <Button
+        android:text="Menu"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/menu"
+        android:tag="TAG_MENU"
+        android:layout_alignTop="@+id/dice"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

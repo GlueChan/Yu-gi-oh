@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int resId1 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND,6);    //初回起動時
         int resId2 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER2_BACKGROUND,6);    //初回起動時
 
-<<<<<<< HEAD
+
         String play1_bgpath=preferenceManager.getStringData("Player1_Path","0");
         String play2_bgpath=preferenceManager.getStringData("Player2_Path","0");
 
@@ -91,13 +91,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else{
             buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
         }
-=======
-        buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
-        buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
+
+        //buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
+        //buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
 
        //lifeDataBaseControl.ChangeLifeOnMenu((TextView) findViewById(R.id.Player1_Life));
         //lifeDataBaseControl.ChangeLifeOnMenu((TextView) findViewById(R.id.Player2_Life));
->>>>>>> base
+
     }
 
     public void onClick(View view){     //ボタンがクリックされたとき
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-<<<<<<< HEAD
+
     public static Bitmap setupBackgroundBitmap(ContentResolver contentResolver, String imagePath) {
 
         Bitmap bitmap = null;
@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return bitmap;
     }
 
-=======
+
     static void setPlayer1Life(String life){
         Player1Text.setText(life);
     }
@@ -172,5 +172,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static void setPlayer2Life(String life2){
         Player2Text.setText(life2);
     }
->>>>>>> base
+
 }
