@@ -1,10 +1,7 @@
 package to.msn.wings.sample;
 
-<<<<<<< HEAD
+
 import android.annotation.TargetApi;
-import android.content.Intent;
-=======
->>>>>>> origin/base
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.media.AudioAttributes;
@@ -12,11 +9,11 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.os.Handler;
 
 /**
  * Created by 4163214 on 10/26/2017.

@@ -89,12 +89,7 @@
         android:layout_height="120dp"
         android:id="@+id/menu"
         android:tag="TAG_MENU"
-        android:layout_alignTop="@+id/dice"
-<<<<<<< HEAD
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/green"/>
-=======
-        android:layout_centerHorizontal="true" />
+        android:layout_alignTop="@+id/dice"/>
 
     <TextView
         android:id="@+id/Player1_Life"
@@ -123,5 +118,4 @@
         android:layout_alignParentEnd="true" />
 
 
->>>>>>> origin/base
 </RelativeLayout>
