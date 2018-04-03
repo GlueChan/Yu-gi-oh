@@ -26,7 +26,7 @@ public class Coin1_screen extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.button1).setOnClickListener(this);
 
-        coin = (ImageView)findViewById(R.id.coin);
+        //coin = (ImageView)findViewById(R.id.coin);
     }
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
