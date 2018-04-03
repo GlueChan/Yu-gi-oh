@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.menu).setOnClickListener(this);
         findViewById(R.id.coin).setOnClickListener(this);
         findViewById(R.id.dice).setOnClickListener(this);
+        findViewById(R.id.lifereset).setOnClickListener(this);
 
         //preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND,6);
         //preferenceManager.getIntData(Config.PREF_KEY_PLAYER2_BACKGROUND,6);
