@@ -1,6 +1,7 @@
 package to.msn.wings.sample;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.view.View;
  */
 
 public class Image_setting extends AppCompatActivity implements View.OnClickListener{
+
+    private Bitmap gallery;
 
     @Override
     protected void onCreate(Bundle bundle) {
@@ -21,6 +24,10 @@ public class Image_setting extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.to_Sample).setOnClickListener(this);
         findViewById(R.id.to_Album).setOnClickListener(this);
         findViewById(R.id.Life_point).setOnClickListener(this);
+
+        Intent ipic=getIntent();
+        gallery=(Bitmap)ipic.getParcelableExtra("Data");
+
     }
 
     public void onClick(View view) {     //ボタンがクリックされたとき
@@ -43,7 +50,7 @@ public class Image_setting extends AppCompatActivity implements View.OnClickList
                 startActivity(ialbum);
                 break;*/
             case R.id.Life_point:    //ライフポイントの背景画像変更
-                Intent ilife = new Intent(Image_setting.this, Gallery.class);
+                Intent ilife = new Intent(Image_setting.this, Picture.class);
                 startActivity(ilife);
                 break;
         }

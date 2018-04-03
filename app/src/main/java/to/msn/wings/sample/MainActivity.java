@@ -1,11 +1,21 @@
 package to.msn.wings.sample;
 
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -46,11 +56,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int resId1 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND,6);    //初回起動時
         int resId2 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER2_BACKGROUND,6);    //初回起動時
 
-        buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
-        buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
+
+        String play1_bgpath=preferenceManager.getStringData("Player1_Path","0");
+        String play2_bgpath=preferenceManager.getStringData("Player2_Path","0");
+
+        /*if(play1_bgpath=="0"){
+            buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
+        }else{
+            Bitmap bmp =setupBackgroundBitmap(getContentResolver(),play1_bgpath);
+            BitmapDrawable image = new BitmapDrawable(bmp);
+            buttonplayer1.setBackground(image);
+        }*/
+
+        /*if(play2_bgpath=="0"){
+            buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
+        }else{
+            Bitmap bmp2 =setupBackgroundBitmap(getContentResolver(),play2_bgpath);
+            BitmapDrawable image2 = new BitmapDrawable(bmp2);
+            buttonplayer2.setBackground(image2);
+        }*/
+
+        if (play1_bgpath.startsWith("/storage")) {
+            Bitmap bmp =setupBackgroundBitmap(getContentResolver(),play1_bgpath);
+            BitmapDrawable image = new BitmapDrawable(bmp);
+            buttonplayer1.setBackground(image);
+        }else{
+            buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
+        }
+
+        if (play2_bgpath.startsWith("/storage")) {
+            Bitmap bmp2 =setupBackgroundBitmap(getContentResolver(),play2_bgpath);
+            BitmapDrawable image2 = new BitmapDrawable(bmp2);
+            buttonplayer2.setBackground(image2);
+        }else{
+            buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
+        }
+
+        //buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
+        //buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
 
        //lifeDataBaseControl.ChangeLifeOnMenu((TextView) findViewById(R.id.Player1_Life));
         //lifeDataBaseControl.ChangeLifeOnMenu((TextView) findViewById(R.id.Player2_Life));
+
     }
 
     public void onClick(View view){     //ボタンがクリックされたとき
@@ -95,6 +142,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+
+    public static Bitmap setupBackgroundBitmap(ContentResolver contentResolver, String imagePath) {
+
+        Bitmap bitmap = null;
+        File file = new File(imagePath);
+
+        try {
+            Uri uri = Uri.fromFile(file);
+
+            //bitmap = MediaStore.Images.Media.getBitmap(contentResolver,uri);
+
+            InputStream inputStream = new FileInputStream(file);
+
+            bitmap = BitmapFactory.decodeStream(inputStream, null, null);
+            inputStream.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bitmap;
+    }
+
+
     static void setPlayer1Life(String life){
         Player1Text.setText(life);
     }
@@ -102,4 +172,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static void setPlayer2Life(String life2){
         Player2Text.setText(life2);
     }
+
 }

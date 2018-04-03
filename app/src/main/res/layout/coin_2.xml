@@ -3,55 +3,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/coin1"
+        android:src="@drawable/gold"
+        android:scaleType="fitCenter"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/coin_menu"
+        android:layout_toEndOf="@+id/coin_menu" />
+
+    <ImageView
+        android:id="@+id/coin2"
+        android:src="@drawable/gold"
+        android:scaleType="fitCenter"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginEnd="48dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/coin1" />
+
     <Button
-        android:id="@+id/return_Top"
-        android:layout_width="200dp"
+        android:id="@+id/button2"
+        android:layout_width="100dp"
         android:layout_height="100dp"
-        android:text="Topに戻る"
-        android:background="@drawable/purple"/>
+        android:background="#00000000"
+        android:layout_alignLeft="@+id/coin1"
+        android:layout_alignStart="@+id/coin1"
+        android:layout_alignBottom="@+id/coin1"
+        android:layout_alignRight="@+id/coin2"
+        android:layout_alignEnd="@+id/coin2"
+        android:layout_alignTop="@+id/coin1" />
 
     <Button
         android:id="@+id/coin_menu"
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:text="コインメニュー"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/return_Top"
-        android:layout_alignEnd="@+id/return_Top"
-        android:background="@drawable/water"/>
-
-    <ImageView
-        android:id="@+id/coin1"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="69dp"
-        android:layout_marginRight="69dp"
-        android:layout_toLeftOf="@+id/coin2"
-        android:layout_toStartOf="@+id/coin2"
-        android:scaleType="fitCenter"
-        android:src="@drawable/gold" />
-
-    <ImageView
-        android:id="@+id/coin2"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/coin1"
-        android:layout_marginEnd="125dp"
-        android:layout_marginRight="125dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/gold" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:text="コイントス スタート!"
-        android:background="@drawable/pink"/>
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

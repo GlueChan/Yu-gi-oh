@@ -50,15 +50,14 @@ public class PreferenceManager {
         } else if (val instanceof Float) {
             mEdit.putFloat(key, (float) val);
             mEdit.apply();
-            Log.i(TAG, String.format("保存成功：key=%s val=%d", key, val));
+            Log.i(TAG, String.format("保存成功：key=%s val=%f", key, val));
         } else if (val instanceof String) {
             mEdit.putString(key, (String) val);
             mEdit.apply();
-            Log.i(TAG, String.format("保存成功：key=%s val=%d", key, val));
         } else if (val instanceof Boolean) {
             mEdit.putBoolean(key, (boolean) val);
             mEdit.apply();
-            Log.i(TAG, String.format("保存成功：key=%s val=%d", key, val));
+            Log.i(TAG, String.format("保存成功：key=%s val=%s", key, val));
         } else {
             Log.e(TAG, "この型は保存出来ません");
         }
