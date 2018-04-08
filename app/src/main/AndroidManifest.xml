@@ -33,22 +33,6 @@
             android:label="@string/app_name"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".Coin1_screen"
-            android:label="@string/app_name"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".Coin2_screen"
-            android:label="@string/app_name"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".Coin3_screen"
-            android:label="@string/app_name"
-            android:screenOrientation="landscape" />
-        <!-- <activity -->
-        <!-- android:name=".Coin" -->
-        <!-- android:label="Yu-gi-oh" -->
-        <!-- android:screenOrientation="landscape"/> -->
-        <activity
             android:name=".Coin_menu"
             android:label="@string/app_name"
             android:screenOrientation="landscape" />
@@ -62,10 +46,6 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".Gallery"
-            android:label="@string/app_name"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".Damage_setting"
             android:label="@string/app_name"
             android:screenOrientation="landscape" />
         <activity
@@ -92,7 +72,10 @@
         android:name=".Picture"
         android:screenOrientation="landscape">
     </activity>
-        <activity android:name=".CointosActivity"></activity>
+
+        <activity
+            android:name=".CointosActivity">
+        </activity>
     </application>
 
 </manifest>

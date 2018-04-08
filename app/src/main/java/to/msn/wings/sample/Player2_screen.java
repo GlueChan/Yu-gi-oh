@@ -33,6 +33,8 @@ public class Player2_screen extends AppCompatActivity implements View.OnClickLis
 
     private static EditText editText;
 
+    int a=1;
+
     int ValueOne, ValueTwo;
 
     boolean Addtion, Subtraction, Division;
@@ -81,8 +83,6 @@ public class Player2_screen extends AppCompatActivity implements View.OnClickLis
     	
     	 editText = (EditText) findViewById(R.id.Player_cal2);
 
-    	
-    	
     	 // 現在のintentを取得する
         Intent intent = getIntent();
         // intentから指定キーの文字列を取得する
@@ -90,8 +90,6 @@ public class Player2_screen extends AppCompatActivity implements View.OnClickLis
         editText.setText(player2_life);
 
 
-        //データベースのライフをEditTextにセット
-       //editText.setText(String.valueOf(lifeDataBaseControl.getPlayerDefLife()));
 
         button0 = (Button) findViewById(R.id.Button_0);
         button00 = (Button) findViewById(R.id.Button_00);
@@ -107,8 +105,8 @@ public class Player2_screen extends AppCompatActivity implements View.OnClickLis
         button9 = (Button) findViewById(R.id.Button_9);
 
         buttonAdd = (Button) findViewById(R.id.Button_Add);
-        buttonSub = (Button) findViewById(R.id.Button_subtraction);
-        buttonDivision = (Button) findViewById(R.id.Button_Dvision);
+        buttonSub = (Button) findViewById(R.id.Button_Division);
+        buttonDivision = (Button) findViewById(R.id.Button_Subtraction);
         buttonC = (Button) findViewById(R.id.return_prev);
         buttonEqual = (Button) findViewById(R.id.Button_Equal);
 
