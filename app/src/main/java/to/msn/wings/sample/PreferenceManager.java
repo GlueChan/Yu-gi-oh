@@ -1,7 +1,11 @@
 package to.msn.wings.sample;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
 /**
@@ -118,5 +122,20 @@ public class PreferenceManager {
     public boolean getBooleanData(String key, boolean defVal) {
         return mPreferences.getBoolean(key, defVal);
 
+    }
+
+    /**
+     * ギャラリーへのアクセス権限確認
+     *
+     * @param activity
+     * @return
+     */
+    public static void checkWriteExternalStoragePermission(Activity activity) {
+        if (ActivityCompat.checkSelfPermission(activity.getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
+            ActivityCompat.requestPermissions(activity, permissions, 1);
+        }else{
+
+        }
     }
 }

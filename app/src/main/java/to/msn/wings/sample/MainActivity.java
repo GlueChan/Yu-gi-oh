@@ -1,12 +1,18 @@
 package to.msn.wings.sample;
 
+import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -33,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Player1Text = (TextView) findViewById(R.id.Player1_Life);
         Player2Text = (TextView) findViewById(R.id.Player2_Life);
 
-
         preferenceManager=new PreferenceManager(this);
         lifeDataBaseControl = new LifeDataBaseControl(this);
 
@@ -42,21 +47,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.menu).setOnClickListener(this);
         findViewById(R.id.coin).setOnClickListener(this);
         findViewById(R.id.dice).setOnClickListener(this);
-
-        //preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND,6);
-        //preferenceManager.getIntData(Config.PREF_KEY_PLAYER2_BACKGROUND,6);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
         Button buttonplayer1 = (Button)findViewById(R.id.player);
         Button buttonplayer2 = (Button)findViewById(R.id.player2);
 
         int resId1 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND,6);    //初回起動時
         int resId2 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER2_BACKGROUND,6);    //初回起動時
 
-<<<<<<< HEAD
         String play1_bgpath=preferenceManager.getStringData("Player1_Path","0");
         String play2_bgpath=preferenceManager.getStringData("Player2_Path","0");
 
@@ -91,13 +93,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else{
             buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
         }
-=======
-        buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
-        buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
-
-       //lifeDataBaseControl.ChangeLifeOnMenu((TextView) findViewById(R.id.Player1_Life));
-        //lifeDataBaseControl.ChangeLifeOnMenu((TextView) findViewById(R.id.Player2_Life));
->>>>>>> base
     }
 
     public void onClick(View view){     //ボタンがクリックされたとき
@@ -120,17 +115,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(imenu);
                 break;
             case R.id.coin:             //コイン画面を開く
-
-
                 SelectCoinDialog dialog = new SelectCoinDialog();
                 dialog.show(this);
-
-
-
-
-
-
-
 //                Intent icoin = new Intent(MainActivity.this, Coin_menu.class);
 //                startActivity(icoin);
                 break;
@@ -142,7 +128,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-<<<<<<< HEAD
     public static Bitmap setupBackgroundBitmap(ContentResolver contentResolver, String imagePath) {
 
         Bitmap bitmap = null;
@@ -164,7 +149,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return bitmap;
     }
 
-=======
     static void setPlayer1Life(String life){
         Player1Text.setText(life);
     }
@@ -172,5 +156,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static void setPlayer2Life(String life2){
         Player2Text.setText(life2);
     }
->>>>>>> base
 }
