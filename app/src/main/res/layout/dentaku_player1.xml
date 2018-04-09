@@ -27,6 +27,7 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:maxLength="5"
+            android:inputType="number"
             android:lines="1">
         </EditText>
 
@@ -74,7 +75,7 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:text="1"
-            android:layout_alignTop="@+id/Button_Dvision"
+            android:layout_alignTop="@+id/Button_Subtraction"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
@@ -171,7 +172,7 @@
             android:layout_alignStart="@+id/Button_000" />
 
         <Button
-            android:id="@+id/Button_Dvision"
+            android:id="@+id/Button_Subtraction"
             android:layout_width="100dp"
             android:layout_height="50dp"
 
@@ -183,13 +184,13 @@
             android:layout_toStartOf="@+id/Button_Add" />
 
         <Button
-            android:id="@+id/Button_subtraction"
+            android:id="@+id/Button_Division"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:text="/"
             android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/Button_Dvision"
-            android:layout_toEndOf="@+id/Button_Dvision" />
+            android:layout_toRightOf="@+id/Button_Subtraction"
+            android:layout_toEndOf="@+id/Button_Subtraction" />
 
         <Button
             android:id="@+id/Button_Equal"
@@ -197,8 +198,8 @@
             android:layout_height="50dp"
             android:text="="
             android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/Button_subtraction"
-            android:layout_toEndOf="@+id/Button_subtraction"
+            android:layout_toRightOf="@+id/Button_Division"
+            android:layout_toEndOf="@+id/Button_Division"
             android:layout_alignTop="@+id/Button_000" />
 
         <Button
