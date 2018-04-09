@@ -9,13 +9,16 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import static to.msn.wings.sample.MainActivity.setPlayer1Life;
 
@@ -87,10 +90,26 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
         editText = (EditText) findViewById(R.id.Player_cal1);
 
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+
+                //  (str == null || str.length() == 0)
+                if(!TextUtils.isEmpty(v.getText())) {
+                    ValueTwo = Integer.parseInt(v.getText().toString());
+                } else {
+                    ValueTwo = 0;
+                }
+                v.setText(String.valueOf(ValueTwo));
+
+                return false;
+            }
+        });
+
         // 現在のintentを取得する
         Intent intent = getIntent();
         // intentから指定キーの文字列を取得する
-        String player1_life = intent.getStringExtra("player1_life");
+        final String player1_life = intent.getStringExtra("player1_life");
         editText.setText(player1_life);
 
         //リスナーをセット
@@ -133,6 +152,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         soundSub = pool.load(this, R.raw.test, 1);
         soundDivision = pool.load(this, R.raw.test, 1);
         soundEqual = pool.load(this, R.raw.test, 1);
+
+
 
 
         button0.setOnClickListener(new View.OnClickListener() {
@@ -243,6 +264,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             }
         });
 
+
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -312,13 +334,14 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                     Log.d("ValueOne", "" + ValueOne);
                     Log.d("ValueTwo", "" + ValueTwo);
 
-                    if (ValueOne - ValueTwo < -1) {
-                        editText.setText(null);
+                    if (ValueOne - ValueTwo < 0) {
+                        editText.setText("0");
                         Log.d("引き算マイナス：", "" + editText.getText().toString());
                         Subtraction = false;
                     } else {
                         editText.setText(ValueOne - ValueTwo + "");
                         Log.d("引き算：", "" + editText.getText().toString());
+                        Subtraction = false;
                     }
                 }
 
@@ -337,8 +360,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                 }
             }
         });
-        
-        //editTextに入力されている文字の数を判断し,
+
+        //editTextに入力されている文字列を判断し,
         //文字列が0の場合はイコールボタンを押せなくさせ、
         //文字列が1以上(ValueOneに値が入っている)場合はValueTwoに値を入れてイコールを押せるようにする
        buttonEqual.setOnTouchListener(new View.OnTouchListener() {
@@ -356,6 +379,11 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
        });
     }
 
+
+    //先頭の"0"を削除する
+    public static String DeleteZero(String  str){
+        return str.replaceFirst("^0+","");
+    }
 
     //文字列が修正される直前に呼び出されるメソッド
     @Override
@@ -396,7 +424,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 //                Intent itop = new Intent(Player1_screen.this, MainActivity.class);
 //                startActivity(itop);
                 setPlayer1Life(editText.getText().toString());
-
                 finish();
                 break;
         }
