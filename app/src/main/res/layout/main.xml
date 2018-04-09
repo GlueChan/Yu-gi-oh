@@ -60,8 +60,8 @@
         android:id="@+id/lifereset"
         android:tag="TAG_LIFERESET"
         android:layout_alignBottom="@+id/player"
-        android:layout_centerHorizontal="true" />
-
+        android:layout_centerHorizontal="true"/>
+        <!--android:background="@drawable/purple"/>-->
 
     <TextView
         android:id="@+id/Player1_Life"
@@ -118,6 +118,4 @@
         android:tag="TAG_MENU"
         android:layout_alignTop="@+id/dice"
         android:layout_centerHorizontal="true" />
-
-
 </RelativeLayout>
