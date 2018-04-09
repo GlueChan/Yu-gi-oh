@@ -47,6 +47,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.menu).setOnClickListener(this);
         findViewById(R.id.coin).setOnClickListener(this);
         findViewById(R.id.dice).setOnClickListener(this);
+        findViewById(R.id.lifereset).setOnClickListener(this);
+
+        //preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND,6);
+        //preferenceManager.getIntData(Config.PREF_KEY_PLAYER2_BACKGROUND,6);
     }
 
     @Override
@@ -93,6 +97,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else{
             buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
         }
+
+        //buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
+        //buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
+
+       //lifeDataBaseControl.ChangeLifeOnMenu((TextView) findViewById(R.id.Player1_Life));
+        //lifeDataBaseControl.ChangeLifeOnMenu((TextView) findViewById(R.id.Player2_Life));
     }
 
     public void onClick(View view){     //ボタンがクリックされたとき
@@ -156,4 +166,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static void setPlayer2Life(String life2){
         Player2Text.setText(life2);
     }
+
 }

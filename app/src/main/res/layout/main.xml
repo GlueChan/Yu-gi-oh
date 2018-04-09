@@ -63,31 +63,6 @@
         android:layout_centerHorizontal="true"/>
         <!--android:background="@drawable/purple"/>-->
 
-    <Button
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:id="@+id/dice"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/dice"
-        android:tag="TAG_DICE"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="78dp"
-        android:layout_marginEnd="78dp" />
-
-    <Button
-        android:text="Menu"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:id="@+id/menu"
-        android:tag="TAG_MENU"
-        android:layout_alignBottom="@+id/dice"
-        android:layout_alignLeft="@+id/lifereset"
-        android:layout_alignStart="@+id/lifereset"
-        android:layout_marginBottom="16dp"
-        android:layout_alignTop="@+id/dice"/>
-
     <TextView
         android:id="@+id/Player1_Life"
         android:text="8000"
@@ -115,15 +90,32 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:id="@+id/dice"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignLeft="@+id/player2"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/player2"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/dice"
+        android:tag="TAG_DICE" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:id="@+id/coin"
         android:background="@drawable/gold"
         android:tag="COIN"
-        android:layout_marginLeft="80dp"
-        android:layout_marginStart="80dp"
-        android:layout_alignTop="@+id/menu"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignBottom="@+id/dice"
+        android:layout_alignRight="@+id/player"
+        android:layout_alignEnd="@+id/player" />
 
+    <Button
+        android:text="Menu"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/menu"
+        android:tag="TAG_MENU"
+        android:layout_alignTop="@+id/dice"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
