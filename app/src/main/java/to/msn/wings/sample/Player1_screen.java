@@ -426,6 +426,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                 setPlayer1Life(editText.getText().toString());
                 finish();
                 break;
+
         }
     }
 }

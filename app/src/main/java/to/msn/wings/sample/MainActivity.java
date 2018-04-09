@@ -112,7 +112,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent iPlyer = new Intent(MainActivity.this, Player1_screen.class);
                 String life = Player1Text.getText().toString();
                 iPlyer.putExtra("player1_life",life);
-
                 startActivity(iPlyer);
                 break;
             case R.id.player2:          //プレイヤー2のボタンがクリック
