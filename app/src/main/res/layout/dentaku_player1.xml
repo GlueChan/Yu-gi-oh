@@ -203,16 +203,20 @@
             android:layout_height="50dp"
             android:text="/"
             android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/Button_Subtraction"
+            android:layout_toEndOf="@+id/Button_Subtraction"
             android:background="@drawable/pink"/>
 
         <Button
-            android:id="@+id/Button_Equal"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="="
-            android:layout_alignParentBottom="true"
-            android:layout_alignTop="@+id/Button_000"
-            android:background="@drawable/blue"/>
+        android:id="@+id/Button_Equal"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="="
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/Button_Division"
+        android:layout_toEndOf="@+id/Button_Division"
+        android:layout_alignTop="@+id/Button_000"
+        android:background="@drawable/blue"/>
 
         <Button
             android:id="@+id/Button_000"
