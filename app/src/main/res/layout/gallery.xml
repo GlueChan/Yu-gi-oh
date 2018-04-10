@@ -21,17 +21,6 @@
             android:layout_height="70dp"
             android:text="Topに戻る" />
 
-        <Button
-            android:id="@+id/return_Page"
-            android:text="前の画面に戻る"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="18dp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/return_Top"
-            android:layout_toEndOf="@+id/return_Top"
-            android:layout_marginStart="18dp" />
-
         <TextView
             android:id="@+id/text_view"
             android:textColor="#000"
@@ -49,16 +38,6 @@
             android:layout_marginRight="46dp"
             android:layout_marginEnd="46dp"
             android:layout_marginTop="30dp" />
-
-        <Button
-            android:id="@+id/change_player2"
-            android:layout_width="100dp"
-            android:layout_height="60dp"
-            android:text="Player2の\n画像を変更"
-            android:layout_alignBaseline="@+id/change_player1"
-            android:layout_alignBottom="@+id/change_player1"
-            android:layout_alignLeft="@+id/return_Page"
-            android:layout_alignStart="@+id/return_Page" />
 
         <Button
             android:id="@+id/set_image"
@@ -88,6 +67,17 @@
             android:layout_below="@+id/change_player1"
             android:layout_alignLeft="@+id/change_player1"
             android:layout_alignStart="@+id/change_player1" />
+
+        <Button
+            android:id="@+id/change_player2"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="Player2の\n画像を変更"
+            android:layout_above="@+id/get_image"
+            android:layout_toRightOf="@+id/change_player1"
+            android:layout_toEndOf="@+id/change_player1"
+            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp" />
 
     </RelativeLayout>
 </ScrollView>

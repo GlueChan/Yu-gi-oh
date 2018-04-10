@@ -401,7 +401,7 @@ public class Player2_screen extends AppCompatActivity implements View.OnClickLis
 //                Intent itop = new Intent(Player2_screen.this, MainActivity.class);
 //                startActivity(itop);
                 MainActivity.setPlayer2Life(editText.getText().toString());
-
+                MainActivity.setPlayer2Buttonlife(editText.getText().toString());
                 finish();
                 break;
         }
