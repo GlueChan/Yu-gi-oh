@@ -30,18 +30,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(bundle);
         setContentView(R.layout.main);
 
+        preferenceManager=new PreferenceManager(this);
+        lifeDataBaseControl = new LifeDataBaseControl(this);
+
         Player1Text = (TextView) findViewById(R.id.Player1_Life);
         Player2Text = (TextView) findViewById(R.id.Player2_Life);
 
 
-        preferenceManager=new PreferenceManager(this);
-        lifeDataBaseControl = new LifeDataBaseControl(this);
+        // プレイヤーの初期値を設定
+        Player1Text.setText(String.valueOf(lifeDataBaseControl.getPlayerDefLife()));
+        Player2Text.setText(String.valueOf(lifeDataBaseControl.getPlayerDefLife()));
+
 
         findViewById(R.id.player).setOnClickListener(this);
         findViewById(R.id.player2).setOnClickListener(this);
         findViewById(R.id.menu).setOnClickListener(this);
         findViewById(R.id.coin).setOnClickListener(this);
         findViewById(R.id.dice).setOnClickListener(this);
+
         findViewById(R.id.lifereset).setOnClickListener(this);
 
         //preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND,6);
@@ -51,12 +57,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
+
         Button buttonplayer1 = (Button)findViewById(R.id.player);
         Button buttonplayer2 = (Button)findViewById(R.id.player2);
 
         int resId1 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND,6);    //初回起動時
         int resId2 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER2_BACKGROUND,6);    //初回起動時
-
 
         String play1_bgpath=preferenceManager.getStringData("Player1_Path","0");
         String play2_bgpath=preferenceManager.getStringData("Player2_Path","0");
@@ -98,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
        //lifeDataBaseControl.ChangeLifeOnMenu((TextView) findViewById(R.id.Player1_Life));
         //lifeDataBaseControl.ChangeLifeOnMenu((TextView) findViewById(R.id.Player2_Life));
-
     }
 
     public void onClick(View view){     //ボタンがクリックされたとき
@@ -121,28 +126,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(imenu);
                 break;
             case R.id.coin:             //コイン画面を開く
-
-
                 SelectCoinDialog dialog = new SelectCoinDialog();
                 dialog.show(this);
-
-
-
-
-
-
-
-//                Intent icoin = new Intent(MainActivity.this, Coin_menu.class);
-//                startActivity(icoin);
                 break;
             case R.id.dice:             //ダイス画面を開く
                 Intent idice = new Intent(MainActivity.this, Dice_screen.class);
                 startActivity(idice);
                 break;
+
+            case R.id.lifereset:
+                MainActivity.setPlayer1Life("8000");
+                MainActivity.setPlayer2Life("8000");
+                break;
         }
 
     }
-
 
     public static Bitmap setupBackgroundBitmap(ContentResolver contentResolver, String imagePath) {
 
@@ -165,7 +163,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return bitmap;
     }
 
-
     static void setPlayer1Life(String life){
         Player1Text.setText(life);
     }
@@ -173,5 +170,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static void setPlayer2Life(String life2){
         Player2Text.setText(life2);
     }
-
 }
+

@@ -63,7 +63,6 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/lightblue"/>
 
-
     <TextView
         android:id="@+id/Player1_Life"
         android:text="8000"
@@ -120,6 +119,4 @@
         android:layout_alignTop="@+id/dice"
         android:layout_centerHorizontal="true"
         android:background="@drawable/purple"/>
-
-
 </RelativeLayout>

@@ -21,6 +21,7 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.IOException;
 
+import static to.msn.wings.sample.PreferenceManager.checkWriteExternalStoragePermission;
 import static to.msn.wings.sample.R.id.player;
 
 /**
@@ -108,6 +109,7 @@ public class Picture extends AppCompatActivity implements View.OnClickListener{
                 Intent intent=new Intent(Intent.ACTION_OPEN_DOCUMENT);
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
                 intent.setType("image/*");
+                checkWriteExternalStoragePermission(this);
                 startActivityForResult(intent,READ_REQUEST_CODE);
                 break;
             case R.id.change_player2:   //対象をプレイヤー2に変える
@@ -116,6 +118,7 @@ public class Picture extends AppCompatActivity implements View.OnClickListener{
                 Intent intent2=new Intent(Intent.ACTION_OPEN_DOCUMENT);
                 intent2.addCategory(Intent.CATEGORY_OPENABLE);
                 intent2.setType("image/*");
+                checkWriteExternalStoragePermission(this);
                 startActivityForResult(intent2,READ_REQUEST_CODE);
                 break;
         }
