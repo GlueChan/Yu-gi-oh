@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static TextView Player1Text;
     static TextView Player2Text;
 
+    static Button Player1Button;
+    static Button Player2Button;
+
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -49,6 +52,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.dice).setOnClickListener(this);
 
         findViewById(R.id.lifereset).setOnClickListener(this);
+
+
+       //TopMenuの画像に書いてるライフポイント
+        Player1Button = (Button) findViewById(R.id.player);
+        Player2Button = (Button) findViewById(R.id.player2);
 
         //preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND,6);
         //preferenceManager.getIntData(Config.PREF_KEY_PLAYER2_BACKGROUND,6);
@@ -133,7 +141,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent idice = new Intent(MainActivity.this, Dice_screen.class);
                 startActivity(idice);
                 break;
-
             case R.id.lifereset:
                 MainActivity.setPlayer1Life("8000");
                 MainActivity.setPlayer2Life("8000");
@@ -169,6 +176,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     static void setPlayer2Life(String life2){
         Player2Text.setText(life2);
+    }
+
+    static void setButtonPlayer1Life(String life){
+        Player1Button.setText(life);
+    }
+
+    static void setPlayer2Buttonlife(String life){
+        Player2Button.setText(life);
     }
 }
 

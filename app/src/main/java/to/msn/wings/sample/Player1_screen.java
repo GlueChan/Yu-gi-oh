@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import static to.msn.wings.sample.MainActivity.setButtonPlayer1Life;
 import static to.msn.wings.sample.MainActivity.setPlayer1Life;
 
 /**
@@ -424,6 +425,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 //                Intent itop = new Intent(Player1_screen.this, MainActivity.class);
 //                startActivity(itop);
                 setPlayer1Life(editText.getText().toString());
+                setButtonPlayer1Life(editText.getText().toString());
                 finish();
                 break;
 
