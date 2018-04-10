@@ -23,8 +23,6 @@ public class DamageDatabaseControls {
 
     private Handler handler;
 
-    private Player1_screen player1_screen;
-
     //コンストラクター
     public DamageDatabaseControls(Context context) {
         mContext = context;
@@ -76,7 +74,6 @@ public class DamageDatabaseControls {
                     @Override
                     public void run() {
                         Player1_screen.setPlayerAPtext(text);
-                        Player2_screen.setPlayer2APtext(text);
                     }
                 });
             }

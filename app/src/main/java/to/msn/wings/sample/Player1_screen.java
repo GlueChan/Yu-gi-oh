@@ -21,7 +21,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import static to.msn.wings.sample.MainActivity.setButtonPlayer1Life;
+import static to.msn.wings.sample.MainActivity.setButtonPlayer2life;
 import static to.msn.wings.sample.MainActivity.setPlayer1Life;
+import static to.msn.wings.sample.MainActivity.setPlayer2Life;
 
 /**
  * Created by 4163209 on 10/24/2017.
@@ -43,7 +45,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
     private static EditText editText;
 
-    int ValueOne, ValueTwo;
+    int ValueOne, ValueTwo, PlayerId;
 
     boolean Addtion, Subtraction, Division,Equal;
 
@@ -109,9 +111,13 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
         // 現在のintentを取得する
         Intent intent = getIntent();
+
         // intentから指定キーの文字列を取得する
-        final String player1_life = intent.getStringExtra("player1_life");
-        editText.setText(player1_life);
+        editText.setText(""+ intent.getIntExtra("playerLife", 0));
+        PlayerId = intent.getIntExtra("playerId", 0);
+
+        Log.d("intent_editText",editText.getText().toString());
+        Log.d("PlayerID",""+ PlayerId);
 
         //リスナーをセット
         editText.addTextChangedListener(this);
@@ -412,6 +418,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         super.onStart();
         damageDatabaseControls.damageAddBtnCreate((LinearLayout)findViewById(R.id.damageBtnLayout));
         lifeDataBaseControl.lifeAddBtnCreate((EditText) findViewById(R.id.Player_cal1));
+        lifeDataBaseControl.lifeAddBtnCreate((EditText) findViewById(R.id.Player_cal2));
     }
 
     public static void setPlayerAPtext(String text){
@@ -424,11 +431,18 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             case R.id.return_Top:       //トップに戻る
 //                Intent itop = new Intent(Player1_screen.this, MainActivity.class);
 //                startActivity(itop);
-                setPlayer1Life(editText.getText().toString());
-                setButtonPlayer1Life(editText.getText().toString());
+
+                if(PlayerId ==1){
+                    setPlayer1Life(editText.getText().toString());
+                    setButtonPlayer1Life(editText.getText().toString());
+                }
+
+                if(PlayerId == 2){
+                    setPlayer2Life(editText.getText().toString());
+                    setButtonPlayer2life(editText.getText().toString());
+                }
                 finish();
                 break;
-
         }
     }
 }
