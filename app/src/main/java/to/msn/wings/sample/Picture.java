@@ -1,9 +1,11 @@
 package to.msn.wings.sample;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -11,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -106,11 +109,14 @@ public class Picture extends AppCompatActivity implements View.OnClickListener{
             case R.id.change_player1:   //対象をプレイヤー1に変える
                 setNumber=1;
                 Log.d("Player1",setNumber+"Change");
+                //checkWriteExternalStoragePermission(this);  //パーミッションチェック
                 Intent intent=new Intent(Intent.ACTION_OPEN_DOCUMENT);
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
                 intent.setType("image/*");
-                checkWriteExternalStoragePermission(this);
-                startActivityForResult(intent,READ_REQUEST_CODE);
+                checkWriteExternalStoragePermission(this);  //パーミッションチェック
+                if (ActivityCompat.checkSelfPermission(this,Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                    startActivityForResult(intent, READ_REQUEST_CODE);
+                }
                 break;
             case R.id.change_player2:   //対象をプレイヤー2に変える
                 setNumber=2;
@@ -118,8 +124,10 @@ public class Picture extends AppCompatActivity implements View.OnClickListener{
                 Intent intent2=new Intent(Intent.ACTION_OPEN_DOCUMENT);
                 intent2.addCategory(Intent.CATEGORY_OPENABLE);
                 intent2.setType("image/*");
-                checkWriteExternalStoragePermission(this);
-                startActivityForResult(intent2,READ_REQUEST_CODE);
+                checkWriteExternalStoragePermission(this);  //パーミッションチェック
+                if (ActivityCompat.checkSelfPermission(this,Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                    startActivityForResult(intent2, READ_REQUEST_CODE);
+                }
                 break;
         }
     }
@@ -218,5 +226,19 @@ public class Picture extends AppCompatActivity implements View.OnClickListener{
         }
 
         return retPath;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults){
+        switch (requestCode){
+            case 1:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // パーミッションが必要な処理
+                } else {
+                    // パーミッションが得られなかった時
+                    // 処理を中断する・エラーメッセージを出す・アプリケーションを終了する等
+                    Toast.makeText(this,"ストレージアクセスの権限が許可されていないため設定できません",Toast.LENGTH_SHORT).show();
+                }
+        }
     }
 }
