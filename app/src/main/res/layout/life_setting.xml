@@ -8,7 +8,7 @@
         android:id="@+id/return_Page"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="前の画面"
+        android:text="前の画面へ戻る"
         android:background="@drawable/purple"/>
 
     <Button
