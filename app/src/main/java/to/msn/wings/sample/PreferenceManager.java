@@ -3,6 +3,7 @@ package to.msn.wings.sample;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Loader;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
@@ -134,8 +135,6 @@ public class PreferenceManager {
         if (ActivityCompat.checkSelfPermission(activity.getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
             ActivityCompat.requestPermissions(activity, permissions, 1);
-        }else{
-
         }
     }
 }
