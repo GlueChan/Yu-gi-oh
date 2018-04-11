@@ -1,7 +1,6 @@
 package to.msn.wings.sample;
 
 import android.content.ContentValues;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -60,8 +59,8 @@ public class DB extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
             case R.id.return_Page:    //前のページに戻る
-                Intent ipage = new Intent(DB.this, Menu.class);
-                startActivity(ipage);
+//                Intent ipage = new Intent(DB.this, Menu.class);
+//                startActivity(ipage);
                 finish();
                 break;
             case R.id.btnSave:

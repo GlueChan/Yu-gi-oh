@@ -11,7 +11,8 @@
         android:text="戻る"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/purple"/>
 
     <LinearLayout
         android:id="@+id/layout_coin"

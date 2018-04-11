@@ -52,7 +52,6 @@ public class Picture extends AppCompatActivity implements View.OnClickListener{
 
         playerbut = (Button) findViewById(player);
 
-        findViewById(R.id.return_Page).setOnClickListener(this);
         findViewById(R.id.return_Top).setOnClickListener(this);
         findViewById(R.id.change_player1).setOnClickListener(this);
         findViewById(R.id.change_player2).setOnClickListener(this);
@@ -94,16 +93,9 @@ public class Picture extends AppCompatActivity implements View.OnClickListener{
 
     public void onClick(View view){
         switch (view.getId()){
-            case R.id.return_Page:      //前のページに戻る
-                //Intent ipage=new Intent(Picture.this,Menu.class);      //Image_setting
-                //画像データを渡す
-                //ipage.putExtra("Data",gallery);
-                //startActivity(ipage);
-                finish();
-                break;
             case R.id.return_Top:       //トップに戻る
-                Intent itop=new Intent(Picture.this,MainActivity.class);
-                startActivity(itop);
+//                Intent itop=new Intent(Picture.this,MainActivity.class);
+//                startActivity(itop);
                 finish();
                 break;
             case R.id.change_player1:   //対象をプレイヤー1に変える

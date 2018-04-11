@@ -1,18 +1,12 @@
 package to.msn.wings.sample;
 
-import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -31,23 +25,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static TextView Player1Text;
     static TextView Player2Text;
 
+    static Button Player1Button;
+    static Button Player2Button;
+
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.main);
 
+        preferenceManager=new PreferenceManager(this);
+        lifeDataBaseControl = new LifeDataBaseControl(this);
+
         Player1Text = (TextView) findViewById(R.id.Player1_Life);
         Player2Text = (TextView) findViewById(R.id.Player2_Life);
 
-        preferenceManager=new PreferenceManager(this);
-        lifeDataBaseControl = new LifeDataBaseControl(this);
+
+        // プレイヤーの初期値を設定
+        Player1Text.setText(String.valueOf(lifeDataBaseControl.getPlayerDefLife()));
+        Player2Text.setText(String.valueOf(lifeDataBaseControl.getPlayerDefLife()));
+
 
         findViewById(R.id.player).setOnClickListener(this);
         findViewById(R.id.player2).setOnClickListener(this);
         findViewById(R.id.menu).setOnClickListener(this);
         findViewById(R.id.coin).setOnClickListener(this);
         findViewById(R.id.dice).setOnClickListener(this);
+
         findViewById(R.id.lifereset).setOnClickListener(this);
+
+
+       //TopMenuの画像に書いてるライフポイント
+        Player1Button = (Button) findViewById(R.id.player);
+        Player2Button = (Button) findViewById(R.id.player2);
 
         //preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND,6);
         //preferenceManager.getIntData(Config.PREF_KEY_PLAYER2_BACKGROUND,6);
@@ -109,15 +118,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //String tag=(String)view.getTag();
         switch (view.getId()) {
             case R.id.player:           //プレイヤー1のボタンがクリック
-                Intent iPlyer = new Intent(MainActivity.this, Player1_screen.class);
-                String life = Player1Text.getText().toString();
-                iPlyer.putExtra("player1_life",life);
-                startActivity(iPlyer);
+                Intent iPlayer = new Intent(MainActivity.this, Player1_screen.class);
+                int life = Integer.valueOf(Player1Text.getText().toString());
+                iPlayer.putExtra("playerLife",life);
+                iPlayer.putExtra("playerId",1);
+                startActivity(iPlayer);
                 break;
             case R.id.player2:          //プレイヤー2のボタンがクリック
-                Intent iPlayer2 = new Intent(MainActivity.this, Player2_screen.class);
-                String life2 = Player2Text.getText().toString();
-                iPlayer2.putExtra("player2_life",life2);
+                Intent iPlayer2 = new Intent(MainActivity.this, Player1_screen.class);
+                int life2 = Integer.valueOf(Player2Text.getText().toString());
+                iPlayer2.putExtra("playerLife",life2);
+                iPlayer2.putExtra("playerId",2);
                 startActivity(iPlayer2);
                 break;
             case R.id.menu:             //メニュー画面を開く
@@ -127,12 +138,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.coin:             //コイン画面を開く
                 SelectCoinDialog dialog = new SelectCoinDialog();
                 dialog.show(this);
-//                Intent icoin = new Intent(MainActivity.this, Coin_menu.class);
-//                startActivity(icoin);
                 break;
             case R.id.dice:             //ダイス画面を開く
                 Intent idice = new Intent(MainActivity.this, Dice_screen.class);
                 startActivity(idice);
+                break;
+            case R.id.lifereset:
+                MainActivity.setPlayer1Life("8000");
+                MainActivity.setPlayer2Life("8000");
+                setButtonPlayer1Life("8000");
+                setButtonPlayer2life("8000");
                 break;
         }
 
@@ -167,4 +182,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Player2Text.setText(life2);
     }
 
+    static void setButtonPlayer1Life(String life){
+        Player1Button.setText(life);
+    }
+
+    static void setButtonPlayer2life(String life){
+        Player2Button.setText(life);
+    }
 }
+

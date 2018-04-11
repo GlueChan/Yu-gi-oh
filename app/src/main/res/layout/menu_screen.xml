@@ -10,7 +10,8 @@
         android:text="画像の追加＆変更"
         android:layout_above="@+id/setting_life"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/red"/>
 
     <Button
         android:id="@+id/Button_damage"
@@ -19,7 +20,8 @@
         android:text="ダメージ量設定"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/lightblue"/>
 
     <Button
         android:id="@+id/Button_return_top"
@@ -28,7 +30,8 @@
         android:text="Topに戻る"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/purple"/>
 
     <Button
         android:id="@+id/setting_life"
@@ -37,6 +40,7 @@
         android:text="ライフの初期設定"
         android:layout_above="@+id/Button_damage"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/green"/>
 
 </RelativeLayout>
