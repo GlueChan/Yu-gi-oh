@@ -60,7 +60,9 @@ public class Dice_screen extends AppCompatActivity implements View.OnClickListen
 
         dice = (ImageView) findViewById(R.id.dice);
 
-        sound = pool.load(this, R.raw.saikoro, 1);
+        sound = pool.load(this, R.raw.sai, 1);
+
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
     }
 
     public void onClick(final View view) {     //ボタンがクリックされたとき
