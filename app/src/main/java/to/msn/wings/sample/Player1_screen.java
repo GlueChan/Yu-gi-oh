@@ -33,7 +33,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
     private int sound1, sound2, sound3, sound4, sound5,
             sound6, sound7, sound8, sound9, sound0, sound00, sound000,
-            soundAdd, soundSub, soundDivision, soundEqual;
+            soundAdd, soundSub, soundDivision, soundEqual,soundButton;
 
     Button button0, button1, button2, button3, button4, button5,
             button6, button7, button8, button9, button00, button000,
@@ -41,7 +41,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             buttonSub,       //引き算
             buttonDivision, //割り算
             buttonC,         //クリア
-            buttonEqual;    //イコール
+            buttonEqual,    //イコール
+            buttonReturn;
 
     private static EditText editText;
 
@@ -139,9 +140,9 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         buttonAdd = (Button) findViewById(R.id.Button_Add);
         buttonSub = (Button) findViewById(R.id.Button_Subtraction);
         buttonDivision = (Button) findViewById(R.id.Button_Division);
-        buttonC = (Button) findViewById(R.id.return_prev);
+        buttonC = (Button) findViewById(R.id.LifeCLEAR);
         buttonEqual = (Button) findViewById(R.id.Button_Equal);
-
+        buttonReturn = (Button)findViewById(R.id.return_Top);
 
         sound1 = pool.load(this, R.raw.test, 1);
         sound2 = pool.load(this, R.raw.test, 1);
@@ -158,10 +159,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         soundAdd = pool.load(this, R.raw.test, 1);
         soundSub = pool.load(this, R.raw.test, 1);
         soundDivision = pool.load(this, R.raw.test, 1);
+        soundButton = pool.load(this,R.raw.test,1);
         soundEqual = pool.load(this, R.raw.test, 1);
-
-
-
 
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -268,6 +267,14 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                 pool.play(sound9, 1.0f, 1.0f, 1, 0, 1);
 
                 editText.setText(editText.getText() + "9");
+            }
+        });
+
+        buttonC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pool.play(soundAdd, 1.0f, 1.0f, 1, 0, 1);
+                editText.setText("8000");
             }
         });
 
@@ -384,6 +391,17 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                return false;
            }
        });
+
+
+        buttonReturn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(editText.length()==0){
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
 
@@ -442,6 +460,10 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                     setButtonPlayer2life(editText.getText().toString());
                 }
                 finish();
+                break;
+
+            case R.id.damageBtnLayout:
+                pool.play(soundButton, 1.0f, 1.0f, 0, 0, 1);
                 break;
         }
     }

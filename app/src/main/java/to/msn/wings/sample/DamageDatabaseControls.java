@@ -30,7 +30,6 @@ public class DamageDatabaseControls {
         handler = new Handler();
     }
 
-
     public void damageAddBtnCreate(LinearLayout layout) {
         SQLiteDatabase db = damageDatabaseHelper.getReadableDatabase();
         Cursor cs = null;
@@ -64,6 +63,7 @@ public class DamageDatabaseControls {
     public void addButton(LinearLayout layout, final String text) {
         Button btn = new Button(mContext);
         btn.setText(text);
+        btn.setBackgroundResource(R.drawable.lightblue);
         Log.d("textの値は", text);
         btn.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         btn.setOnClickListener(new View.OnClickListener() {
