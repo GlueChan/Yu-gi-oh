@@ -10,15 +10,17 @@
         android:textColor="@color/colorBlack"
         android:gravity="bottom|left"
         android:background="@drawable/text_frame"
-        android:layout_width="260dp"
+        android:layout_width="370dp"
         android:layout_height="30dp"
-        android:id="@+id/player1Text"/>
+        android:id="@+id/player1Text"
+        android:layout_alignRight="@+id/player"
+        android:layout_alignEnd="@+id/player" />
 
     <Button
         android:text="8000"
         android:textColor="@color/colorBlack"
         android:textSize="50dp"
-        android:layout_width="200dp"
+        android:layout_width="270dp"
         android:layout_height="150dp"
         android:id="@+id/player"
         android:background="@drawable/seaman"
@@ -33,35 +35,12 @@
         android:textColor="@color/colorBlack"
         android:gravity="bottom|right"
         android:background="@drawable/text_frame"
-        android:layout_width="260dp"
+        android:layout_width="270dp"
         android:layout_height="30dp"
         android:id="@+id/player2Text"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
-
-    <Button
-        android:text="8000"
-        android:textColor="@color/colorBlack"
-        android:textSize="50dp"
-        android:layout_width="200dp"
-        android:layout_height="150dp"
-        android:id="@+id/player2"
-        android:background="@drawable/seaman"
-        android:tag="TAG_PLAYER2"
-        android:layout_alignBottom="@+id/lifereset"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:text="ライフ\nリセット"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:id="@+id/lifereset"
-        android:tag="TAG_LIFERESET"
-        android:layout_alignBottom="@+id/player"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/lightblue"/>
 
     <TextView
         android:id="@+id/Player1_Life"
@@ -70,7 +49,7 @@
         android:gravity="bottom|right"
         android:background="@drawable/text_frame"
         android:textColor="@color/colorBlack"
-        android:layout_width="200dp"
+        android:layout_width="270dp"
         android:layout_height="30dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -83,40 +62,69 @@
         android:textColor="@color/colorBlack"
         android:gravity="bottom|left"
         android:background="@drawable/text_frame"
-        android:layout_width="200dp"
+        android:layout_width="270dp"
         android:layout_height="30dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:id="@+id/dice"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_alignLeft="@+id/player2"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/player2"
-        android:layout_marginBottom="18dp"
-        android:background="@drawable/dice"
-        android:tag="TAG_DICE" />
+        android:text="8000"
+        android:textColor="@color/colorBlack"
+        android:textSize="50dp"
+        android:layout_width="270dp"
+        android:layout_height="150dp"
+        android:id="@+id/player2"
+        android:background="@drawable/seaman"
+        android:tag="TAG_PLAYER2"
+        android:layout_below="@+id/player2Text"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:id="@+id/coin"
         android:background="@drawable/gold"
         android:tag="COIN"
-        android:layout_alignBottom="@+id/dice"
-        android:layout_alignRight="@+id/player"
-        android:layout_alignEnd="@+id/player" />
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="ライフ\nリセット"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:id="@+id/lifereset"
+        android:tag="TAG_LIFERESET"
+        android:background="@drawable/lightblue"
+        android:layout_below="@+id/player"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp" />
+
+    <Button
+        android:id="@+id/dice"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/dice"
+        android:tag="TAG_DICE"
+        android:layout_marginRight="29dp"
+        android:layout_marginEnd="29dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:text="Menu"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
         android:id="@+id/menu"
         android:tag="TAG_MENU"
-        android:layout_alignTop="@+id/dice"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/purple"/>
+        android:background="@drawable/purple"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/lifereset"
+        android:layout_alignLeft="@+id/lifereset"
+        android:layout_alignStart="@+id/lifereset" />
 </RelativeLayout>

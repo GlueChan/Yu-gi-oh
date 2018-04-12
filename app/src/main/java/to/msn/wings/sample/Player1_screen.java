@@ -33,7 +33,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
     private int sound1, sound2, sound3, sound4, sound5,
             sound6, sound7, sound8, sound9, sound0, sound00, sound000,
-            soundAdd, soundSub, soundDivision, soundEqual;
+            soundAdd, soundSub, soundDivision, soundEqual,soundButton;
 
     Button button0, button1, button2, button3, button4, button5,
             button6, button7, button8, button9, button00, button000,
@@ -41,11 +41,12 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             buttonSub,       //引き算
             buttonDivision, //割り算
             buttonC,         //クリア
-            buttonEqual;    //イコール
+            buttonEqual,    //イコール
+            buttonReturn;
 
     private static EditText editText;
 
-    int ValueOne, ValueTwo, PlayerId;
+    int ValueOne, ValueTwo, PlayerId,Test;
 
     boolean Addtion, Subtraction, Division,Equal;
 
@@ -139,9 +140,9 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         buttonAdd = (Button) findViewById(R.id.Button_Add);
         buttonSub = (Button) findViewById(R.id.Button_Subtraction);
         buttonDivision = (Button) findViewById(R.id.Button_Division);
-        buttonC = (Button) findViewById(R.id.return_prev);
+        buttonC = (Button) findViewById(R.id.LifeCLEAR);
         buttonEqual = (Button) findViewById(R.id.Button_Equal);
-
+        buttonReturn = (Button)findViewById(R.id.return_Top);
 
         sound1 = pool.load(this, R.raw.test, 1);
         sound2 = pool.load(this, R.raw.test, 1);
@@ -158,10 +159,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         soundAdd = pool.load(this, R.raw.test, 1);
         soundSub = pool.load(this, R.raw.test, 1);
         soundDivision = pool.load(this, R.raw.test, 1);
+        soundButton = pool.load(this,R.raw.test,1);
         soundEqual = pool.load(this, R.raw.test, 1);
-
-
-
 
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -271,6 +270,13 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             }
         });
 
+        buttonC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pool.play(soundAdd, 1.0f, 1.0f, 1, 0, 1);
+                editText.setText("8000");
+            }
+        });
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -279,9 +285,10 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                 if (editText.length() == 0) {
                     Addtion = false;
                     editText.setText("");
-                } else {
+                }else{
+                	Addtion = true;
                     ValueOne = Integer.parseInt(editText.getText().toString());
-                    Addtion = true;
+                    Test = 1;
                     editText.setText(null);
                 }
             }
@@ -296,9 +303,10 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                 if (editText.length() == 0) {
                     Subtraction = false;
                     editText.setText("");
-                } else {
+                }else {
                     Subtraction = true;
                     ValueOne = Integer.parseInt(editText.getText().toString());
+                    Test = 1;
                     editText.setText(null);
                 }
             }
@@ -316,6 +324,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                 } else {
                     Division = true;
                     ValueOne = Integer.parseInt(editText.getText().toString());
+                    Test = 1;
                     editText.setText(null);
                 }
             }
@@ -329,41 +338,49 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
                 ValueTwo = Integer.parseInt(editText.getText().toString());
 
-                if (Addtion) {
-                    Log.d("ValueOne", "" + ValueOne);
-                    Log.d("ValueTwo", "" + ValueTwo);
-                    editText.setText(ValueOne + ValueTwo + "");
-                    Log.d("足し算：", "" + editText.getText().toString());
-                    Addtion = false;
-                }
 
-                if (Subtraction) {
-                    Log.d("ValueOne", "" + ValueOne);
-                    Log.d("ValueTwo", "" + ValueTwo);
+                    if (Addtion) {
+                        Log.d("ValueOne", "" + ValueOne);
+                        Log.d("ValueTwo", "" + ValueTwo);
+                        editText.setText(ValueOne + ValueTwo + "");
+                        Log.d("足し算：", "" + editText.getText().toString());
+                        Test = 1;
+                        Addtion = false;
+                        Test = 0;
 
-                    if (ValueOne - ValueTwo < 0) {
-                        editText.setText("0");
-                        Log.d("引き算マイナス：", "" + editText.getText().toString());
-                        Subtraction = false;
-                    } else {
-                        editText.setText(ValueOne - ValueTwo + "");
-                        Log.d("引き算：", "" + editText.getText().toString());
-                        Subtraction = false;
                     }
-                }
+                    if (Subtraction) {
+                        Log.d("ValueOne", "" + ValueOne);
+                        Log.d("ValueTwo", "" + ValueTwo);
 
-                if (Division) {
-                    Log.d("ValueOne", "" + ValueOne);
-                    Log.d("ValueTwo", "" + ValueTwo);
-                    editText.setText(ValueOne / ValueTwo + "");
-                    Log.d("割り算：", "" + editText.getText().toString());
-                    Division = false;
+                        if (ValueOne - ValueTwo < 0) {
+                            editText.setText("0");
+                            Log.d("引き算マイナス：", "" + editText.getText().toString());
+                            Subtraction = false;
 
-                    if (ValueOne / ValueTwo < -1) {
-                        editText.setText(0);
-                        Log.d("割り算マイナス：", "" + editText.getText().toString());
+                        } else {
+                            editText.setText(ValueOne - ValueTwo + "");
+                            Log.d("引き算：", "" + editText.getText().toString());
+                            Test = 1;
+                            Subtraction = false;
+                            Test = 0;
+                        }
+                    }
+
+                    if (Division) {
+                        Log.d("ValueOne", "" + ValueOne);
+                        Log.d("ValueTwo", "" + ValueTwo);
+                        editText.setText(ValueOne / ValueTwo + "");
+                        Log.d("割り算：", "" + editText.getText().toString());
                         Division = false;
-                    }
+
+                        if (ValueOne / ValueTwo < -1) {
+                            editText.setText(0);
+                            Log.d("割り算マイナス：", "" + editText.getText().toString());
+                            Test = 1;
+                            Division = false;
+                            Test = 0;
+                        }
                 }
             }
         });
@@ -377,13 +394,76 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                if(editText.length()==0){
                    return true;
                }
-
                if(editText.length() >=1){
                    ValueTwo = Integer.parseInt(editText.getText().toString());
                }
                return false;
            }
        });
+
+
+        buttonReturn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(editText.length()==0){
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        buttonAdd.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (Test == 1) {
+                    Log.d("Test",""+ Test);
+                    return true;
+                }
+
+                if(Test ==0) {
+                    Log.d("Test&Equal",""+Test);
+                    Test = 0;
+                }
+                return false;
+            }
+        });
+
+
+
+        buttonSub.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (Test == 1) {
+                    Log.d("Test",""+ Test);
+                    return true;
+                }
+
+                if(Test ==0) {
+                    Log.d("Test&Equal",""+Test);
+                    Test = 0;
+                }
+                return false;
+            }
+        });
+
+        buttonDivision.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (Test == 1) {
+                    Log.d("Test",""+ Test);
+                    return true;
+                }
+
+                if(Test ==0) {
+                    Log.d("Test&Equal",""+Test);
+                    Test = 0;
+                }
+                return false;
+            }
+        });
+
+
+
     }
 
 
@@ -405,11 +485,11 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
    //最後に呼ばれるメソッド
     @Override
     public void afterTextChanged(Editable s){
-        String string = s.toString();
-
-        if(string.length()>4){
-            ValueOne = Integer.parseInt(string);
-        }
+//        String string = s.toString();
+//
+//        if(string.length()>4){
+//            ValueOne = Integer.parseInt(string);
+//        }
     }
 
 
@@ -442,6 +522,10 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                     setButtonPlayer2life(editText.getText().toString());
                 }
                 finish();
+                break;
+
+            case R.id.damageBtnLayout:
+                pool.play(soundButton, 1.0f, 1.0f, 0, 0, 1);
                 break;
         }
     }
