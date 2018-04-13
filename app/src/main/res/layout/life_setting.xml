@@ -46,6 +46,7 @@
                 android:id="@+id/txtLife"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLength="5"
                 android:inputType="number"/>
         </TableRow>
         <TableRow>

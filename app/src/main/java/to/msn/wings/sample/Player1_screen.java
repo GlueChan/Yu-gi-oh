@@ -20,8 +20,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import static to.msn.wings.sample.MainActivity.setButtonPlayer1Life;
-import static to.msn.wings.sample.MainActivity.setButtonPlayer2life;
 import static to.msn.wings.sample.MainActivity.setPlayer1Life;
 import static to.msn.wings.sample.MainActivity.setPlayer2Life;
 
@@ -286,9 +284,9 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                     Addtion = false;
                     editText.setText("");
                 }else{
-                	Addtion = true;
                     ValueOne = Integer.parseInt(editText.getText().toString());
-                    Test = 1;
+                    Addtion = true;
+                    Test  = 1;
                     editText.setText(null);
                 }
             }
@@ -304,8 +302,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                     Subtraction = false;
                     editText.setText("");
                 }else {
-                    Subtraction = true;
                     ValueOne = Integer.parseInt(editText.getText().toString());
+                    Subtraction = true;
                     Test = 1;
                     editText.setText(null);
                 }
@@ -322,13 +320,14 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                     Division = false;
                     editText.setText("");
                 } else {
-                    Division = true;
                     ValueOne = Integer.parseInt(editText.getText().toString());
-                    Test = 1;
+                    Division = true;
+                    Test= 1;
                     editText.setText(null);
                 }
             }
         });
+
 
 
         buttonEqual.setOnClickListener(new View.OnClickListener() {
@@ -337,7 +336,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                 pool.play(soundEqual, 1.0f, 1.0f, 1, 0, 1);
 
                 ValueTwo = Integer.parseInt(editText.getText().toString());
-
 
                     if (Addtion) {
                         Log.d("ValueOne", "" + ValueOne);
@@ -353,14 +351,15 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                         Log.d("ValueOne", "" + ValueOne);
                         Log.d("ValueTwo", "" + ValueTwo);
 
+                        editText.setText(ValueOne - ValueTwo + "");
+                        Log.d("引き算：", "" + editText.getText().toString());
+                        Test = 1;
+                        Subtraction = false;
+                        Test = 0;
+
                         if (ValueOne - ValueTwo < 0) {
                             editText.setText("0");
                             Log.d("引き算マイナス：", "" + editText.getText().toString());
-                            Subtraction = false;
-
-                        } else {
-                            editText.setText(ValueOne - ValueTwo + "");
-                            Log.d("引き算：", "" + editText.getText().toString());
                             Test = 1;
                             Subtraction = false;
                             Test = 0;
@@ -368,19 +367,32 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                     }
 
                     if (Division) {
+
                         Log.d("ValueOne", "" + ValueOne);
                         Log.d("ValueTwo", "" + ValueTwo);
                         editText.setText(ValueOne / ValueTwo + "");
                         Log.d("割り算：", "" + editText.getText().toString());
+                        Test = 1;
                         Division = false;
+                        Test = 0;
 
-                        if (ValueOne / ValueTwo < -1) {
-                            editText.setText(0);
-                            Log.d("割り算マイナス：", "" + editText.getText().toString());
+                        if(ValueOne >=1 && ValueTwo ==0){
+                            editText.setText("0");
                             Test = 1;
                             Division = false;
                             Test = 0;
                         }
+
+//                        if (ValueOne / ValueTwo < -1) {
+//                            editText.setText(0);
+//                            Log.d("割り算マイナス：", "" + editText.getText().toString());
+//                            Test = 1;
+//                            Division = false;
+//                            Test= 0;
+//                        }
+
+
+
                 }
             }
         });
@@ -394,6 +406,10 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                if(editText.length()==0){
                    return true;
                }
+               if(ValueOne >=1 &&ValueTwo==0){
+                   return true;
+               }
+
                if(editText.length() >=1){
                    ValueTwo = Integer.parseInt(editText.getText().toString());
                }
@@ -412,60 +428,54 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             }
         });
 
+        //＋ボタンが押されたときに変数Activeに1が入る
+        //変数Activeが1の時＋ボタンは押せなくなる
+        //＝ボタンが押されると変数Activeは0になる
         buttonAdd.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if (Test == 1) {
-                    Log.d("Test",""+ Test);
+                if (Test==1) {
                     return true;
                 }
-
-                if(Test ==0) {
-                    Log.d("Test&Equal",""+Test);
-                    Test = 0;
+                if(Test==0){
+                    Test =0;
                 }
                 return false;
             }
         });
 
-
-
+        //－ボタンが押されたときに変数Activeに1が入る
+        //変数Activeが1の時－ボタンは押せなくなる
+        //＝ボタンが押されると変数Activeは0になる
         buttonSub.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (Test == 1) {
-                    Log.d("Test",""+ Test);
                     return true;
                 }
-
-                if(Test ==0) {
-                    Log.d("Test&Equal",""+Test);
+                if(Test == 0){
                     Test = 0;
                 }
                 return false;
             }
         });
 
+        //÷ボタンが押されたときに変数Activeに1が入る
+        //変数Activeが1の時÷ボタンは押せなくなる
+        //＝ボタンが押されると変数Activeは0になる
         buttonDivision.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (Test == 1) {
-                    Log.d("Test",""+ Test);
                     return true;
                 }
-
-                if(Test ==0) {
-                    Log.d("Test&Equal",""+Test);
-                    Test = 0;
+                if(Test == 0){
+                    Test =0;
                 }
                 return false;
             }
         });
-
-
-
     }
-
 
     //先頭の"0"を削除する
     public static String DeleteZero(String  str){
@@ -512,14 +522,17 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 //                Intent itop = new Intent(Player1_screen.this, MainActivity.class);
 //                startActivity(itop);
 
-                if(PlayerId ==1){
-                    setPlayer1Life(editText.getText().toString());
-                    setButtonPlayer1Life(editText.getText().toString());
-                }
+                // プレイヤーIDに合わせてライフを更新する
+                switch (PlayerId){
+                    case 1:
+                        setPlayer1Life(editText.getText().toString());
+                        break;
 
-                if(PlayerId == 2){
-                    setPlayer2Life(editText.getText().toString());
-                    setButtonPlayer2life(editText.getText().toString());
+                    case 2:
+                        setPlayer2Life(editText.getText().toString());
+                        break;
+                    default:
+                        break;
                 }
                 finish();
                 break;

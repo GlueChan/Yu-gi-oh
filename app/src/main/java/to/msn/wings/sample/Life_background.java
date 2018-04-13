@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 
 /**
  * Created by 4163209 on 11/2/2017.
@@ -13,7 +12,6 @@ import android.widget.Button;
 public class Life_background extends AppCompatActivity implements View.OnClickListener{
     int setNumber=0;
 
-    private Button mPlayerBotton ;
     PreferenceManager preferenceManager;
 
     @Override
@@ -29,8 +27,6 @@ public class Life_background extends AppCompatActivity implements View.OnClickLi
         findViewById(R.id.change_player2).setOnClickListener(this);
         findViewById(R.id.background_change).setOnClickListener(this);
         findViewById(R.id.background_change2).setOnClickListener(this);
-
-        mPlayerBotton = (Button)findViewById(R.id.player);
     }
 
     public void onClick(View view) {     //ボタンがクリックされたとき
