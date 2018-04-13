@@ -25,7 +25,6 @@ import java.io.File;
 import java.io.IOException;
 
 import static to.msn.wings.sample.PreferenceManager.checkWriteExternalStoragePermission;
-import static to.msn.wings.sample.R.id.player;
 
 /**
  * Created by 4163214 on 1/16/2018.
@@ -36,7 +35,6 @@ public class Picture extends AppCompatActivity implements View.OnClickListener{
     ImageView imageView;
     private Bitmap gallery;
     int setNumber=0;
-    Button playerbut;
     PreferenceManager preferenceManager;
 
     @Override
@@ -49,8 +47,6 @@ public class Picture extends AppCompatActivity implements View.OnClickListener{
         Button button1=(Button)findViewById(R.id.get_image);
         Button button2=(Button)findViewById(R.id.set_image);
         imageView=(ImageView)findViewById(R.id.image_view);
-
-        playerbut = (Button) findViewById(player);
 
         findViewById(R.id.return_Top).setOnClickListener(this);
         findViewById(R.id.change_player1).setOnClickListener(this);

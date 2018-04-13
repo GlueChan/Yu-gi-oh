@@ -4,18 +4,19 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
+import static android.graphics.Bitmap.createScaledBitmap;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -25,8 +26,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static TextView Player1Text;
     static TextView Player2Text;
 
-    static Button Player1Button;
-    static Button Player2Button;
+    static ImageView ibtnPlayer1;
+    static ImageView ibtnPlayer2;
 
     @Override
     protected void onCreate(Bundle bundle) {
@@ -36,8 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         preferenceManager=new PreferenceManager(this);
         lifeDataBaseControl = new LifeDataBaseControl(this);
 
-        Player1Text = (TextView) findViewById(R.id.Player1_Life);
-        Player2Text = (TextView) findViewById(R.id.Player2_Life);
+        Player1Text = (TextView) findViewById(R.id.tvP1Life);
+        Player2Text = (TextView) findViewById(R.id.tvP2Life);
 
 
         // プレイヤーの初期値を設定
@@ -45,29 +46,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Player2Text.setText(String.valueOf(lifeDataBaseControl.getPlayerDefLife()));
 
 
-        findViewById(R.id.player).setOnClickListener(this);
-        findViewById(R.id.player2).setOnClickListener(this);
-        findViewById(R.id.menu).setOnClickListener(this);
-        findViewById(R.id.coin).setOnClickListener(this);
-        findViewById(R.id.dice).setOnClickListener(this);
+        findViewById(R.id.layoutP1).setOnClickListener(this);
+        findViewById(R.id.layoutP2).setOnClickListener(this);
+        findViewById(R.id.btnMenu).setOnClickListener(this);
+        findViewById(R.id.btnCoin).setOnClickListener(this);
+        findViewById(R.id.btnDice).setOnClickListener(this);
 
-        findViewById(R.id.lifereset).setOnClickListener(this);
+        findViewById(R.id.btnReset).setOnClickListener(this);
 
 
        //TopMenuの画像に書いてるライフポイント
-        Player1Button = (Button) findViewById(R.id.player);
-        Player2Button = (Button) findViewById(R.id.player2);
+        ibtnPlayer1 = (ImageView) findViewById(R.id.ivP1);
+        ibtnPlayer2 = (ImageView) findViewById(R.id.ivP2);
 
         //preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND,6);
         //preferenceManager.getIntData(Config.PREF_KEY_PLAYER2_BACKGROUND,6);
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
+    public void onWindowFocusChanged(boolean hasFocus) {
 
-        Button buttonplayer1 = (Button)findViewById(R.id.player);
-        Button buttonplayer2 = (Button)findViewById(R.id.player2);
+        ImageView buttonplayer1 = (ImageView)findViewById(R.id.ivP1);
+        ImageView buttonplayer2 = (ImageView)findViewById(R.id.ivP2);
 
         int resId1 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND,6);    //初回起動時
         int resId2 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER2_BACKGROUND,6);    //初回起動時
@@ -75,79 +75,59 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String play1_bgpath=preferenceManager.getStringData("Player1_Path","0");
         String play2_bgpath=preferenceManager.getStringData("Player2_Path","0");
 
-        /*if(play1_bgpath=="0"){
-            buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
-        }else{
-            Bitmap bmp =setupBackgroundBitmap(getContentResolver(),play1_bgpath);
-            BitmapDrawable image = new BitmapDrawable(bmp);
-            buttonplayer1.setBackground(image);
-        }*/
+        setPlayerImage(ibtnPlayer1, play1_bgpath, 1);
+        setPlayerImage(ibtnPlayer2, play2_bgpath, 2);
 
-        /*if(play2_bgpath=="0"){
-            buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
-        }else{
-            Bitmap bmp2 =setupBackgroundBitmap(getContentResolver(),play2_bgpath);
-            BitmapDrawable image2 = new BitmapDrawable(bmp2);
-            buttonplayer2.setBackground(image2);
-        }*/
-
-        if (play1_bgpath.startsWith("/storage")) {
-            Bitmap bmp =setupBackgroundBitmap(getContentResolver(),play1_bgpath);
-            BitmapDrawable image = new BitmapDrawable(bmp);
-            buttonplayer1.setBackground(image);
-        }else{
-            buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
-        }
-
-        if (play2_bgpath.startsWith("/storage")) {
-            Bitmap bmp2 =setupBackgroundBitmap(getContentResolver(),play2_bgpath);
-            BitmapDrawable image2 = new BitmapDrawable(bmp2);
-            buttonplayer2.setBackground(image2);
-        }else{
-            buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
-        }
-
-        //buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
-        //buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
-
-       //lifeDataBaseControl.ChangeLifeOnMenu((TextView) findViewById(R.id.Player1_Life));
-        //lifeDataBaseControl.ChangeLifeOnMenu((TextView) findViewById(R.id.Player2_Life));
+//        if (play1_bgpath.startsWith("/storage")) {
+//            Bitmap bmp1 =setupBackgroundBitmap(getContentResolver(),play1_bgpath);
+//            Bitmap bmpFitSize = createScaledBitmap(bmp1,buttonplayer1.getWidth(),buttonplayer1.getHeight(),false);
+//            buttonplayer1.setImageBitmap(bmpFitSize);
+//        }else{
+//            buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
+//        }
+//
+//        //画像をリサイズする
+//        if (play2_bgpath.startsWith("/storage")) {
+//            Bitmap bmp2 =setupBackgroundBitmap(getContentResolver(),play2_bgpath);
+//            Bitmap bmpFitSize = createScaledBitmap(bmp2,buttonplayer2.getWidth(), buttonplayer2.getHeight(), false);
+//            buttonplayer2.setImageBitmap(bmpFitSize);
+//        }else{
+//            buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
+//        }
     }
 
     public void onClick(View view){     //ボタンがクリックされたとき
         //String tag=(String)view.getTag();
         switch (view.getId()) {
-            case R.id.player:           //プレイヤー1のボタンがクリック
+            case R.id.layoutP1:           //プレイヤー1のボタンがクリック
                 Intent iPlayer = new Intent(MainActivity.this, Player1_screen.class);
                 int life = Integer.valueOf(Player1Text.getText().toString());
                 iPlayer.putExtra("playerLife",life);
                 iPlayer.putExtra("playerId",1);
                 startActivity(iPlayer);
                 break;
-            case R.id.player2:          //プレイヤー2のボタンがクリック
+            case R.id.layoutP2:          //プレイヤー2のボタンがクリック
                 Intent iPlayer2 = new Intent(MainActivity.this, Player1_screen.class);
                 int life2 = Integer.valueOf(Player2Text.getText().toString());
                 iPlayer2.putExtra("playerLife",life2);
                 iPlayer2.putExtra("playerId",2);
                 startActivity(iPlayer2);
                 break;
-            case R.id.menu:             //メニュー画面を開く
+            case R.id.btnMenu:             //メニュー画面を開く
                 Intent imenu = new Intent(MainActivity.this, Menu.class);
                 startActivity(imenu);
                 break;
-            case R.id.coin:             //コイン画面を開く
+            case R.id.btnCoin:             //コイン画面を開く
                 SelectCoinDialog dialog = new SelectCoinDialog();
                 dialog.show(this);
                 break;
-            case R.id.dice:             //ダイス画面を開く
+            case R.id.btnDice:             //ダイス画面を開く
                 Intent idice = new Intent(MainActivity.this, Dice_screen.class);
                 startActivity(idice);
                 break;
-            case R.id.lifereset:
+            case R.id.btnReset:
                 MainActivity.setPlayer1Life("8000");
                 MainActivity.setPlayer2Life("8000");
-                setButtonPlayer1Life("8000");
-                setButtonPlayer2life("8000");
                 break;
         }
 
@@ -182,12 +162,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Player2Text.setText(life2);
     }
 
-    static void setButtonPlayer1Life(String life){
-        Player1Button.setText(life);
-    }
-
-    static void setButtonPlayer2life(String life){
-        Player2Button.setText(life);
+    /**
+     * プレイヤーのImageViewに画像をセットする
+     * @param imageView 画像をセットするImageView
+     * @param imagePath ユーザーの指定した画像
+     * @param userId プレイヤーのID（Default画像の切り替えで使用）
+     */
+    private void setPlayerImage(ImageView imageView, String imagePath, int userId) {
+        if (imagePath.startsWith("/storage")) {
+            // ユーザーのストレージに保存されている画像
+            Bitmap bmp = setupBackgroundBitmap(getContentResolver(), imagePath);
+            // 画像をImageViewに合わせてリサイズする
+            Bitmap bmpFitSize = createScaledBitmap(bmp, imageView.getWidth(), imageView.getHeight(), false);
+            // ImageViewに画像をセットする
+            imageView.setImageBitmap(bmpFitSize);
+        } else {
+            // Defaultの背景画像を表示する
+            imageView.setImageResource(Config.getBackgroundImageId(userId));
+        }
     }
 }
 

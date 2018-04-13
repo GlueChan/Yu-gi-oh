@@ -1,130 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:text="Player1"
-        android:textSize="20dp"
-        android:textColor="@color/colorBlack"
-        android:gravity="bottom|left"
-        android:background="@drawable/text_frame"
-        android:layout_width="370dp"
-        android:layout_height="30dp"
-        android:id="@+id/player1Text"
-        android:layout_alignRight="@+id/player"
-        android:layout_alignEnd="@+id/player" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-    <Button
-        android:text="8000"
-        android:textColor="@color/colorBlack"
-        android:textSize="50dp"
-        android:layout_width="270dp"
-        android:layout_height="150dp"
-        android:id="@+id/player"
-        android:background="@drawable/seaman"
-        android:tag="TAG_PLAYER1"
-        android:layout_below="@+id/player1Text"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <FrameLayout
+                android:id="@+id/layoutP1"
+                android:background="@drawable/red"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="5dp">
 
-    <TextView
-        android:text="Player2"
-        android:textSize="20dp"
-        android:textColor="@color/colorBlack"
-        android:gravity="bottom|right"
-        android:background="@drawable/text_frame"
-        android:layout_width="270dp"
-        android:layout_height="30dp"
-        android:id="@+id/player2Text"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+                <ImageView
+                    android:textColor="@color/colorBlack"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/ivP1" />
 
-    <TextView
-        android:id="@+id/Player1_Life"
-        android:text="8000"
-        android:textSize="20dp"
-        android:gravity="bottom|right"
-        android:background="@drawable/text_frame"
-        android:textColor="@color/colorBlack"
-        android:layout_width="270dp"
-        android:layout_height="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+                <TextView
+                    android:id="@+id/tvP1Name"
+                    android:text="Player1"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20dp"
+                    android:background="#a000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"/>
 
-    <TextView
-        android:id="@+id/Player2_Life"
-        android:text="8000"
-        android:textSize="20dp"
-        android:textColor="@color/colorBlack"
-        android:gravity="bottom|left"
-        android:background="@drawable/text_frame"
-        android:layout_width="270dp"
-        android:layout_height="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+                <TextView
+                    android:id="@+id/tvP1Life"
+                    android:text="8000"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    style="@style/PlayerLife"
+                    android:background="#a000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </FrameLayout>
 
-    <Button
-        android:text="8000"
-        android:textColor="@color/colorBlack"
-        android:textSize="50dp"
-        android:layout_width="270dp"
-        android:layout_height="150dp"
-        android:id="@+id/player2"
-        android:background="@drawable/seaman"
-        android:tag="TAG_PLAYER2"
-        android:layout_below="@+id/player2Text"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+            <FrameLayout
+                android:id="@+id/layoutP2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/blue"
+                android:padding="5dp">
 
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:id="@+id/coin"
-        android:background="@drawable/gold"
-        android:tag="COIN"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+                <ImageView
+                    android:textColor="@color/colorBlack"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/ivP2" />
 
-    <Button
-        android:text="ライフ\nリセット"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:id="@+id/lifereset"
-        android:tag="TAG_LIFERESET"
-        android:background="@drawable/lightblue"
-        android:layout_below="@+id/player"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp" />
+                <TextView
+                    android:id="@+id/tvP2Name"
+                    android:text="Player2"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20dp"
+                    android:background="#a000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"/>
 
-    <Button
-        android:id="@+id/dice"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:background="@drawable/dice"
-        android:tag="TAG_DICE"
-        android:layout_marginRight="29dp"
-        android:layout_marginEnd="29dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+                <TextView
+                    android:id="@+id/tvP2Life"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:text="8000"
+                    style="@style/PlayerLife"
+                    android:background="#a000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </FrameLayout>
+    </LinearLayout>
 
-    <Button
-        android:text="Menu"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:id="@+id/menu"
-        android:tag="TAG_MENU"
-        android:background="@drawable/purple"
-        android:layout_marginTop="16dp"
-        android:layout_below="@+id/lifereset"
-        android:layout_alignLeft="@+id/lifereset"
-        android:layout_alignStart="@+id/lifereset" />
-</RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCoin"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/gold"
+            android:layout_marginRight="20dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/btnReset"
+                android:text="RESET"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:background="@drawable/lightblue"/>
+
+            <Button
+                android:id="@+id/btnMenu"
+                android:text="MENU"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/purple"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btnDice"
+            android:layout_marginLeft="20dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/dice" />
+
+    </LinearLayout>
+</LinearLayout>
