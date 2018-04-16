@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static to.msn.wings.sample.MainActivity.setPlayer1Life;
 import static to.msn.wings.sample.MainActivity.setPlayer2Life;
@@ -44,9 +45,11 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
     private static EditText editText;
 
-    int ValueOne, ValueTwo, PlayerId, Test;
+    int ValueOne, ValueTwo, PlayerId, Test,isjudge;
 
-    boolean Addtion, Subtraction, Division, Equal;
+    int alternaOne;
+
+    boolean Addtion, Subtraction, Division;
 
 
     DamageDatabaseControls damageDatabaseControls;
@@ -89,6 +92,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         lifeDataBaseControl = new LifeDataBaseControl(this);
 
         findViewById(R.id.return_Top).setOnClickListener(this);
+        findViewById(R.id.Button_Equal).setOnClickListener(this);
 
         editText = (EditText) findViewById(R.id.Player_cal1);
 
@@ -108,18 +112,23 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             }
         });
 
+
+
         // 現在のintentを取得する
         Intent intent = getIntent();
 
         // intentから指定キーの文字列を取得する
         editText.setText("" + intent.getIntExtra("playerLife", 0));
         PlayerId = intent.getIntExtra("playerId", 0);
+        isjudge  = 0;
 
         Log.d("intent_editText", editText.getText().toString());
         Log.d("PlayerID", "" + PlayerId);
+        Log.d("isjudge",""+isjudge);
 
         //リスナーをセット
         editText.addTextChangedListener(this);
+
 
         button0 = (Button) findViewById(R.id.Button_0);
         button00 = (Button) findViewById(R.id.Button_00);
@@ -334,6 +343,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             public void onClick(View v) {
                 pool.play(soundEqual, 1.0f, 1.0f, 1, 0, 1);
 
+
                 ValueTwo = Integer.parseInt(editText.getText().toString());
 
                 if (Addtion) {
@@ -371,7 +381,11 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                     if (ValueTwo != 0) {
                         Log.d("ValueOne", "" + ValueOne);
                         Log.d("ValueTwo", "" + ValueTwo);
-                        editText.setText(ValueOne / ValueTwo + "");
+
+                        alternaOne = ValueOne / ValueTwo;
+                        ValueOne = Integer.parseInt("%.3f",alternaOne);
+                        editText.setText(ValueOne);
+
                         Log.d("割り算：", "" + editText.getText().toString());
                         Test = 1;
                         Division = false;
@@ -379,7 +393,9 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
                         //ValueTwoが"0"の時
                     } else {
-                        judgeZero(ValueTwo);
+                        isjudge =1;
+                        Log.d("else_isjudge","" + isjudge);
+                        judgeZero(ValueTwo,"0では割れませんよ",ValueOne);
                     }
                 }
             }
@@ -490,23 +506,21 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         editText.setText(text);
     }
 
-
-    public void judgeZero(int ValueTwo) {
+    public void judgeZero(int ValueTwo,String text,int ValueOne) {
         try {
             if( ValueTwo==0 ) {
                 throw new ArithmeticException();
             }
         } catch (java.lang.ArithmeticException devied_by_zero) {
-            editText.setText("割れないよ");
+            String s = String.valueOf(ValueOne);
+            Toast.makeText(this,text,Toast.LENGTH_LONG).show();
+            editText.setText(s);
+            Test = 0;
         }
     }
-
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
             case R.id.return_Top:       //トップに戻る
-//                Intent itop = new Intent(Player1_screen.this, MainActivity.class);
-//                startActivity(itop);
-
                 // プレイヤーIDに合わせてライフを更新する
                 switch (PlayerId){
                     case 1:
@@ -516,18 +530,23 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                     case 2:
                         setPlayer2Life(editText.getText().toString());
                         break;
+
                     default:
                         break;
                 }
                 finish();
                 break;
 
-            case R.id.damageBtnLayout:
-                pool.play(soundButton, 1.0f, 1.0f, 0, 0, 1);
+            case R.id.Button_Equal:
+                switch (isjudge){
+                    case 1:
+                        isjudge =0;
+                        break;
+                }
                 break;
+            }
         }
     }
-}
 
 
 
