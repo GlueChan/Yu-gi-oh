@@ -367,18 +367,20 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                 }
 
                 if (Division) {
+                    //ValueTwoが0ではない時
+                    if (ValueTwo != 0) {
+                        Log.d("ValueOne", "" + ValueOne);
+                        Log.d("ValueTwo", "" + ValueTwo);
+                        editText.setText(ValueOne / ValueTwo + "");
+                        Log.d("割り算：", "" + editText.getText().toString());
+                        Test = 1;
+                        Division = false;
+                        Test = 0;
 
-                    judgeZero(ValueOne,ValueTwo);
-
-                    Log.d("ValueOne", "" + ValueOne);
-                    Log.d("ValueTwo", "" + ValueTwo);
-                    editText.setText(ValueOne / ValueTwo + "");
-                    Log.d("割り算：", "" + editText.getText().toString());
-                    Test = 1;
-                    Division = false;
-                    Test = 0;
-
-
+                        //ValueTwoが"0"の時
+                    } else {
+                        judgeZero(ValueTwo);
+                    }
                 }
             }
         });
@@ -410,9 +412,9 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-        //＋ボタンが押されたときに変数Activeに1が入る
-        //変数Activeが1の時＋ボタンは押せなくなる
-        //＝ボタンが押されると変数Activeは0になる
+        //＋ボタンが押されたときに変数Testに1が入る
+        //変数Testが1の時＋ボタンは押せなくなる
+        //＝ボタンが押されると変数Testは0になる
         buttonAdd.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -426,9 +428,9 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-        //－ボタンが押されたときに変数Activeに1が入る
-        //変数Activeが1の時－ボタンは押せなくなる
-        //＝ボタンが押されると変数Activeは0になる
+        //－ボタンが押されたときに変数Testに1が入る
+        //変数Testが1の時－ボタンは押せなくなる
+        //＝ボタンが押されると変数Testは0になる
         buttonSub.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -442,9 +444,9 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-        //÷ボタンが押されたときに変数Activeに1が入る
-        //変数Activeが1の時÷ボタンは押せなくなる
-        //＝ボタンが押されると変数Activeは0になる
+        //÷ボタンが押されたときに変数Testに1が入る
+        //変数Testが1の時÷ボタンは押せなくなる
+        //＝ボタンが押されると変数Testは0になる
         buttonDivision.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -457,11 +459,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                 return false;
             }
         });
-    }
-
-    //先頭の"0"を削除する
-    public static String DeleteZero(String str) {
-        return str.replaceFirst("^0+", "");
     }
 
     //文字列が修正される直前に呼び出されるメソッド
@@ -477,11 +474,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
     //最後に呼ばれるメソッド
     @Override
     public void afterTextChanged(Editable s) {
-//        String string = s.toString();
-//
-//        if(string.length()>4){
-//            ValueOne = Integer.parseInt(string);
-//        }
     }
 
 
@@ -498,15 +490,15 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         editText.setText(text);
     }
 
-    public int judgeZero(int ValueOne,int ValueTwo) {
+
+    public void judgeZero(int ValueTwo) {
         try {
-            if(ValueOne>=1 && ValueTwo==0 ) {
-                throw new IllegalArgumentException("割れないよ");
+            if( ValueTwo==0 ) {
+                throw new ArithmeticException();
             }
         } catch (java.lang.ArithmeticException devied_by_zero) {
-            editText.setText("0");
+            editText.setText("割れないよ");
         }
-        return ValueTwo;
     }
 
     public void onClick(View view) {     //ボタンがクリックされたとき
