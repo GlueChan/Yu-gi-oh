@@ -45,9 +45,9 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
     private static EditText editText;
 
-    int ValueOne, ValueTwo, PlayerId, Test,isjudge;
+    int ValueOne, ValueTwo, ValueThree, PlayerId, Test, isjudge;
 
-    int alternaOne;
+    Number ValueDouble, NumberOne;
 
     boolean Addtion, Subtraction, Division;
 
@@ -113,18 +113,17 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         });
 
 
-
         // 現在のintentを取得する
         Intent intent = getIntent();
 
         // intentから指定キーの文字列を取得する
         editText.setText("" + intent.getIntExtra("playerLife", 0));
         PlayerId = intent.getIntExtra("playerId", 0);
-        isjudge  = 0;
+        isjudge = 0;
 
         Log.d("intent_editText", editText.getText().toString());
         Log.d("PlayerID", "" + PlayerId);
-        Log.d("isjudge",""+isjudge);
+        Log.d("isjudge", "" + isjudge);
 
         //リスナーをセット
         editText.addTextChangedListener(this);
@@ -343,13 +342,16 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             public void onClick(View v) {
                 pool.play(soundEqual, 1.0f, 1.0f, 1, 0, 1);
 
-
                 ValueTwo = Integer.parseInt(editText.getText().toString());
 
                 if (Addtion) {
                     Log.d("ValueOne", "" + ValueOne);
                     Log.d("ValueTwo", "" + ValueTwo);
-                    editText.setText(ValueOne + ValueTwo + "");
+
+                    ValueThree = ValueOne + ValueTwo;
+                    editText.setText(ValueThree + "");
+                    ValueOne = Cd_ValueThree(ValueThree);
+
                     Log.d("足し算：", "" + editText.getText().toString());
                     Test = 1;
                     Addtion = false;
@@ -368,7 +370,10 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                         Test = 0;
 
                     } else {
-                        editText.setText(ValueOne - ValueTwo + "");
+                        ValueThree = ValueOne - ValueTwo;
+                        editText.setText(ValueThree + "");
+                        ValueOne = Cd_ValueThree(ValueThree);
+
                         Log.d("引き算：", "" + editText.getText().toString());
                         Test = 1;
                         Subtraction = false;
@@ -382,9 +387,9 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                         Log.d("ValueOne", "" + ValueOne);
                         Log.d("ValueTwo", "" + ValueTwo);
 
-                        alternaOne = ValueOne / ValueTwo;
-                        ValueOne = Integer.parseInt("%.3f",alternaOne);
-                        editText.setText(ValueOne);
+                        ValueThree = ValueOne / ValueTwo;
+                        editText.setText(ValueThree + "");
+                        ValueOne = Cd_ValueThree(ValueThree);
 
                         Log.d("割り算：", "" + editText.getText().toString());
                         Test = 1;
@@ -393,9 +398,10 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
                         //ValueTwoが"0"の時
                     } else {
-                        isjudge =1;
-                        Log.d("else_isjudge","" + isjudge);
-                        judgeZero(ValueTwo,"0では割れませんよ",ValueOne);
+                        isjudge = 1;
+                        Log.d("else_isjudge", "" + isjudge);
+                        judgeZero(ValueTwo, "0では割れませんよ");
+
                     }
                 }
             }
@@ -506,18 +512,58 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         editText.setText(text);
     }
 
-    public void judgeZero(int ValueTwo,String text,int ValueOne) {
+    public void judgeZero(int ValueTwo, String text) {
         try {
-            if( ValueTwo==0 ) {
+            if (ValueTwo == 0) {
                 throw new ArithmeticException();
             }
         } catch (java.lang.ArithmeticException devied_by_zero) {
             String s = String.valueOf(ValueOne);
-            Toast.makeText(this,text,Toast.LENGTH_LONG).show();
+            Toast.makeText(this, text, Toast.LENGTH_LONG).show();
             editText.setText(s);
             Test = 0;
         }
     }
+
+    public int getIsjudge(int ValueOne, int ValueTwo) {
+        //editTextの文字列が4文字以下で1文字よりも多いかつ
+        //ValueOneのあまりが0ではない(奇数)の時かつ
+        //ValueTwoが奇数の時
+        if (editText.length() <= 4 && editText.length() > 0 && ValueOne % 2 != 0) {
+            if (ValueTwo % 2 != 0) {
+//                String format1 = String.valueOf(ValueOne);
+//                String format2 = String.valueOf(ValueTwo);
+
+                //ValueOneの文字列が1の時かつValueTwoが奇数の時
+                if (editText.length() ==1 && ValueTwo %2 !=0) {
+                    editText.setText("1");
+                }
+                //ValueOneの文字列が2の時かつValueTwoが奇数の時
+                if (editText.length() ==2 && ValueTwo %2 !=0) {
+                    editText.setText("1");
+                }
+                //ValueOneの文字列が3の時かつValueTwoが奇数の時
+                if (editText.length() ==3 && ValueTwo %2 !=0) {
+                    editText.setText("1");
+                }
+                //ValueOneの文字列4の時かつValueTwoが奇数の時
+                if (editText.length() ==4 && ValueTwo %2 !=0) {
+                    editText.setText("1");
+                }
+            }
+        }
+        return ValueThree;
+    }
+
+
+    //ValueThreeに格納された答えをValueOneに入れ替える
+    public int Cd_ValueThree(int ValueThree){
+
+         ValueOne = ValueThree;
+
+        return ValueOne;
+    }
+
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
             case R.id.return_Top:       //トップに戻る
