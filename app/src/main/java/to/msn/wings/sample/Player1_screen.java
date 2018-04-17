@@ -45,12 +45,9 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
     private static EditText editText;
 
-    int ValueOne, ValueTwo, ValueThree, PlayerId, Test, isjudge;
-
-    Number ValueDouble, NumberOne;
+    int ValueOne, ValueTwo, ValueThree,PlayerId, Test, isjudge;
 
     boolean Addtion, Subtraction, Division;
-
 
     DamageDatabaseControls damageDatabaseControls;
 
@@ -387,8 +384,12 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                         Log.d("ValueOne", "" + ValueOne);
                         Log.d("ValueTwo", "" + ValueTwo);
 
-                        ValueThree = ValueOne / ValueTwo;
+                        //getIsjudgeで切り上げした答えをValueThreeに代入
+                       ValueThree = getIsjudge(ValueOne,ValueTwo);
+
                         editText.setText(ValueThree + "");
+
+                        //ValueThreeの値をValueOneに代入
                         ValueOne = Cd_ValueThree(ValueThree);
 
                         Log.d("割り算：", "" + editText.getText().toString());
@@ -526,33 +527,30 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
     }
 
     public int getIsjudge(int ValueOne, int ValueTwo) {
-        //editTextの文字列が4文字以下で1文字よりも多いかつ
-        //ValueOneのあまりが0ではない(奇数)の時かつ
-        //ValueTwoが奇数の時
-        if (editText.length() <= 4 && editText.length() > 0 && ValueOne % 2 != 0) {
-            if (ValueTwo % 2 != 0) {
-//                String format1 = String.valueOf(ValueOne);
-//                String format2 = String.valueOf(ValueTwo);
 
-                //ValueOneの文字列が1の時かつValueTwoが奇数の時
-                if (editText.length() ==1 && ValueTwo %2 !=0) {
-                    editText.setText("1");
+        //ValueOneが0以外の時かつValueTowが1以上
+        if (ValueOne != 0 &&ValueTwo >= 1) {
+
+            //editTextの中身がある時
+            if (editText.length() > 0) {
+
+                //doubleに変換し答えを出す
+                 double d = (double) ValueOne / ValueTwo;
+
+                 Log.d("d",""+d);
+
+                //小数点以下を切り上げする
+                d = Math.ceil(d);
+
+                //切り上げしたdをint型へ変換
+                ValueThree = (int)d;
+
+                Log.d("ValueThree",""+ValueThree);
+
                 }
-                //ValueOneの文字列が2の時かつValueTwoが奇数の時
-                if (editText.length() ==2 && ValueTwo %2 !=0) {
-                    editText.setText("1");
-                }
-                //ValueOneの文字列が3の時かつValueTwoが奇数の時
-                if (editText.length() ==3 && ValueTwo %2 !=0) {
-                    editText.setText("1");
-                }
-                //ValueOneの文字列4の時かつValueTwoが奇数の時
-                if (editText.length() ==4 && ValueTwo %2 !=0) {
-                    editText.setText("1");
-                }
-            }
         }
         return ValueThree;
+
     }
 
 
