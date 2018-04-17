@@ -23,6 +23,8 @@
                     android:textColor="@color/colorBlack"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:src="@drawable/cyber"
+                    android:adjustViewBounds="true"
                     android:id="@+id/ivP1" />
 
                 <TextView
@@ -58,6 +60,8 @@
                     android:textColor="@color/colorBlack"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:src="@drawable/cyber"
+                    android:adjustViewBounds="true"
                     android:id="@+id/ivP2" />
 
                 <TextView

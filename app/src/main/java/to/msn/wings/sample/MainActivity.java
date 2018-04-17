@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -174,6 +175,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Bitmap bmp = setupBackgroundBitmap(getContentResolver(), imagePath);
             // 画像をImageViewに合わせてリサイズする
             Bitmap bmpFitSize = createScaledBitmap(bmp, imageView.getWidth(), imageView.getHeight(), false);
+            Log.d("imageView.getWidth",imageView.getWidth() +"");
+            Log.d("imageView.getHeight",imageView.getHeight() +"");
             // ImageViewに画像をセットする
             imageView.setImageBitmap(bmpFitSize);
         } else {
