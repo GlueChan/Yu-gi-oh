@@ -19,7 +19,7 @@ import java.io.InputStream;
 
 import static android.graphics.Bitmap.createScaledBitmap;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     PreferenceManager preferenceManager;
     LifeDataBaseControl lifeDataBaseControl;
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(bundle);
         setContentView(R.layout.main);
 
-        preferenceManager=new PreferenceManager(this);
+        preferenceManager = new PreferenceManager(this);
         lifeDataBaseControl = new LifeDataBaseControl(this);
 
         Player1Text = (TextView) findViewById(R.id.tvP1Life);
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btnReset).setOnClickListener(this);
 
 
-       //TopMenuの画像に書いてるライフポイント
+        //TopMenuの画像に書いてるライフポイント
         ibtnPlayer1 = (ImageView) findViewById(R.id.ivP1);
         ibtnPlayer2 = (ImageView) findViewById(R.id.ivP2);
 
@@ -66,52 +66,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
 
-        ImageView buttonplayer1 = (ImageView)findViewById(R.id.ivP1);
-        ImageView buttonplayer2 = (ImageView)findViewById(R.id.ivP2);
+//        ImageView buttonplayer1 = (ImageView) findViewById(R.id.ivP1);
+//        ImageView buttonplayer2 = (ImageView) findViewById(R.id.ivP2);
 
-        int resId1 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND,6);    //初回起動時
-        int resId2 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER2_BACKGROUND,6);    //初回起動時
+        int resId1 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER1_BACKGROUND, 6);    //初回起動時
+        int resId2 = preferenceManager.getIntData(Config.PREF_KEY_PLAYER2_BACKGROUND, 6);    //初回起動時
 
-        String play1_bgpath=preferenceManager.getStringData("Player1_Path","0");
-        String play2_bgpath=preferenceManager.getStringData("Player2_Path","0");
+        String play1_bgpath = preferenceManager.getStringData("Player1_Path", "0");
+        String play2_bgpath = preferenceManager.getStringData("Player2_Path", "0");
 
         setPlayerImage(ibtnPlayer1, play1_bgpath, 1);
         setPlayerImage(ibtnPlayer2, play2_bgpath, 2);
-
-//        if (play1_bgpath.startsWith("/storage")) {
-//            Bitmap bmp1 =setupBackgroundBitmap(getContentResolver(),play1_bgpath);
-//            Bitmap bmpFitSize = createScaledBitmap(bmp1,buttonplayer1.getWidth(),buttonplayer1.getHeight(),false);
-//            buttonplayer1.setImageBitmap(bmpFitSize);
-//        }else{
-//            buttonplayer1.setBackgroundResource(Config.getBackgroundImageId(resId1));
-//        }
-//
-//        //画像をリサイズする
-//        if (play2_bgpath.startsWith("/storage")) {
-//            Bitmap bmp2 =setupBackgroundBitmap(getContentResolver(),play2_bgpath);
-//            Bitmap bmpFitSize = createScaledBitmap(bmp2,buttonplayer2.getWidth(), buttonplayer2.getHeight(), false);
-//            buttonplayer2.setImageBitmap(bmpFitSize);
-//        }else{
-//            buttonplayer2.setBackgroundResource(Config.getBackgroundImageId(resId2));
-//        }
     }
 
-    public void onClick(View view){     //ボタンがクリックされたとき
+    public void onClick(View view) {     //ボタンがクリックされたとき
         //String tag=(String)view.getTag();
         switch (view.getId()) {
             case R.id.layoutP1:           //プレイヤー1のボタンがクリック
                 Intent iPlayer = new Intent(MainActivity.this, Player1_screen.class);
                 int life = Integer.valueOf(Player1Text.getText().toString());
-                iPlayer.putExtra("playerLife",life);
-                iPlayer.putExtra("playerId",1);
+                iPlayer.putExtra("playerLife", life);
+                iPlayer.putExtra("playerId", 1);
                 startActivity(iPlayer);
                 break;
             case R.id.layoutP2:          //プレイヤー2のボタンがクリック
                 Intent iPlayer2 = new Intent(MainActivity.this, Player1_screen.class);
                 int life2 = Integer.valueOf(Player2Text.getText().toString());
-                iPlayer2.putExtra("playerLife",life2);
-                iPlayer2.putExtra("playerId",2);
+                iPlayer2.putExtra("playerLife", life2);
+                iPlayer2.putExtra("playerId", 2);
                 startActivity(iPlayer2);
                 break;
             case R.id.btnMenu:             //メニュー画面を開く
@@ -155,34 +139,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return bitmap;
     }
 
-    static void setPlayer1Life(String life){
+    static void setPlayer1Life(String life) {
         Player1Text.setText(life);
     }
 
-    static void setPlayer2Life(String life2){
+    static void setPlayer2Life(String life2) {
         Player2Text.setText(life2);
     }
 
     /**
      * プレイヤーのImageViewに画像をセットする
+     *
      * @param imageView 画像をセットするImageView
      * @param imagePath ユーザーの指定した画像
-     * @param userId プレイヤーのID（Default画像の切り替えで使用）
+     * @param userId    プレイヤーのID（Default画像の切り替えで使用）
      */
     private void setPlayerImage(ImageView imageView, String imagePath, int userId) {
+
+        //初回起動時の画像サイズが大きいと枠がずれる
         if (imagePath.startsWith("/storage")) {
-            // ユーザーのストレージに保存されている画像
-            Bitmap bmp = setupBackgroundBitmap(getContentResolver(), imagePath);
-            // 画像をImageViewに合わせてリサイズする
-            Bitmap bmpFitSize = createScaledBitmap(bmp, imageView.getWidth(), imageView.getHeight(), false);
-            Log.d("imageView.getWidth",imageView.getWidth() +"");
-            Log.d("imageView.getHeight",imageView.getHeight() +"");
-            // ImageViewに画像をセットする
-            imageView.setImageBitmap(bmpFitSize);
-        } else {
-            // Defaultの背景画像を表示する
-            imageView.setImageResource(Config.getBackgroundImageId(userId));
+                // ユーザーのストレージに保存されている画像
+                Bitmap bmp = setupBackgroundBitmap(getContentResolver(), imagePath);
+                // 画像をImageViewに合わせてリサイズする
+                Bitmap bmpFitSize = createScaledBitmap(bmp, 861, 678, true);
+                // ImageViewに画像をセットする
+                imageView.setImageBitmap(bmpFitSize);
+
+            } else {
+                // Defaultの背景画像を表示する
+                imageView.setImageResource(Config.getBackgroundImageId(userId));
+                Log.d("userID", "" + userId);
+            }
         }
     }
-}
 
