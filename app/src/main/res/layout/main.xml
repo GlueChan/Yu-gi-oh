@@ -19,6 +19,14 @@
                 android:layout_weight="1"
                 android:padding="5dp">
 
+
+                <ImageView
+                    android:textColor="@color/colorBlack"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:id="@+id/ivP1" />
+
                 <TextView
                     android:id="@+id/tvP1Name"
                     android:text="Player1"
@@ -40,12 +48,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
-                <ImageView
-                    android:textColor="@color/colorBlack"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:adjustViewBounds="true"
-                    android:id="@+id/ivP1" />
             </FrameLayout>
 
             <FrameLayout
