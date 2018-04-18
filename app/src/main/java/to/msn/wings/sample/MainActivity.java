@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnReset:
                 MainActivity.setPlayer1Life("8000");
                 MainActivity.setPlayer2Life("8000");
+
                 break;
         }
 

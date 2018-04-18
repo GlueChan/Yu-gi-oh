@@ -17,4 +17,8 @@
         <item name="android:textColor">#FFFFFFFF</item>
     </style>
 
+    <style name="Prev_Lige">
+        <item name="android:textSize">40sp</item>
+    </style>
+
 </resources>
