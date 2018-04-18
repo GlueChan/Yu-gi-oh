@@ -50,6 +50,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
     int PrevValue;
 
+    int i = 0;
+
     boolean Addtion, Subtraction, Division;
 
     DamageDatabaseControls damageDatabaseControls;
@@ -81,7 +83,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
     final int SOUND_POOL_MAX = 6;
     SoundPool pool = buildSoundPool(SOUND_POOL_MAX);
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +90,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
         /*データベースのインスタンス*/
         damageDatabaseControls = new DamageDatabaseControls(this);
+
         lifeDataBaseControl = new LifeDataBaseControl(this);
 
         findViewById(R.id.return_Top).setOnClickListener(this);
@@ -168,6 +170,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         soundButton = pool.load(this, R.raw.test, 1);
         soundEqual = pool.load(this, R.raw.test, 1);
         soundButton = pool.load(this, R.raw.test, 1);
+
 
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -285,6 +288,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                 buttonPrev.setText("8000");
             }
         });
+
+
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -432,6 +437,9 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                     return true;
                 }
                 if (editText.length() >= 1) {
+//                    Uri uri = Uri.parse("http://morijyobi.ac.jp/");
+//                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//                    startActivity(intent);
                     ValueTwo = Integer.parseInt(editText.getText().toString());
                 }
                 return false;
@@ -517,6 +525,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             }
         });
     }
+
     //文字列が修正される直前に呼び出されるメソッド
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -545,7 +554,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         Log.i("setPlayer1APtext", text);
         editText.setText(text);
     }
-
     public void judgeZero(int ValueTwo, String text) {
         try {
             if (ValueTwo == 0) {
@@ -604,7 +612,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         return ValueOne;
     }
 
-
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
             case R.id.return_Top:       //トップに戻る
@@ -625,11 +632,3 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             }
         }
     }
-
-
-
-
-
-
-
-

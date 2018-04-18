@@ -61,7 +61,7 @@ public class DamageDatabaseControls {
      */
 
     public void addButton(LinearLayout layout, final String text) {
-        Button btn = new Button(mContext);
+        final Button btn = new Button(mContext);
         btn.setText(text);
         btn.setBackgroundResource(R.drawable.lightblue);
         Log.d("textの値は", text);
@@ -81,5 +81,20 @@ public class DamageDatabaseControls {
             }
         });
         layout.addView(btn);
+        getVirtualButton(btn,text);
+    }
+
+    //ダメージボタンを長押しで消せる
+    public void getVirtualButton(final Button btn, final String text) {
+        btn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Log.v("v", "呼ばれてるよ");
+                btn.setEnabled(false);
+                Log.d("btn", btn.getText() + "");
+                btn.setVisibility(btn.GONE);
+                return false;
+            }
+        });
     }
 }
