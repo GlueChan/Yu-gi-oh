@@ -4,6 +4,8 @@ package to.msn.wings.sample;
  * Created by 4163214 on 12/7/2017.
  */
 
+import android.util.Log;
+
 /**
  * 共通で使用する関数群
  */
@@ -25,13 +27,20 @@ public class Config {
                 resId = R.drawable.silence;
                 break;
             case 1:
-                resId=R.drawable.satisfaction;
+                resId=R.drawable.cyber;
+                Log.d("resId_case1",""+resId);
+                break;
+            case 2:
+                resId=R.drawable.cyber;
+                Log.d("resId_case2",""+resId);
                 break;
             case 6:
                 resId=R.drawable.cyber;
+                Log.d("resId_case6",""+resId);
                 break;
             default:
                 resId = R.drawable.cyber;
+                Log.d("resId",""+resId);
                 break;
         }
         return resId;
