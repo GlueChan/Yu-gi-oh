@@ -14,7 +14,7 @@
 
     <style name="PlayerLife">
         <item name="android:textSize">90sp</item>
-        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textColor">#FFFFFFFF</item>
     </style>
 
 </resources>

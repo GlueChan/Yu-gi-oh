@@ -65,6 +65,8 @@ public class DamageDatabaseControls {
         btn.setText(text);
         btn.setBackgroundResource(R.drawable.lightblue);
         Log.d("textの値は", text);
+        btn.setWidth(100);
+        btn.setHeight(100);
         btn.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
