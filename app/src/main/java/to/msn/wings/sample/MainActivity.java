@@ -140,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return bitmap;
     }
 
+
     static void setPlayer1Life(String life) {
         Player1Text.setText(life);
     }
@@ -147,6 +148,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static void setPlayer2Life(String life2) {
         Player2Text.setText(life2);
     }
+
 
     /**
      * プレイヤーのImageViewに画像をセットする

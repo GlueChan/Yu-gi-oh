@@ -128,7 +128,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         //リスナーをセット
         editText.addTextChangedListener(this);
 
-
         button0 = (Button) findViewById(R.id.Button_0);
         button00 = (Button) findViewById(R.id.Button_00);
         button000 = (Button) findViewById(R.id.Button_000);
@@ -605,10 +604,9 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
     //1つ前のライフに戻す
     public int Prev_Life(int ValueOne){
-            PrevValue = ValueOne;
-            buttonPrev.setText(PrevValue+"");
-        Log.d("buttonPrev",buttonPrev.getText() +"");
-            ValueOne = PrevValue;
+        PrevValue = ValueOne;
+        buttonPrev.setText(PrevValue+"");
+        ValueOne = PrevValue;
         return ValueOne;
     }
 

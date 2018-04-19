@@ -23,6 +23,12 @@ public class DamageDatabaseControls {
 
     private Handler handler;
 
+    Cursor cs = null;
+
+
+    Button btn;
+
+
     //コンストラクター
     public DamageDatabaseControls(Context context) {
         mContext = context;
@@ -32,7 +38,7 @@ public class DamageDatabaseControls {
 
     public void damageAddBtnCreate(LinearLayout layout) {
         SQLiteDatabase db = damageDatabaseHelper.getReadableDatabase();
-        Cursor cs = null;
+
 
         try {
             String[] cols = {"number", "name", "damage"};
@@ -43,9 +49,11 @@ public class DamageDatabaseControls {
             if (cs.moveToFirst()) {
                 while (true) {
                     addButton(layout, cs.getString(2));
+                    getVirtualButton(btn,cs.getString(2));
                     if (!cs.moveToNext()) break;
                 }
             } else {
+
                 Toast.makeText(mContext, "データがありません", Toast.LENGTH_SHORT).show();
             }
         } finally {
@@ -61,7 +69,7 @@ public class DamageDatabaseControls {
      */
 
     public void addButton(LinearLayout layout, final String text) {
-        final Button btn = new Button(mContext);
+        btn = new Button(mContext);
         btn.setText(text);
         btn.setBackgroundResource(R.drawable.lightblue);
         Log.d("textの値は", text);
@@ -81,18 +89,39 @@ public class DamageDatabaseControls {
             }
         });
         layout.addView(btn);
-        getVirtualButton(btn,text);
+
+
     }
 
     //ダメージボタンを長押しで消せる
-    public void getVirtualButton(final Button btn, final String text) {
+    public void getVirtualButton(final Button btn,final String cs_Text) {
         btn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Log.v("v", "呼ばれてるよ");
-                btn.setEnabled(false);
-                Log.d("btn", btn.getText() + "");
-                btn.setVisibility(btn.GONE);
+                //データベースを取得
+               SQLiteDatabase db = damageDatabaseHelper.getReadableDatabase();
+
+                try {
+                    String[] cols = {"number", "name", "damage"};
+                    String[] paramas= {btn.getText().toString()};
+                    cs = db.query("damage", cols, null, null, null, null, null, null);
+
+                    if (cs.moveToFirst()) {
+                            while (btn.getText().equals(cs_Text)){
+                                Log.d("btn.getText", btn.getText() + "");
+                                Log.d("cs.getString", cs.getString(2) + "");
+                                btn.setEnabled(false);
+                                btn.setVisibility(btn.GONE);
+                                db.delete("damage","damage = ? ",paramas);
+                                //db.delete("damage","number = ? ",paramas);
+                             if (!cs.moveToNext()) break;
+                        }
+                    }
+                }finally {
+                    cs.close();
+                    db.close();
+                }
+
                 return false;
             }
         });
