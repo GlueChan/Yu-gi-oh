@@ -89,12 +89,10 @@ public class DamageDatabaseControls {
             }
         });
         layout.addView(btn);
-
-
     }
 
     //ダメージボタンを長押しで消せる
-    public void getVirtualButton(final Button btn,final String cs_Text) {
+    public void getVirtualButton(final Button btn, final String cs_Text) {
         btn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {

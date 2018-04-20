@@ -149,7 +149,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Player2Text.setText(life2);
     }
 
-
     /**
      * プレイヤーのImageViewに画像をセットする
      *

@@ -28,8 +28,8 @@
         <Button
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="8000"
             android:background="@drawable/lightblue"
+            android:text="8000"
             android:id="@+id/Prev_Life"/>
 
         <EditText

@@ -50,14 +50,11 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
     int PrevValue;
 
-    int i = 0;
-
     boolean Addtion, Subtraction, Division;
 
     DamageDatabaseControls damageDatabaseControls;
 
     LifeDataBaseControl lifeDataBaseControl;
-
 
     @SuppressWarnings("deprecation")   // 警告メッセージの抑制
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -355,8 +352,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                     Log.d("ValueTwo", "" + ValueTwo);
 
                     ValueOne = Prev_Life(ValueOne);
-                    Log.d("Prev_life", PrevValue + "");
-
                     ValueThree = ValueOne + ValueTwo;
                     editText.setText(ValueThree + "");
                     ValueOne = Cd_ValueThree(ValueThree);
@@ -372,7 +367,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
                     ValueOne = Prev_Life(ValueOne);
 
-
                     if (ValueOne - ValueTwo < 0) {
                         editText.setText("0");
                         Log.d("引き算マイナス：", "" + editText.getText().toString());
@@ -385,6 +379,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                         ValueOne = Prev_Life(ValueOne);
 
                         ValueThree = ValueOne - ValueTwo;
+
                         editText.setText(ValueThree + "");
 
                         ValueOne = Cd_ValueThree(ValueThree);
@@ -403,7 +398,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                         Log.d("ValueTwo", "" + ValueTwo);
 
                         ValueOne = Prev_Life(ValueOne);
-
 
                         //getIsjudgeで切り上げした答えをValueThreeに代入
                         ValueThree = getIsjudge(ValueOne, ValueTwo);
@@ -606,6 +600,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
     public int Prev_Life(int ValueOne){
         PrevValue = ValueOne;
         buttonPrev.setText(PrevValue+"");
+        Log.d("buttonPrev",""+ PrevValue);
         ValueOne = PrevValue;
         return ValueOne;
     }
