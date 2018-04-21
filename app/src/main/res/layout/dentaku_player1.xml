@@ -8,6 +8,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:id="@+id/Text_name"
+            android:maxLength="12"
+            android:lines="1"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
@@ -34,14 +47,15 @@
 
         <EditText
             android:id="@+id/Player_cal1"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
             android:inputType="number"
+            android:layout_marginTop="1dp"
             android:maxLength="5">
         </EditText>
 
     </LinearLayout>
+
 
     <HorizontalScrollView
         android:layout_width="match_parent"

@@ -26,11 +26,14 @@
                     android:adjustViewBounds="true"
                     android:id="@+id/ivP1" />
 
-                <TextView
-                    android:id="@+id/tvP1Name"
-                    android:text="Player1"
+                <EditText
+                    android:id="@+id/EditP1Name"
                     android:textColor="@color/colorWhite"
                     android:textSize="20dp"
+                    android:text="Player1"
+                    android:lines="1"
+                    android:inputType="text"
+                    android:maxLength="12"
                     android:background="#a000"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -63,11 +66,14 @@
                     android:adjustViewBounds="true"
                     android:id="@+id/ivP2" />
 
-                <TextView
-                    android:id="@+id/tvP2Name"
-                    android:text="Player2"
+                <EditText
+                    android:id="@+id/EditP2Name"
                     android:textColor="@color/colorWhite"
                     android:textSize="20dp"
+                    android:text="Player2"
+                    android:lines="1"
+                    android:inputType="text"
+                    android:maxLength="12"
                     android:background="#a000"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

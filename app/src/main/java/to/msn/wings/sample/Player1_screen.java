@@ -46,6 +46,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
     private static EditText editText;
 
+    TextView TplayerName;
+
     int ValueOne, ValueTwo, ValueThree, PlayerId, Test;
 
     int PrevValue;
@@ -55,6 +57,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
     DamageDatabaseControls damageDatabaseControls;
 
     LifeDataBaseControl lifeDataBaseControl;
+
+    MainActivity mainActivity;
 
     @SuppressWarnings("deprecation")   // 警告メッセージの抑制
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -90,10 +94,16 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
         lifeDataBaseControl = new LifeDataBaseControl(this);
 
+        //mainActivity = new MainActivity();
+
         findViewById(R.id.return_Top).setOnClickListener(this);
         findViewById(R.id.Button_Equal).setOnClickListener(this);
 
+        //電卓の計算場所
         editText = (EditText) findViewById(R.id.Player_cal1);
+
+        //Topmenuで変更したPlayerの名前を電卓画面にも反映させる
+        TplayerName = (TextView)findViewById(R.id.Text_name);
 
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -111,16 +121,22 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-
         // 現在のintentを取得する
         Intent intent = getIntent();
 
         // intentから指定キーの文字列を取得する
         editText.setText("" + intent.getIntExtra("playerLife", 0));
+
         PlayerId = intent.getIntExtra("playerId", 0);
 
-        Log.d("intent_editText", editText.getText().toString());
-        Log.d("PlayerID", "" + PlayerId);
+        if(PlayerId == 1){
+            TplayerName.setText(intent.getStringExtra("player1"));
+            Log.d("TplayerName1",TplayerName.getText().toString());
+        }
+        if(PlayerId == 2){
+            TplayerName.setText(intent.getStringExtra("playerName2"));
+            Log.d("TplayerName2",TplayerName.getText().toString());
+        }
 
         //リスナーをセット
         editText.addTextChangedListener(this);
@@ -605,6 +621,20 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         return ValueOne;
     }
 
+
+//    //TopMenuで変更したPlayer1の名前を計算画面のPlayerのところにセットする
+//    public void setPlayer1Name(String name){
+//        PlayerName1.setText(name);
+//        Log.d("PlayerName1",""+ PlayerName1.getText());
+//    }
+//
+//    //TopMenuで変更したPlayer2の名前を計算画面のPlayerのところにセットする
+//    public void setPlayer2Name(String name){
+//        PlayerName2.setText(name);
+//        Log.d("PlayerName2",""+ PlayerName2.getText());
+//    }
+
+
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
             case R.id.return_Top:       //トップに戻る
@@ -612,9 +642,11 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                 switch (PlayerId) {
                     case 1:
                         setPlayer1Life(editText.getText().toString());
+                        //TplayerName.setText("");
                         break;
                     case 2:
                         setPlayer2Life(editText.getText().toString());
+                        //TplayerName.setText("");
                         break;
                     default:
                         break;
