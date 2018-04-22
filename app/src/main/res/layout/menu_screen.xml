@@ -80,6 +80,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:id="@+id/Tutorial"
             android:background="@color/colorPrimary"
             android:text="チュートリアル"/>
 
