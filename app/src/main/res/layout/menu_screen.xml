@@ -1,46 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/Button_Change"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:text="画像の追加＆変更"
-        android:layout_above="@+id/setting_life"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/red"/>
-
-    <Button
-        android:id="@+id/Button_damage"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:text="ダメージ量設定"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/lightblue"/>
-
-    <Button
-        android:id="@+id/Button_return_top"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:text="Topに戻る"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@drawable/purple"/>
+        android:paddingBottom="10dp">
 
-    <Button
-        android:id="@+id/setting_life"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:text="ライフの初期設定"
-        android:layout_above="@+id/Button_damage"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/green"/>
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/Button_return_top"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Topに戻る"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/purple"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="10dp">
+
+        <Button
+            android:id="@+id/Button_Change"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="画像の追加＆変更"
+            android:background="@drawable/red"/>
+    </LinearLayout>
+
+    <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+        android:paddingBottom="10dp">
+
+       <Button
+           android:id="@+id/Button_damage"
+           android:layout_width="match_parent"
+           android:layout_height="60dp"
+           android:text="ダメージ量設定"
+           android:background="@drawable/lightblue"/>
+
+   </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="10dp">
+
+        <Button
+            android:id="@+id/setting_life"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="ライフの初期設定"
+            android:background="@drawable/green"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/colorPrimary"
+            android:text="チュートリアル"/>
+
+    </LinearLayout>
+
+</LinearLayout>
