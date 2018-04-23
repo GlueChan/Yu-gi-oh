@@ -622,6 +622,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
     }
 
 
+
+
 //    //TopMenuで変更したPlayer1の名前を計算画面のPlayerのところにセットする
 //    public void setPlayer1Name(String name){
 //        PlayerName1.setText(name);

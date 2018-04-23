@@ -48,32 +48,6 @@ public class LifeDataBaseControl {
         }
     }
 
-//
-//    public void ChangeLifeOnMenu(TextView textView) {
-//        SQLiteDatabase db = lifeDatabaseHelper.getReadableDatabase();
-//        Cursor cs = null;
-//
-//        try {
-//            String[] cols = {"number", "name", "life"};
-//            cs = db.query("life", cols, null, null, null, null, null, null);
-//
-//            //dbにデータがある間ボタンを生成
-//            //もし、データがなければ終了
-//            if (cs.moveToFirst()) {
-//                while (true) {
-//                    ChangeLifeOnMenu(textView, cs.getString(2));
-//                    if (!cs.moveToNext()) break;
-//                }
-//            } else {
-//                Toast.makeText(mContext, "データがありません", Toast.LENGTH_SHORT).show();
-//            }
-//        } finally {
-//            cs.close();
-//            db.close();
-//        }
-//    }
-
-
     public int getPlayerDefLife() {
         SQLiteDatabase db = lifeDatabaseHelper.getReadableDatabase();
         Cursor cs = null;
@@ -120,5 +94,5 @@ public class LifeDataBaseControl {
     private void ChangeLifeOnMenu(TextView textView, String text) {
         textView.setText(text);
     }
-}
 
+}
