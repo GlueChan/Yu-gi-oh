@@ -105,7 +105,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 String name1 = String.valueOf(PlayerName1.getText().toString());
 
-
                 //lifeをPlayer1_screenに渡す
                 iPlayer.putExtra("playerLife", life);
 
@@ -117,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 startActivity(iPlayer);
                 break;
+
             case R.id.layoutP2:          //プレイヤー2のボタンがクリック
                 Intent iPlayer2 = new Intent(MainActivity.this, Player1_screen.class);
                 
@@ -179,12 +179,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     static void setPlayer1Life(String life) {
-        Player1Text.setText(life);
-    }
+            Player1Text.setText(life);
+        }
 
     static void setPlayer2Life(String life2) {
-        Player2Text.setText(life2);
-    }
+            Player2Text.setText(life2);
+        }
 
     /**
      * プレイヤーのImageViewに画像をセットする
