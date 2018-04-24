@@ -49,8 +49,18 @@ public class DB extends AppCompatActivity implements View.OnClickListener{
         try {
             ContentValues cv = new ContentValues();
             cv.put("damage", txtDamage.getText().toString());
-            db.insertWithOnConflict("damage", null, cv, SQLiteDatabase.CONFLICT_REPLACE);
-            Toast.makeText(this, "データ登録完了", Toast.LENGTH_SHORT).show();
+
+            //入力したテキストが空白の場合はeditTextに0を入力する
+            if(txtDamage.length()==0){
+                Toast toast = Toast.makeText(this,"数字を入力して",Toast.LENGTH_LONG);
+                toast.show();
+                txtDamage.setText("0");
+            }
+            else {
+
+                db.insertWithOnConflict("damage", null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+                Toast.makeText(this, "データ登録完了", Toast.LENGTH_SHORT).show();
+            }
         } finally {
             db.close();
         }

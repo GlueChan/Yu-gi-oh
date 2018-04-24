@@ -47,16 +47,22 @@ public class DB_Life extends AppCompatActivity implements View.OnClickListener{
         try {
             ContentValues cv = new ContentValues();
             cv.put("life", txtLife.getText().toString());
-            //db.insertWithOnConflict("life", null, cv, SQLiteDatabase.CONFLICT_REPLACE);
-            //db.updateWithOnConflict("life", null, cv,  SQLiteDatabase.CONFLICT_REPLACE);
-            db.update(LifeDatabaseHelper.TABLE_LIFE, cv, "number = ?",new String[]{"1"} );
 
-            Toast.makeText(this, "データ登録完了", Toast.LENGTH_SHORT).show();
+            //入力したテキストが空白の場合はeditTextに0を入力する
+            if(txtLife.length()==0){
+                Toast toast = Toast.makeText(this,"数字を入力して",Toast.LENGTH_LONG);
+                toast.show();
+                txtLife.setText("0");
+            }
+            else {
+                db.update(LifeDatabaseHelper.TABLE_LIFE, cv, "number = ?", new String[]{"1"});
+                
+                Toast.makeText(this, "データ登録完了", Toast.LENGTH_SHORT).show();
 
-
-            // 登録と同時にMainActivityの表示も初期化
-            MainActivity.setPlayer1Life(txtLife.getText().toString());
-            MainActivity.setPlayer2Life(txtLife.getText().toString());
+                // 登録と同時にMainActivityの表示も初期化
+                MainActivity.setPlayer1Life(txtLife.getText().toString());
+                MainActivity.setPlayer2Life(txtLife.getText().toString());
+            }
         } finally {
             db.close();
         }
