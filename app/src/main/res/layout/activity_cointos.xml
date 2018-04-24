@@ -6,19 +6,19 @@
 
     <Button
         android:id="@+id/btnBack"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:text="戻る"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="前の画面へ戻る"
         android:background="@drawable/purple"/>
 
     <LinearLayout
         android:id="@+id/layout_coin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
         android:orientation="horizontal"
+        android:layout_weight="1"
+
         android:gravity="center_horizontal">
     </LinearLayout>
 

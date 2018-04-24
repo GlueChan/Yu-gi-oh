@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,11 +25,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     PreferenceManager preferenceManager;
     LifeDataBaseControl lifeDataBaseControl;
 
+    Player1_screen player1_screen;
+
     static TextView Player1Text;
     static TextView Player2Text;
 
+
+    //プレイヤーの名前を変更
+    static EditText PlayerName1;
+    static EditText PlayerName2;
+
+
     static ImageView ibtnPlayer1;
     static ImageView ibtnPlayer2;
+
 
     @Override
     protected void onCreate(Bundle bundle) {
@@ -37,10 +47,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         preferenceManager = new PreferenceManager(this);
         lifeDataBaseControl = new LifeDataBaseControl(this);
+        player1_screen = new Player1_screen();
 
         Player1Text = (TextView) findViewById(R.id.tvP1Life);
         Player2Text = (TextView) findViewById(R.id.tvP2Life);
 
+        //Playerの名前を変更する場所
+        PlayerName1 = (EditText) findViewById(R.id.EditP1Name);
+        PlayerName2 = (EditText) findViewById(R.id.EditP2Name);
 
         // プレイヤーの初期値を設定
         Player1Text.setText(String.valueOf(lifeDataBaseControl.getPlayerDefLife()));
@@ -86,16 +100,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.layoutP1:           //プレイヤー1のボタンがクリック
                 Intent iPlayer = new Intent(MainActivity.this, Player1_screen.class);
+
                 int life = Integer.valueOf(Player1Text.getText().toString());
+
+                String name1 = String.valueOf(PlayerName1.getText().toString());
+
+                //lifeをPlayer1_screenに渡す
                 iPlayer.putExtra("playerLife", life);
+
+                //Playerが入力した名前をPlayer1_screenに渡す
+                iPlayer.putExtra("player1",name1);
+
+                //playerIdの1をPlayer1_screenに渡してどちらのプレイヤーの画面を操作するのかを判定する
                 iPlayer.putExtra("playerId", 1);
+
                 startActivity(iPlayer);
                 break;
+
             case R.id.layoutP2:          //プレイヤー2のボタンがクリック
                 Intent iPlayer2 = new Intent(MainActivity.this, Player1_screen.class);
+                
                 int life2 = Integer.valueOf(Player2Text.getText().toString());
+
+                String name2 = String.valueOf(PlayerName2.getText().toString());
+
+                //Playerが入力した名前をPlayer1_screenに渡す
+                iPlayer2.putExtra("playerName2",name2);
+
+                //lifeをPlayer1_screenに渡す
                 iPlayer2.putExtra("playerLife", life2);
+
+                //playerIdの1をPlayer1_screenに渡してどちらのプレイヤーの画面を操作するのかを判定する
                 iPlayer2.putExtra("playerId", 2);
+
                 startActivity(iPlayer2);
                 break;
             case R.id.btnMenu:             //メニュー画面を開く
@@ -113,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnReset:
                 MainActivity.setPlayer1Life("8000");
                 MainActivity.setPlayer2Life("8000");
+
                 break;
         }
 
@@ -139,13 +177,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return bitmap;
     }
 
+
     static void setPlayer1Life(String life) {
-        Player1Text.setText(life);
-    }
+            Player1Text.setText(life);
+        }
 
     static void setPlayer2Life(String life2) {
-        Player2Text.setText(life2);
-    }
+            Player2Text.setText(life2);
+        }
 
     /**
      * プレイヤーのImageViewに画像をセットする

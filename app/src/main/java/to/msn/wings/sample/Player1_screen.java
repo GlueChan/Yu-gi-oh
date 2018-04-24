@@ -41,11 +41,16 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             buttonDivision, //割り算
             buttonC,         //クリア
             buttonEqual,    //イコール
-            buttonReturn;
+            buttonReturn,
+            buttonPrev;      //1つ前のライフを表示
 
     private static EditText editText;
 
-    int ValueOne, ValueTwo, ValueThree,PlayerId, Test, isjudge;
+    TextView TplayerName;
+
+    int ValueOne, ValueTwo, ValueThree, PlayerId, Test;
+
+    int PrevValue;
 
     boolean Addtion, Subtraction, Division;
 
@@ -53,6 +58,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
     LifeDataBaseControl lifeDataBaseControl;
 
+    MainActivity mainActivity;
 
     @SuppressWarnings("deprecation")   // 警告メッセージの抑制
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -78,7 +84,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
     final int SOUND_POOL_MAX = 6;
     SoundPool pool = buildSoundPool(SOUND_POOL_MAX);
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,12 +91,19 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
         /*データベースのインスタンス*/
         damageDatabaseControls = new DamageDatabaseControls(this);
+
         lifeDataBaseControl = new LifeDataBaseControl(this);
+
+        //mainActivity = new MainActivity();
 
         findViewById(R.id.return_Top).setOnClickListener(this);
         findViewById(R.id.Button_Equal).setOnClickListener(this);
 
+        //電卓の計算場所
         editText = (EditText) findViewById(R.id.Player_cal1);
+
+        //Topmenuで変更したPlayerの名前を電卓画面にも反映させる
+        TplayerName = (TextView)findViewById(R.id.Text_name);
 
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -109,22 +121,25 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-
         // 現在のintentを取得する
         Intent intent = getIntent();
 
         // intentから指定キーの文字列を取得する
         editText.setText("" + intent.getIntExtra("playerLife", 0));
-        PlayerId = intent.getIntExtra("playerId", 0);
-        isjudge = 0;
 
-        Log.d("intent_editText", editText.getText().toString());
-        Log.d("PlayerID", "" + PlayerId);
-        Log.d("isjudge", "" + isjudge);
+        PlayerId = intent.getIntExtra("playerId", 0);
+
+        if(PlayerId == 1){
+            TplayerName.setText(intent.getStringExtra("player1"));
+            Log.d("TplayerName1",TplayerName.getText().toString());
+        }
+        if(PlayerId == 2){
+            TplayerName.setText(intent.getStringExtra("playerName2"));
+            Log.d("TplayerName2",TplayerName.getText().toString());
+        }
 
         //リスナーをセット
         editText.addTextChangedListener(this);
-
 
         button0 = (Button) findViewById(R.id.Button_0);
         button00 = (Button) findViewById(R.id.Button_00);
@@ -147,6 +162,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         buttonEqual = (Button) findViewById(R.id.Button_Equal);
         buttonReturn = (Button) findViewById(R.id.return_Top);
 
+        buttonPrev = (Button) findViewById(R.id.Prev_Life);
+
         sound1 = pool.load(this, R.raw.test, 1);
         sound2 = pool.load(this, R.raw.test, 1);
         sound3 = pool.load(this, R.raw.test, 1);
@@ -164,6 +181,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         soundDivision = pool.load(this, R.raw.test, 1);
         soundButton = pool.load(this, R.raw.test, 1);
         soundEqual = pool.load(this, R.raw.test, 1);
+        soundButton = pool.load(this, R.raw.test, 1);
+
 
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,14 +193,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-        button00.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pool.play(sound00, 1.0f, 1.0f, 0, 0, 1);
-
-                editText.setText(editText.getText() + "00");
-            }
-        });
 
         button000.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -278,8 +289,11 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             public void onClick(View v) {
                 pool.play(soundAdd, 1.0f, 1.0f, 1, 0, 1);
                 editText.setText("8000");
+                buttonPrev.setText("8000");
             }
         });
+
+
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -345,10 +359,10 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                     Log.d("ValueOne", "" + ValueOne);
                     Log.d("ValueTwo", "" + ValueTwo);
 
+                    ValueOne = Prev_Life(ValueOne);
                     ValueThree = ValueOne + ValueTwo;
                     editText.setText(ValueThree + "");
                     ValueOne = Cd_ValueThree(ValueThree);
-
                     Log.d("足し算：", "" + editText.getText().toString());
                     Test = 1;
                     Addtion = false;
@@ -359,6 +373,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                     Log.d("ValueOne", "" + ValueOne);
                     Log.d("ValueTwo", "" + ValueTwo);
 
+                    ValueOne = Prev_Life(ValueOne);
+
                     if (ValueOne - ValueTwo < 0) {
                         editText.setText("0");
                         Log.d("引き算マイナス：", "" + editText.getText().toString());
@@ -367,8 +383,13 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                         Test = 0;
 
                     } else {
+
+                        ValueOne = Prev_Life(ValueOne);
+
                         ValueThree = ValueOne - ValueTwo;
+
                         editText.setText(ValueThree + "");
+
                         ValueOne = Cd_ValueThree(ValueThree);
 
                         Log.d("引き算：", "" + editText.getText().toString());
@@ -384,14 +405,15 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                         Log.d("ValueOne", "" + ValueOne);
                         Log.d("ValueTwo", "" + ValueTwo);
 
-                        //getIsjudgeで切り上げした答えをValueThreeに代入
-                       ValueThree = getIsjudge(ValueOne,ValueTwo);
+                        ValueOne = Prev_Life(ValueOne);
 
-                        editText.setText(ValueThree + "");
+                        //getIsjudgeで切り上げした答えをValueThreeに代入
+                        ValueThree = getIsjudge(ValueOne, ValueTwo);
 
                         //ValueThreeの値をValueOneに代入
-                        ValueOne = Cd_ValueThree(ValueThree);
+                        editText.setText(ValueThree + "");
 
+                        ValueOne = Cd_ValueThree(ValueThree);
                         Log.d("割り算：", "" + editText.getText().toString());
                         Test = 1;
                         Division = false;
@@ -399,10 +421,8 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
                         //ValueTwoが"0"の時
                     } else {
-                        isjudge = 1;
-                        Log.d("else_isjudge", "" + isjudge);
+                        ValueOne = Prev_Life(ValueOne);
                         judgeZero(ValueTwo, "0では割れませんよ");
-
                     }
                 }
             }
@@ -418,6 +438,9 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                     return true;
                 }
                 if (editText.length() >= 1) {
+//                    Uri uri = Uri.parse("http://morijyobi.ac.jp/");
+//                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//                    startActivity(intent);
                     ValueTwo = Integer.parseInt(editText.getText().toString());
                 }
                 return false;
@@ -425,6 +448,7 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         });
 
 
+        //editTextの中身がなしの場合Top画面に戻れなくなる
         buttonReturn.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -482,6 +506,25 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                 return false;
             }
         });
+
+        buttonPrev.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                pool.play(soundDivision, 1.0f, 1.0f, 1, 0, 1);
+
+                //editTextの中身がValueOneと同じ場合は押させない
+                if (editText.getText().equals(buttonPrev.getText())) {
+                    Log.d("押せない", editText.equals(buttonPrev.getText()) + "");
+                    return true;
+                }
+
+                //editTextの中身とbuttonPrevの中身が違う場合は押せるようにする
+                //1つ前の値をeditTextにセットする
+                editText.setText(buttonPrev.getText());
+                return false;
+            }
+        });
     }
 
     //文字列が修正される直前に呼び出されるメソッド
@@ -512,7 +555,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
         Log.i("setPlayer1APtext", text);
         editText.setText(text);
     }
-
     public void judgeZero(int ValueTwo, String text) {
         try {
             if (ValueTwo == 0) {
@@ -529,25 +571,25 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
     public int getIsjudge(int ValueOne, int ValueTwo) {
 
         //ValueOneが0以外の時かつValueTowが1以上
-        if (ValueOne != 0 &&ValueTwo >= 1) {
+        if (ValueOne != 0 && ValueTwo >= 1) {
 
             //editTextの中身がある時
             if (editText.length() > 0) {
 
                 //doubleに変換し答えを出す
-                 double d = (double) ValueOne / ValueTwo;
+                double d = (double) ValueOne / ValueTwo;
 
-                 Log.d("d",""+d);
+                Log.d("d", "" + d);
 
                 //小数点以下を切り上げする
                 d = Math.ceil(d);
 
                 //切り上げしたdをint型へ変換
-                ValueThree = (int)d;
+                ValueThree = (int) d;
 
-                Log.d("ValueThree",""+ValueThree);
+                Log.d("ValueThree", "" + ValueThree);
 
-                }
+            }
         }
         return ValueThree;
 
@@ -555,47 +597,57 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
 
 
     //ValueThreeに格納された答えをValueOneに入れ替える
-    public int Cd_ValueThree(int ValueThree){
+    public int Cd_ValueThree(int ValueThree) {
 
-         ValueOne = ValueThree;
+        ValueOne = ValueThree;
 
         return ValueOne;
     }
+
+    //1つ前のライフに戻す
+    public int Prev_Life(int ValueOne){
+        PrevValue = ValueOne;
+        buttonPrev.setText(PrevValue+"");
+        Log.d("buttonPrev",""+ PrevValue);
+        ValueOne = PrevValue;
+        return ValueOne;
+    }
+
+
+
+
+//    //TopMenuで変更したPlayer1の名前を計算画面のPlayerのところにセットする
+//    public void setPlayer1Name(String name){
+//        PlayerName1.setText(name);
+//        Log.d("PlayerName1",""+ PlayerName1.getText());
+//    }
+//
+//    //TopMenuで変更したPlayer2の名前を計算画面のPlayerのところにセットする
+//    public void setPlayer2Name(String name){
+//        PlayerName2.setText(name);
+//        Log.d("PlayerName2",""+ PlayerName2.getText());
+//    }
+
 
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
             case R.id.return_Top:       //トップに戻る
                 // プレイヤーIDに合わせてライフを更新する
-                switch (PlayerId){
+                switch (PlayerId) {
                     case 1:
                         setPlayer1Life(editText.getText().toString());
+                        //TplayerName.setText("");
                         break;
-
                     case 2:
                         setPlayer2Life(editText.getText().toString());
+                        //TplayerName.setText("");
                         break;
-
                     default:
                         break;
                 }
                 finish();
                 break;
 
-            case R.id.Button_Equal:
-                switch (isjudge){
-                    case 1:
-                        isjudge =0;
-                        break;
-                }
-                break;
             }
         }
     }
-
-
-
-
-
-
-
-
