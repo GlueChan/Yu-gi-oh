@@ -193,14 +193,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-        button00.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pool.play(sound00, 1.0f, 1.0f, 0, 0, 1);
-
-                editText.setText(editText.getText() + "00");
-            }
-        });
 
         button000.setOnClickListener(new View.OnClickListener() {
             @Override

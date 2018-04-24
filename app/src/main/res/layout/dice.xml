@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/return_Top"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:text="Topに戻る"
-        android:background="@drawable/purple"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:background="#00000000"
-        android:layout_alignTop="@+id/dice"
-        android:layout_alignLeft="@+id/dice"
-        android:layout_alignStart="@+id/dice" />
+        <Button
+            android:id="@+id/return_Top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Topに戻る"
+            android:layout_weight="1"
+            android:background="@drawable/purple"/>
 
-    <ImageView
-        android:id="@+id/dice"
-        android:src="@drawable/dice"
-        android:scaleType="fitCenter"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_below="@+id/return_Top"
-        android:layout_toRightOf="@+id/return_Top"
-        android:layout_toEndOf="@+id/return_Top" />
-</RelativeLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/dice"
+            android:layout_weight="1"
+            android:src="@drawable/dice"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="200dp"/>
+
+    </LinearLayout>
+</LinearLayout>
