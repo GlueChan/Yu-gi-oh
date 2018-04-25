@@ -52,7 +52,7 @@ public class DB extends AppCompatActivity implements View.OnClickListener{
 
             cv.put("damage", txtDamage.getText().toString());
 
-            cursor = db.query("damage",null, null, null, null, null, null, null);
+            cursor = db.query("damage", null, null, null, null, null, null, null);
 
             //入力したテキストが空白の場合はeditTextに0を入力する
             if (txtDamage.length() == 0) {
@@ -65,6 +65,7 @@ public class DB extends AppCompatActivity implements View.OnClickListener{
 
                 Toast.makeText(this, "データ登録完了", Toast.LENGTH_SHORT).show();
             }
+
         } finally {
             db.close();
         }
