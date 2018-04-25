@@ -1,6 +1,7 @@
 package to.msn.wings.sample;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +18,7 @@ import static to.msn.wings.sample.R.layout.db;
 public class DB extends AppCompatActivity implements View.OnClickListener{
     private DamageDatabaseHelper helper = null;
     private EditText txtDamage = null;
-
+    Cursor cursor =null;
     private DamageDatabaseControls mDamageDatabaseControls;
 
     @Override
@@ -48,9 +49,22 @@ public class DB extends AppCompatActivity implements View.OnClickListener{
         SQLiteDatabase db = helper.getWritableDatabase();
         try {
             ContentValues cv = new ContentValues();
+
             cv.put("damage", txtDamage.getText().toString());
-            db.insertWithOnConflict("damage", null, cv, SQLiteDatabase.CONFLICT_REPLACE);
-            Toast.makeText(this, "データ登録完了", Toast.LENGTH_SHORT).show();
+
+            cursor = db.query("damage",null, null, null, null, null, null, null);
+
+            //入力したテキストが空白の場合はeditTextに0を入力する
+            if (txtDamage.length() == 0) {
+                Toast toast = Toast.makeText(this, "数字を入力して", Toast.LENGTH_LONG);
+                toast.show();
+                txtDamage.setText("0");
+
+            } else {
+                db.insertWithOnConflict("damage", null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+
+                Toast.makeText(this, "データ登録完了", Toast.LENGTH_SHORT).show();
+            }
         } finally {
             db.close();
         }

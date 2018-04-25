@@ -43,13 +43,14 @@ public class DamageDatabaseControls {
         try {
             String[] cols = {"number", "name", "damage"};
             cs = db.query("damage", cols, null, null, null, null, null, null);
+            //cs = db.query(true,"damage",cols,null,null,null,null,null,null);
 
             //dbにデータがある間ボタンを生成
             //もし、データがなければ終了
             if (cs.moveToFirst()) {
                 while (true) {
                     addButton(layout, cs.getString(2));
-                    getVirtualButton(btn,cs.getString(2));
+                    getVirtualButton(btn,cs.getString(2),layout);
                     if (!cs.moveToNext()) break;
                 }
             } else {
@@ -92,7 +93,7 @@ public class DamageDatabaseControls {
     }
 
     //ダメージボタンを長押しで消せる
-    public void getVirtualButton(final Button btn, final String cs_Text) {
+    public void getVirtualButton(final Button btn, final String cs_Text, final LinearLayout layout) {
         btn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -103,6 +104,7 @@ public class DamageDatabaseControls {
                     String[] cols = {"number", "name", "damage"};
                     String[] paramas= {btn.getText().toString()};
                     cs = db.query("damage", cols, null, null, null, null, null, null);
+                    //cs = db.query(true,"damage",cols,null,null,null,null,null,null);
 
                     if (cs.moveToFirst()) {
                             while (btn.getText().equals(cs_Text)){
