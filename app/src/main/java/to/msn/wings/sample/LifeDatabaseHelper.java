@@ -29,7 +29,7 @@ public class LifeDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE life("+
-                "number INTEGER PRIMARY KEY, name TEXT , " + TABLE_LIFE +" INTEGER)");
+                "number INTEGER PRIMARY KEY, name TEXT , " + TABLE_LIFE +" INTEGER,)");
 
         db.execSQL("INSERT INTO "+ TABLE_LIFE +"(number,name,life)"+
                 "VALUES('1','ライフ8000',8000)");

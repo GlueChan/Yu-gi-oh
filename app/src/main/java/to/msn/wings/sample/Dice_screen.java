@@ -1,7 +1,6 @@
 package to.msn.wings.sample;
 
 import android.annotation.TargetApi;
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.media.AudioAttributes;
@@ -9,11 +8,11 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.os.Handler;
 
 /**
  * Created by 4163214 on 10/26/2017.
@@ -54,9 +53,10 @@ public class Dice_screen extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.dice);
 
         findViewById(R.id.return_Top).setOnClickListener(this);
+        findViewById(R.id.dice).setOnClickListener(this);
 
-        button1 = (Button) findViewById(R.id.button1);
-        button1.setOnClickListener(this);
+//        button1 = (Button) findViewById(R.id.button1);
+//        button1.setOnClickListener(this);
 
         dice = (ImageView) findViewById(R.id.dice);
 
@@ -68,13 +68,13 @@ public class Dice_screen extends AppCompatActivity implements View.OnClickListen
             case R.id.return_Top:       //トップに戻る
                 finish();
                 break;
-            case R.id.button1:
+            case R.id.dice:
                 pool.play(sound, 1.0f, 1.0f, 0, 0, 1);
         }
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (view == button1) {
+                if (view == dice) {
                     TypedArray typedArray = getResources().obtainTypedArray(R.array.dice);
                     int i = (int) (Math.floor(Math.random() * 6));
                     Drawable drawable = typedArray.getDrawable(i);
