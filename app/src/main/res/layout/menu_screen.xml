@@ -21,6 +21,7 @@
             android:layout_height="60dp"
             android:text="Topに戻る"
             android:layout_weight="1"
+            android:textSize="20dp"
             android:background="@drawable/purple"/>
 
     </LinearLayout>
@@ -39,6 +40,7 @@
             android:layout_height="60dp"
             android:text="画像の追加＆変更"
             android:layout_weight="1"
+            android:textSize="20dp"
             android:background="@drawable/red"/>
     </LinearLayout>
 
@@ -55,6 +57,7 @@
            android:layout_height="60dp"
            android:text="ダメージ量設定"
            android:layout_weight="1"
+           android:textSize="20dp"
            android:background="@drawable/lightblue"/>
 
    </LinearLayout>
@@ -72,6 +75,7 @@
             android:layout_height="60dp"
             android:text="ライフの初期設定"
             android:layout_weight="1"
+            android:textSize="20dp"
             android:background="@drawable/green"/>
 
     </LinearLayout>
@@ -88,6 +92,7 @@
             android:id="@+id/Tutorial"
             android:background="@color/colorWhite"
             android:layout_weight="1"
+            android:textSize="20dp"
             android:text="チュートリアル"/>
 
     </LinearLayout>

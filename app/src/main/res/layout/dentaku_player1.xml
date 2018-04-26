@@ -31,6 +31,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="完了"
+            android:textSize="20dp"
             android:background="@drawable/purple"
             android:layout_weight="1"/>
 
@@ -38,7 +39,8 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:id="@+id/LifeCLEAR"
-           android:text="LifeClear"
+           android:text="クリア"
+            android:textSize="20dp"
            android:background="@drawable/green"
            android:layout_weight="1"/>
 
@@ -47,6 +49,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/lightblue"
             android:text="8000"
+            android:textSize="20dp"
             android:id="@+id/Prev_Life"
             android:layout_weight="1"/>
 
@@ -55,8 +58,10 @@
             android:layout_width="220dp"
             android:layout_height="60dp"
             android:inputType="number"
+            android:textSize="20dp"
             android:layout_marginTop="1dp"
             android:maxLength="5"
+
             android:layout_weight="1">
         </EditText>
 
@@ -102,6 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="7"
+                    android:textSize="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/lightblue"/>
 
@@ -111,6 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="8"
+                    android:textSize="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/lightblue"/>
 
@@ -119,6 +126,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="9"
+                    android:textSize="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/lightblue"/>
 
@@ -127,6 +135,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
+                    android:textSize="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/green"/>
 
@@ -135,6 +144,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="="
+                    android:textSize="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/blue"/>
             </LinearLayout>
@@ -155,9 +165,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="4"
+                        android:textSize="20dp"
                         android:layout_weight="1"
                         android:background="@drawable/lightblue"/>
-
 
 
                     <Button
@@ -165,6 +175,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="5"
+                        android:textSize="20dp"
                         android:layout_weight="1"
                         android:background="@drawable/lightblue"/>
 
@@ -174,6 +185,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="6"
+                        android:textSize="20dp"
                         android:layout_weight="1"
                         android:background="@drawable/lightblue"/>
 
@@ -182,6 +194,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="000"
+                        android:textSize="20dp"
                         android:layout_weight="1"
                         android:background="@drawable/green"/>
 
@@ -191,6 +204,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="+"
+                        android:textSize="20dp"
                         android:layout_weight="1"
                         android:background="@drawable/pink"/>
                 </LinearLayout>
@@ -211,6 +225,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1"
+                            android:textSize="20dp"
                             android:layout_weight="1"
                             android:background="@drawable/lightblue"/>
 
@@ -220,6 +235,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2"
+                            android:textSize="20dp"
                             android:layout_weight="1"
                             android:background="@drawable/lightblue"/>
 
@@ -228,6 +244,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="3"
+                            android:textSize="20dp"
                             android:layout_weight="1"
                             android:background="@drawable/lightblue"/>
 
@@ -238,6 +255,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="/"
+                            android:textSize="20dp"
                             android:layout_weight="1"
                             android:background="@drawable/pink"/>
 
@@ -247,6 +265,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="-"
+                            android:textSize="20dp"
                             android:layout_weight="1"
                             android:background="@drawable/pink"/>
                     </LinearLayout>

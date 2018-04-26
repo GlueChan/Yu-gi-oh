@@ -20,9 +20,11 @@
             <Button
                 android:id="@+id/return_Top"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="前の画面に戻る"
+                android:textSize="20dp"
                 android:background="@drawable/purple"/>
+
         </LinearLayout>
 
          <LinearLayout
@@ -34,45 +36,62 @@
              <Button
                  android:id="@+id/change_player1"
                  android:layout_width="match_parent"
-                 android:layout_height="35dp"
+                 android:layout_height="match_parent"
+                 android:layout_weight="1"
+                 android:textSize="20dp"
                  android:text="Player1の画像を変更"
-                 android:layout_below="@+id/return_Top"
-                 android:layout_toLeftOf="@+id/return_Page"
-                 android:layout_toStartOf="@+id/return_Page"
                  android:background="@drawable/lightblue"/>
-
-             <Button
-                 android:id="@+id/get_image"
-                 android:text="Player1の画像をデフォルトに戻す"
-                 android:layout_width="match_parent"
-                 android:layout_height="35dp"
-                 android:onClick="gallery_get"
-                 android:layout_below="@+id/change_player1"
-                 android:background="@drawable/green"/>
          </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_weight="1"
+            android:paddingBottom="20dp">
+
+            <Button
+                android:id="@+id/get_image"
+                android:text="Player1の画像をデフォルトに戻す"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:onClick="gallery_get"
+                android:layout_below="@+id/change_player1"
+                android:background="@drawable/green"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
 
             <Button
                 android:id="@+id/change_player2"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="match_parent"
                 android:text="Player2の画像を変更"
-                android:background="@drawable/lightblue"
-                android:layout_below="@+id/get_image" />
+                android:textSize="20dp"
+                android:background="@drawable/lightblue" />
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/set_image"
                 android:text="Playeer2の画像をデフォルトに戻す"
+                android:textSize="20dp"
+                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_below="@+id/change_player2"
-                android:layout_alignLeft="@+id/change_player1"
-                android:layout_alignStart="@+id/change_player1"
+                android:layout_height="match_parent"
                 android:background="@drawable/green"/>
+
         </LinearLayout>
 
 
@@ -82,9 +101,6 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:layout_below="@+id/get_image"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_marginTop="18dp" />
 
         <TextView
