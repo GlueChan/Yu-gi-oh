@@ -54,17 +54,19 @@ public class DB extends AppCompatActivity implements View.OnClickListener{
 
             cursor = db.query("damage", null, null, null, null, null, null, null);
 
-            //入力したテキストが空白の場合はeditTextに0を入力する
-            if (txtDamage.length() == 0) {
-                Toast toast = Toast.makeText(this, "数字を入力して", Toast.LENGTH_LONG);
-                toast.show();
-                txtDamage.setText("0");
+                //入力したテキストが空白の場合はeditTextに0を入力する
+                if (txtDamage.length() == 0) {
+                    Toast toast = Toast.makeText(this, "数字を入力して下さい", Toast.LENGTH_LONG);
+                    toast.show();
+                    txtDamage.setText("0");
 
-            } else {
-                db.insertWithOnConflict("damage", null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+                } else {
 
-                Toast.makeText(this, "データ登録完了", Toast.LENGTH_SHORT).show();
-            }
+                    db.insertWithOnConflict("damage", null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+
+                    Toast.makeText(this, "データ登録完了", Toast.LENGTH_SHORT).show();
+
+                }
 
         } finally {
             db.close();
@@ -74,18 +76,12 @@ public class DB extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
             case R.id.return_Page:    //前のページに戻る
-//                Intent ipage = new Intent(DB.this, Menu.class);
-//                startActivity(ipage);
                 finish();
                 break;
+
             case R.id.btnSave:
                 onSave();
                 break;
-
-//            case R.id.btnSearch:
-//                // ダメージボタンをLineaLayoutに追加
-//                mDamageDatabaseControls.damageAddBtnCreate((LinearLayout) findViewById(R.id.damageBtnLayout));
-//                break;
 
             default:
                 break;

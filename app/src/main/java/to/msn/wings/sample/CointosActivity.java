@@ -34,12 +34,6 @@ public class CointosActivity extends AppCompatActivity implements View.OnClickLi
         // コインの表示場所
         LinearLayout layoutCoin = (LinearLayout) findViewById(R.id.layout_coin);
 
-
-//        // 指定された回数、コインボタンを追加する
-//        for (int i = 0; i < selectCoinCount; i++) {
-//            layoutCoin.addView(createButton(), (int) convertDp2Px(100, getApplicationContext()), (int) convertDp2Px(100, getApplicationContext()));
-//        }
-
         // 戻るボタンのonClickイベント
         Button btnBack = (Button) findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -48,23 +42,6 @@ public class CointosActivity extends AppCompatActivity implements View.OnClickLi
                 finish();
             }
         });
-
-
-//        findViewById(R.id.return_Top).setOnClickListener(this);
-//
-//        findViewById(R.id.button1).setOnClickListener(this);
-//        findViewById(R.id.button2).setOnClickListener(this);
-//        findViewById(R.id.button3).setOnClickListener(this);
-//
-//        coin1 = (ImageView)findViewById(R.id.coin1);
-//        coin2 = (ImageView)findViewById(R.id.coin2);
-//        coin3 = (ImageView)findViewById(R.id.coin3);
-//
-//        Intent i = getIntent();
-//        //Toast.makeText(this, "" + i.getIntExtra("coin", 1), Toast.LENGTH_SHORT).show();
-//
-//
-//
     }
 
 
@@ -86,15 +63,6 @@ public class CointosActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onClick(View v) {
                 // コイントス処理関数を呼び出す
-//                TypedArray typedArray = getResources().obtainTypedArray(R.array.coin);
-//                int i = (int) (Math.floor(Math.random() * 2));
-//                Drawable drawable = typedArray.getDrawable(i);
-//
-//                btn.setBackgroundDrawable(drawable);
-
-                //AnimationDrawable frameAnimation = (AnimationDrawable) btn.getBackground();
-
-                //
                 ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 1.0f, 1.0f, 0.0f, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF, 0.5f);
                 scaleAnimation.setDuration(100);
                 //コインの長さを変更
@@ -125,13 +93,7 @@ public class CointosActivity extends AppCompatActivity implements View.OnClickLi
 
                 AnimationSet animationSet = new AnimationSet(true);
                 animationSet.addAnimation(scaleAnimation);
-                //animationSet.addAnimation(frameAnimation);
-
                 btn.startAnimation(animationSet);
-
-
-
-
             }
         });
         return btn;
@@ -170,31 +132,6 @@ public class CointosActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(itop);
                 finish();
                 break;
-//            case R.id.coin_menu:       //コインニューに進む
-//                Intent icoinmenu = new Intent(CointosActivity.this, Coin_menu.class);
-//                startActivity(icoinmenu);
-//                finish();
-//                break;
-//            case R.id.button1:
-//                TypedArray typedArray = getResources().obtainTypedArray(R.array.coin);
-//                int i = (int) (Math.floor(Math.random() * 2));
-//                Drawable drawable = typedArray.getDrawable(i);
-//                coin1.setImageDrawable(drawable);
-//                break;
-//
-//            case R.id.button2:
-//                TypedArray typedArray2 = getResources().obtainTypedArray(R.array.coin);
-//                int button2 = (int) (Math.floor(Math.random() * 2));
-//                Drawable drawable2 = typedArray2.getDrawable(button2);
-//                coin2.setImageDrawable(drawable2);
-//                break;
-//
-//            case R.id.button3:
-//                TypedArray typedArray3 = getResources().obtainTypedArray(R.array.coin);
-//                int button3 = (int) (Math.floor(Math.random() * 2));
-//                Drawable drawable3 = typedArray3.getDrawable(button3);
-//                coin3.setImageDrawable(drawable3);
-//                break;
         }
     }
 }

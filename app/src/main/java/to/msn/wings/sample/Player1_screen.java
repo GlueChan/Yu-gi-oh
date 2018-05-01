@@ -438,9 +438,6 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                     return true;
                 }
                 if (editText.length() >= 1) {
-//                    Uri uri = Uri.parse("http://morijyobi.ac.jp/");
-//                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-//                    startActivity(intent);
                     ValueTwo = Integer.parseInt(editText.getText().toString());
                 }
                 return false;
@@ -579,15 +576,11 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                 //doubleに変換し答えを出す
                 double d = (double) ValueOne / ValueTwo;
 
-                Log.d("d", "" + d);
-
                 //小数点以下を切り上げする
                 d = Math.ceil(d);
 
                 //切り上げしたdをint型へ変換
                 ValueThree = (int) d;
-
-                Log.d("ValueThree", "" + ValueThree);
 
             }
         }
@@ -608,26 +601,9 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
     public int Prev_Life(int ValueOne){
         PrevValue = ValueOne;
         buttonPrev.setText(PrevValue+"");
-        Log.d("buttonPrev",""+ PrevValue);
         ValueOne = PrevValue;
         return ValueOne;
     }
-
-
-
-
-//    //TopMenuで変更したPlayer1の名前を計算画面のPlayerのところにセットする
-//    public void setPlayer1Name(String name){
-//        PlayerName1.setText(name);
-//        Log.d("PlayerName1",""+ PlayerName1.getText());
-//    }
-//
-//    //TopMenuで変更したPlayer2の名前を計算画面のPlayerのところにセットする
-//    public void setPlayer2Name(String name){
-//        PlayerName2.setText(name);
-//        Log.d("PlayerName2",""+ PlayerName2.getText());
-//    }
-
 
     public void onClick(View view) {     //ボタンがクリックされたとき
         switch (view.getId()) {
@@ -636,11 +612,9 @@ public class Player1_screen extends AppCompatActivity implements View.OnClickLis
                 switch (PlayerId) {
                     case 1:
                         setPlayer1Life(editText.getText().toString());
-                        //TplayerName.setText("");
                         break;
                     case 2:
                         setPlayer2Life(editText.getText().toString());
-                        //TplayerName.setText("");
                         break;
                     default:
                         break;

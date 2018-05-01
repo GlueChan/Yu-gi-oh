@@ -27,7 +27,7 @@ public class DamageDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE damage("+
-                "number INTEGER PRIMARY KEY, name TEXT , damage INTEGER UNIQUE(damage)");
+                "number INTEGER PRIMARY KEY, name TEXT , damage INTEGER )");
 
         db.execSQL("INSERT INTO damage(number,name,damage)"+
                 "VALUES('1','ダメージ100',100)");

@@ -50,7 +50,7 @@ public class DB_Life extends AppCompatActivity implements View.OnClickListener{
 
             //入力したテキストが空白の場合はeditTextに0を入力する
             if(txtLife.length()==0){
-                Toast toast = Toast.makeText(this,"数字を入力して",Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(this,"数字を入力して下さい",Toast.LENGTH_LONG);
                 toast.show();
                 txtLife.setText("0");
             }

@@ -14,7 +14,6 @@ import android.widget.Toast;
 /**
  * Created by 4163209 on 12/12/2017.
  */
-
 public class DamageDatabaseControls {
 
     private Context mContext;
@@ -24,7 +23,6 @@ public class DamageDatabaseControls {
     private Handler handler;
 
     Cursor cs = null;
-
 
     Button btn;
 
@@ -98,13 +96,12 @@ public class DamageDatabaseControls {
             @Override
             public boolean onLongClick(View v) {
                 //データベースを取得
-               SQLiteDatabase db = damageDatabaseHelper.getReadableDatabase();
+               SQLiteDatabase db = damageDatabaseHelper.getWritableDatabase();
 
                 try {
                     String[] cols = {"number", "name", "damage"};
                     String[] paramas= {btn.getText().toString()};
                     cs = db.query("damage", cols, null, null, null, null, null, null);
-                    //cs = db.query(true,"damage",cols,null,null,null,null,null,null);
 
                     if (cs.moveToFirst()) {
                             while (btn.getText().equals(cs_Text)){
@@ -112,8 +109,7 @@ public class DamageDatabaseControls {
                                 Log.d("cs.getString", cs.getString(2) + "");
                                 btn.setEnabled(false);
                                 btn.setVisibility(btn.GONE);
-                                db.delete("damage","damage = ? ",paramas);
-                                //db.delete("damage","number = ? ",paramas);
+                                db.delete("damage","damage = ? " , paramas);
                              if (!cs.moveToNext()) break;
                         }
                     }
@@ -126,4 +122,6 @@ public class DamageDatabaseControls {
             }
         });
     }
+
+
 }
