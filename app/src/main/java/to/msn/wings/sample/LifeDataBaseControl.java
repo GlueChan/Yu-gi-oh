@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import static android.content.ContentValues.TAG;
 
@@ -40,7 +39,7 @@ public class LifeDataBaseControl {
                     if (!cs.moveToNext()) break;
                 }
             } else {
-                Toast.makeText(mContext, "データがありません", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext, "データがありません", Toast.LENGTH_SHORT).show();
             }
         } finally {
             cs.close();
@@ -66,7 +65,7 @@ public class LifeDataBaseControl {
 //                    if (!cs.moveToNext()) break;
 //                }
             } else {
-                Toast.makeText(mContext, "データがありません", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext, "データがありません", Toast.LENGTH_SHORT).show();
             }
         } finally {
             cs.close();

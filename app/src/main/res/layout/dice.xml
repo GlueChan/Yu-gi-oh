@@ -11,7 +11,7 @@
         <Button
             android:id="@+id/return_Top"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="80dp"
             android:text="Topに戻る"
             android:layout_weight="1"
             android:textSize="20dp"

@@ -31,12 +31,13 @@
             android:textSize="20dp"
             android:text="①Player1orPlayer2の画面を押すと電卓画面に移動\n②のボタンを押すと1枚から3枚までのコイントスが可能\n③のボタンを押すとダイスロールが可能\n④Player1orPlayer2と書かれている場所をタップすると名前変更\n⑤両方のプレイヤーのライフを8000に戻す\n⑥背景画像の設定,初期ライフの変更,ダメージボタンの作成が可能"/>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/topmenu_tutorial"
-                android:layout_marginTop="-50dp"
-                android:id="@+id/Image1"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/topmenu_tutorial"
+            android:layout_marginTop="-40dp"
+            android:id="@+id/Image1"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -45,11 +46,14 @@
             android:text="●サブメニュー"
             android:layout_marginTop="-40dp"/>
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="①トップメニューに戻る\n②トップメニューのプレイヤーの背景を変更\n画像をデフォルトに変更\n③ダメージボタンを作成\n④初期ライフの変更\n⑤チュートリアルの表示"
             android:textSize="20dp"/>
+
+
 
         <ImageView
             android:layout_width="match_parent"
@@ -81,7 +85,7 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:text="前の画面へ戻る"
             android:layout_gravity="center"
             android:background="@drawable/purple"

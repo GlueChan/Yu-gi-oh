@@ -64,7 +64,7 @@ public class DB extends AppCompatActivity implements View.OnClickListener{
 
                     db.insertWithOnConflict("damage", null, cv, SQLiteDatabase.CONFLICT_REPLACE);
 
-                    Toast.makeText(this, "データ登録完了", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "データ登録完了", Toast.LENGTH_SHORT).show();
 
                 }
 

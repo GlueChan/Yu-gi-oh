@@ -7,7 +7,7 @@
     <Button
         android:id="@+id/btnBack"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:text="前の画面へ戻る"
         android:textSize="20dp"
         android:background="@drawable/purple"/>

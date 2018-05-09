@@ -57,7 +57,7 @@ public class DB_Life extends AppCompatActivity implements View.OnClickListener{
             else {
                 db.update(LifeDatabaseHelper.TABLE_LIFE, cv, "number = ?", new String[]{"1"});
 
-                Toast.makeText(this, "データ登録完了", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "データ登録完了", Toast.LENGTH_SHORT).show();
 
                 // 登録と同時にMainActivityの表示も初期化
                 MainActivity.setPlayer1Life(txtLife.getText().toString());

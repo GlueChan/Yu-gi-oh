@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 /**
  * Created by 4163209 on 12/12/2017.
@@ -53,7 +52,7 @@ public class DamageDatabaseControls {
                 }
             } else {
 
-                Toast.makeText(mContext, "データがありません", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext, "データがありません", Toast.LENGTH_SHORT).show();
             }
         } finally {
             cs.close();

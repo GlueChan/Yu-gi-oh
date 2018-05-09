@@ -7,7 +7,7 @@
     <Button
         android:id="@+id/return_Page"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:text="前の画面へ戻る"
         android:textSize="20dp"
         android:background="@drawable/purple"/>
@@ -15,7 +15,7 @@
     <Button
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:onClick="onClick"
         android:text="保存"
         android:textSize="20dp"
